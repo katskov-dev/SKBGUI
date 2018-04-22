@@ -192,20 +192,6 @@ typedef NeuronViewer* pNeuronViewer;
 class NeuronController;
 typedef NeuronController* pNeuronController;
 
-
-//MyCircle
-class MyCircle;
-typedef MyCircle* pMyCircle;
-
-class MyCircleModel;
-typedef MyCircleModel* pMyCircleModel;
-
-class MyCircleViewer;
-typedef MyCircleViewer* pMyCircleViewer;
-
-class MyCircleController;
-typedef MyCircleController* pMyCircleController;
-
 //Arrow
 
 class Arrow;
