@@ -56,7 +56,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="exampleNeuron.cpp" />
+		<Unit filename="example.cpp" />
 		<Unit filename="include/Arrow/Arrow.h" />
 		<Unit filename="include/Arrow/ArrowController.h" />
 		<Unit filename="include/Arrow/ArrowModel.h" />
