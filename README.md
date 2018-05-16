@@ -1,3 +1,3 @@
-Библиотека графических компонентов.
-Основана на библиотеке SFML для C++.
-Документация (PDF): [docs.pdf](https://github.com/ichega/SKBGUI/blob/master/Docs/docs.pdf)
+##Библиотека SKBGUI
+Текущая версия: **0.0.9.8**
+Документация : [docs.pdf](https://github.com/ichega/SKBGUI/blob/master/Docs/docs.pdf)
