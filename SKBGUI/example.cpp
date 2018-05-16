@@ -12,6 +12,8 @@
 #include <Table/Table.h>
 #include <Timer/Timer.h>
 
+#include <CheckBox/CheckBox.h>
+
 
 
 pEdit edit;
@@ -149,6 +151,10 @@ int main()
     gui->Model()->Add(timer);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
+
+    pCheckBox checkbox = new CheckBox();
+    checkbox->Model()->SetLocalCoord(10, 180);
+    panel->Model()->Add(checkbox);
 
 
 

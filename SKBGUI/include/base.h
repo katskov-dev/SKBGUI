@@ -220,3 +220,17 @@ typedef ArrowViewer* pArrowViewer;
 class ArrowController;
 typedef ArrowController* pArrowController;
 
+
+//--------------------> CheckBox <--------------------
+
+class CheckBox;
+typedef CheckBox* pCheckBox;
+
+class CheckBoxModel;
+typedef CheckBoxModel* pCheckBoxModel;
+
+class CheckBoxViewer;
+typedef CheckBoxViewer* pCheckBoxViewer;
+
+class CheckBoxController;
+typedef CheckBoxController* pCheckBoxController;
