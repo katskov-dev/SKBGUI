@@ -33,6 +33,8 @@ ButtonViewer::~ButtonViewer()
 
 void ButtonViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
     ComponentViewer::RenderBegin(target);
     ComponentViewer::Render(target);
     sf::Vector2f coord = Owner()->AbsoluteCoord();

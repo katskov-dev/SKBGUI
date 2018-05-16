@@ -20,6 +20,8 @@ EditViewer::~EditViewer()
 
 void EditViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
     ComponentViewer::RenderBegin(target);
     ComponentViewer::Render(target);
 

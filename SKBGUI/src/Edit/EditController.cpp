@@ -17,7 +17,7 @@ bool EditController::Handle(sf::Event event)
         return true;
 
     if (Owner()->Focus()){
-       // std::cout << "EditEvent " << event.type << std::endl;
+        std::cout << "EditEvent " << event.type << std::endl;
         switch (event.type){
             case sf::Event::KeyPressed:{
                 switch (event.key.code){
@@ -132,9 +132,9 @@ bool EditController::Handle(sf::Event event)
                         int w = pEditModel(Owner())->__render_text.findCharacterPos(caret).x - pEditModel(Owner())->__render_text.findCharacterPos(caret-1).x;
                         t_c = Owner()->AbsoluteCoord();
                         t_c += pEditModel(Owner())->__render_text.getPosition();
-//                        std::cout << caret << std::endl;
-//                        std::cout << Owner()->AbsoluteCoord().x + pEditModel(Owner())->__render_text.findCharacterPos(caret).x << std::endl;
-//                        std::cout << mc.x << std::endl;
+                        std::cout << caret << std::endl;
+                        std::cout << Owner()->AbsoluteCoord().x + pEditModel(Owner())->__render_text.findCharacterPos(caret).x << std::endl;
+                        std::cout << mc.x << std::endl;
                         if (mc.x < Owner()->AbsoluteCoord().x + pEditModel(Owner())->__render_text.findCharacterPos(caret).x + 5 - w / 2){
                             pEditModel(Owner())->SetCaretPos(caret-1);
                             pEditModel(Owner())->__clock.restart();

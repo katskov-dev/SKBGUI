@@ -13,6 +13,8 @@ PictureViewer::~PictureViewer()
 
 void PictureViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
 	ComponentViewer::RenderBegin(target);
 	ComponentViewer::Render(target);
 	sf::Texture* texture = pPictureModel(Owner())->Texture();

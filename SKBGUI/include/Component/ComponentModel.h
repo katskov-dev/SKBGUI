@@ -46,6 +46,11 @@ using namespace sf;
          void SetAbsoluteCoord(Vector2f Abs);
          void SetEnabled(bool enabled);
          bool Enabled();
+         bool Visible();
+         void SetVisible(bool visible);
+         void Show();
+         void Hide();
+
          virtual std::string SerializeToString();
          virtual void DeserializeFromString(std::string s);
 
@@ -70,6 +75,7 @@ using namespace sf;
          int __state;//состояние
          bool __focus;//работем с этим компонентом или нет
          bool __visibleBorders;
+         bool __isVisible; // видимый компонент или нет
 
          bool __enabled;
 

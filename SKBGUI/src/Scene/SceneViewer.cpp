@@ -12,6 +12,8 @@ SceneViewer::~SceneViewer()
 
 void SceneViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
 	ComponentViewer::RenderBegin(target);
 
 	ComponentViewer::Render(target);

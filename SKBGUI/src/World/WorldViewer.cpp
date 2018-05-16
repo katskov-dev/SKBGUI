@@ -12,6 +12,8 @@ WorldViewer::~WorldViewer()
 
 void WorldViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
 	ComponentViewer::RenderBegin(target);
 	ComponentViewer::Render(target);
 

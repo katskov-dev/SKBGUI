@@ -12,6 +12,8 @@ TransformerViewer::~TransformerViewer()
 
 void TransformerViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
     if (pTransformerModel(Owner())->Target() != nullptr){
         ComponentViewer::Render(target);
         pTransformerModel(Owner())->UpdatePoints();

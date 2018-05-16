@@ -7,6 +7,7 @@ ComponentModel::ComponentModel()
     __parent = nullptr;
     SetEnabled(true);
     __class = "Component";
+    SetVisible(true);
 }
 
 string ComponentModel::Name()
@@ -241,6 +242,29 @@ string ComponentModel::Name()
      bool ComponentModel::Enabled()
      {
         return __enabled;
+     }
+
+     bool ComponentModel::Visible()
+     {
+        return __isVisible;
+     }
+
+     void ComponentModel::SetVisible(bool visible)
+     {
+        __isVisible = visible;
+        SetEnabled(visible);
+     }
+
+     void ComponentModel::Show()
+     {
+        SetVisible(true);
+        SetEnabled(true);
+     }
+
+     void ComponentModel::Hide()
+     {
+        SetVisible(false);
+        SetEnabled(false);
      }
 
      std::string ComponentModel::SerializeToString()

@@ -18,6 +18,8 @@ ComponentViewer::~ComponentViewer()
 
 void ComponentViewer::Render(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
     __view = getView(target);
 
     if (Owner()->VisibleBorders()){
@@ -44,6 +46,8 @@ void ComponentViewer::SetOwner(pComponentModel owner)
 
 void ComponentViewer::RenderBegin(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
 //    __view= target.getView();
 //    __view.reset(sf::FloatRect(0, 0, 400, 600));
 //    __view.setViewport(sf::FloatRect(0.0, 0.0, 0.5, 1.0));
@@ -56,6 +60,8 @@ void ComponentViewer::RenderBegin(sf::RenderTarget& target)
 
 void ComponentViewer::RenderEnd(sf::RenderTarget& target)
 {
+    if (!Owner()->Visible())
+        return;
     //pComponentController c= Owner()->__owner->Controller();
     //pComponentModel m= Owner();
     //if (c->Paint() != nullptr){
