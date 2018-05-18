@@ -152,9 +152,24 @@ int main()
     //запускаем таймер
     timer->Model()->SetEnabled(true);
 
-    pCheckBox checkbox = new CheckBox();
-    checkbox->Model()->SetLocalCoord(10, 180);
-    panel->Model()->Add(checkbox);
+//    pCheckBox checkbox = new CheckBox();
+//    checkbox->Model()->SetLocalCoord(10, 180);
+//    checkbox->Model()->SetCaption("MyCheckBox");
+//    panel->Model()->Add(checkbox);
+
+    pCheckBox checkboxs[5];
+    for (int i = 0; i < 5; i++){
+        checkboxs[i] = new CheckBox();
+        checkboxs[i]->Model()->SetLocalCoord(10, 180+25*i);
+        checkboxs[i]->Model()->SetCaption("MyCheckBox "+std::to_string(i));
+        panel->Model()->Add(checkboxs[i]);
+    }
+
+//    pTransformer t = new Transformer();
+//    t->Model()->SetTarget(checkbox);
+//    gui->Model()->Add(t);
+
+
 
 
 

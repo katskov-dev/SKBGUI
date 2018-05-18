@@ -4724,7 +4724,7 @@
 1526502069 source:c:\repositories\skbgui\skbgui\skbgui\src\world\worldviewer.cpp
 	"World/WorldViewer.h"
 
-1526505072 source:c:\repositories\skbgui\skbgui\skbgui\example.cpp
+1526587978 source:c:\repositories\skbgui\skbgui\skbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
@@ -4739,7 +4739,7 @@
 	<Timer/Timer.h>
 	<CheckBox/CheckBox.h>
 
-1526505940 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkbox.cpp
+1526586979 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkbox.cpp
 	<CheckBox/CheckBox.h>
 	<math.h>
 
@@ -4750,11 +4750,12 @@
 	<CheckBox/CheckBoxViewer.h>
 	<CheckBox/CheckBoxController.h>
 
-1526505855 c:\repositories\skbgui\skbgui\skbgui\include\checkbox\checkboxmodel.h
+1526588287 c:\repositories\skbgui\skbgui\skbgui\include\checkbox\checkboxmodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
 	<Panel/Panel.h>
+	<Label/Label.h>
 
 1526504852 c:\repositories\skbgui\skbgui\skbgui\include\checkbox\checkboxviewer.h
 	<base.h>
@@ -4771,9 +4772,9 @@
 1526505227 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxcontroller.cpp
 	"CheckBox/CheckBoxController.h"
 
-1526505176 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxmodel.cpp
+1526587949 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxmodel.cpp
 	"CheckBox/CheckBoxModel.h"
 
-1526506095 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxviewer.cpp
+1526587682 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxviewer.cpp
 	"CheckBox/CheckBoxViewer.h"
 

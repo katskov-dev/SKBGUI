@@ -116,6 +116,10 @@
 		<Unit filename="include/Button/ButtonController.h" />
 		<Unit filename="include/Button/ButtonModel.h" />
 		<Unit filename="include/Button/ButtonViewer.h" />
+		<Unit filename="include/CheckBox/CheckBox.h" />
+		<Unit filename="include/CheckBox/CheckBoxController.h" />
+		<Unit filename="include/CheckBox/CheckBoxModel.h" />
+		<Unit filename="include/CheckBox/CheckBoxViewer.h" />
 		<Unit filename="include/CircleCollider/CircleCollider.h" />
 		<Unit filename="include/CircleCollider/CircleColliderController.h" />
 		<Unit filename="include/CircleCollider/CircleColliderModel.h" />
@@ -250,6 +254,10 @@
 		<Unit filename="src/Button/ButtonController.cpp" />
 		<Unit filename="src/Button/ButtonModel.cpp" />
 		<Unit filename="src/Button/ButtonViewer.cpp" />
+		<Unit filename="src/CheckBox/CheckBox.cpp" />
+		<Unit filename="src/CheckBox/CheckBoxController.cpp" />
+		<Unit filename="src/CheckBox/CheckBoxModel.cpp" />
+		<Unit filename="src/CheckBox/CheckBoxViewer.cpp" />
 		<Unit filename="src/CircleCollider/CircleCollider.cpp" />
 		<Unit filename="src/CircleCollider/CircleColliderController.cpp" />
 		<Unit filename="src/CircleCollider/CircleColliderModel.cpp" />
