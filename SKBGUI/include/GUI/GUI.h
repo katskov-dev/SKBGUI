@@ -8,7 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-const std::string SKBGUI_VERSION = "0.0.9.9";
+const std::string SKBGUI_VERSION = "0.0.10.0";
 
 const int EVENT_STATE_OPEN = 0;
 const int EVENT_STATE_CLOSED = 1;
