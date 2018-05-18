@@ -10,12 +10,12 @@ class ButtonModel: public ComponentModel
     public:
         ButtonModel();
         virtual ~ButtonModel();
-        std::string Caption();
-        void SetCaption(std::string caption);
+        sf::String Caption();
+        void SetCaption(sf::String caption);
         virtual std::string SerializeToString();
     protected:
 
     private:
-        std::string __caption;
+        sf::String __caption;
 
 };

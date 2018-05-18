@@ -12,12 +12,12 @@ ButtonModel::~ButtonModel()
     //dtor
 }
 
-std::string ButtonModel::Caption()
+sf::String ButtonModel::Caption()
 {
     return __caption;
 }
 
-void ButtonModel::SetCaption(std::string caption)
+void ButtonModel::SetCaption(sf::String caption)
 {
     __caption = caption;
 }

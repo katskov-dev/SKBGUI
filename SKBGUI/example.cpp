@@ -21,12 +21,12 @@ pLabel label;
 pPicture picture;
 pPicture picture1;
 
-//îáðàáîò÷èê äëÿ êíîïêè
+//Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸Ðº Ð´Ð»Ñ ÐºÐ½Ð¾Ð¿ÐºÐ¸
 void my_button_handler(pComponentModel model, int x, int y, int button)
 {
-    //âûòàñêèâàåì òåêñò èç ïîëÿ ââîäà
-    std::string text = edit->Model()->Text();
-    //óñòàíàâëèâàåì åãî â label
+    //Ð²Ñ‹Ñ‚Ð°ÑÐºÐ¸Ð²Ð°ÐµÐ¼ Ñ‚ÐµÐºÑÑ‚ Ð¸Ð· Ð¿Ð¾Ð»Ñ Ð²Ð²Ð¾Ð´Ð°
+    sf::String text = edit->Model()->Text();
+    //ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ ÐµÐ³Ð¾ Ð² label
     label->Model()->SetCaption(text);
 }
 
@@ -39,37 +39,37 @@ void swap_chairs()
 
 int main()
 {
-    //ñîçäàåì ãëàâíûé êîìïîíåíò, îí îòâå÷àåò çà ðàáîòó îêíà
+    //ÑÐ¾Ð·Ð´Ð°ÐµÐ¼ Ð³Ð»Ð°Ð²Ð½Ñ‹Ð¹ ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚, Ð¾Ð½ Ð¾Ñ‚Ð²ÐµÑ‡Ð°ÐµÑ‚ Ð·Ð° Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Ð¾ÐºÐ½Ð°
     pGUI gui = new GUI(800, 600, "SKBGUI");
-    //-----------Ñîçäàíèå êîìïîíåíòîâ---------
-    ///////////////////Êíîïêà
-    //Ñîçäàåì
+    //-----------Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚Ð¾Ð²---------
+    ///////////////////ÐšÐ½Ð¾Ð¿ÐºÐ°
+    //Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼
     pButton button = new Button();
-    //óñòàíîâèòü íàäïèñü íà êíîïêå
-    button->Model()->SetCaption("Set label value");
-    //Äîáàâëÿåì â gui
+    //ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð½Ð°Ð´Ð¿Ð¸ÑÑŒ Ð½Ð° ÐºÐ½Ð¾Ð¿ÐºÐµ
+    button->Model()->SetCaption(L"Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ");
+    //Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð² gui
     gui->Model()->Add(button);
-    //Äîáàâèòü îáðàáîò÷èê íà íàæàòèå êíîïêè
+    //Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸Ðº Ð½Ð° Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ðµ ÐºÐ½Ð¾Ð¿ÐºÐ¸
     button->Controller()->SetMouseDown(my_button_handler);
-    //Ìåòîäû îáùèå äëÿ âñåõ êîìïîíåíòîâ:
-    //çàäàòü ïîëîæåíèå êîìïîíåíòà îòíîñèòåëüíî ïðåäêà
+    //ÐœÐµÑ‚Ð¾Ð´Ñ‹ Ð¾Ð±Ñ‰Ð¸Ðµ Ð´Ð»Ñ Ð²ÑÐµÑ… ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚Ð¾Ð²:
+    //Ð·Ð°Ð´Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚Ð° Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¿Ñ€ÐµÐ´ÐºÐ°
     button->Model()->SetLocalCoord(300, 10);
-    //çàäàòü ðàçìåðû
+    //Ð·Ð°Ð´Ð°Ñ‚ÑŒ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹
     button->Model()->SetSize(200, 50);
 
 
-    //////////////////////Ïàíåëü
+    //////////////////////ÐŸÐ°Ð½ÐµÐ»ÑŒ
     pPanel panel = new Panel();
     panel->Model()->SetLocalCoord(10, 10);
     panel->Model()->SetSize(280, 580);
-    //çàäàíèå öâåòà äëÿ ïàíåëè
+    //Ð·Ð°Ð´Ð°Ð½Ð¸Ðµ Ñ†Ð²ÐµÑ‚Ð° Ð´Ð»Ñ Ð¿Ð°Ð½ÐµÐ»Ð¸
     panel->Model()->SetColor(sf::Color(0xddffddff));
 
     gui->Model()->Add(panel);
 
-    ////////////////Ïîëå ââîäà
+    ////////////////ÐŸÐ¾Ð»Ðµ Ð²Ð²Ð¾Ð´Ð°
     edit = new Edit();
-    //óñòàíîâèòü òåêñò
+    //ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ‚ÐµÐºÑÑ‚
     edit->Model()->SetText("Hello");
 
     edit->Model()->SetLocalCoord(300, 70);
@@ -77,22 +77,22 @@ int main()
     edit->Model()->SetTextColor(sf::Color(0x000000ff));
     gui->Model()->Add(edit);
 
-    //çàäàäèì öâåò edit'ó
+    //Ð·Ð°Ð´Ð°Ð´Ð¸Ð¼ Ñ†Ð²ÐµÑ‚ edit'Ñƒ
     edit->Model()->SetFillColor(sf::Color(0xB0EFFFff));
 
-    ////////////Íàäïèñü (òåêñòîâàÿ ñòðîêà)
+    ////////////ÐÐ°Ð´Ð¿Ð¸ÑÑŒ (Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ð°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ°)
     label = new Label();
-    //óñòàíîâèòü òåêñò
-    label->Model()->SetCaption("My label");
+    //ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ‚ÐµÐºÑÑ‚
+    label->Model()->SetCaption(L"ÐŸÑ€Ð¸Ð²ÐµÑ‚");
 
     label->Model()->SetLocalCoord(300, 100);
     label->Model()->SetSize(250, 40);
     gui->Model()->Add(label);
 
 
-    //////////////////////Èçîáðàæåíèå
+    //////////////////////Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ
     picture = new Picture();
-    //çàãðóæàåì êàðòèíêó
+    //Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÐ¼ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÑƒ
     picture->Model()->LoadFromFile("assets/images/chair.png");
 
     picture->Model()->SetLocalCoord(300, 150);
@@ -101,7 +101,7 @@ int main()
     gui->Model()->Add(picture);
 
     picture1 = new Picture();
-    //çàãðóæàåì êàðòèíêó
+    //Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÐ¼ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÑƒ
     picture1->Model()->LoadFromFile("assets/images/chair1.png");
 
     picture1->Model()->SetLocalCoord(1600, 1150);
@@ -109,19 +109,19 @@ int main()
 
     gui->Model()->Add(picture1);
 
-    //Ñîçäàåì òàáëèöó
+    //Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ
     pTable table = new Table();
-    //ñäâèíåì òàáëèöó
+    //ÑÐ´Ð²Ð¸Ð½ÐµÐ¼ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ
     table->Model()->SetLocalCoord(5,5);
-    //çàäàòü êîëè÷åñòâî ñòîáöîâ
+    //Ð·Ð°Ð´Ð°Ñ‚ÑŒ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÑ‚Ð¾Ð±Ñ†Ð¾Ð²
     table->Model()->SetColCount(3);
-    //çàäàòü êîëè÷ñòâî ñòðîê
+    //Ð·Ð°Ð´Ð°Ñ‚ÑŒ ÐºÐ¾Ð»Ð¸Ñ‡ÑÑ‚Ð²Ð¾ ÑÑ‚Ñ€Ð¾Ðº
     table->Model()->SetRowCount(7);
-    //çàäàòü øèðèíó ñòîëáöà
+    //Ð·Ð°Ð´Ð°Ñ‚ÑŒ ÑˆÐ¸Ñ€Ð¸Ð½Ñƒ ÑÑ‚Ð¾Ð»Ð±Ñ†Ð°
     table->Model()->SetColWidth(0, 30);
-    //çàäàòü âûñîòó ñðîêè
+    //Ð·Ð°Ð´Ð°Ñ‚ÑŒ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ ÑÑ€Ð¾ÐºÐ¸
     table->Model()->SetRowHeight(0, 15);
-    //Îáðàùåíèå ê ÿ÷åéêàì òàáëèöû...
+    //ÐžÐ±Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ðµ Ðº ÑÑ‡ÐµÐ¹ÐºÐ°Ð¼ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹...
     table->Model()->Cell(0, 0)->Model()->SetText("No");
      table->Model()->Cell(0, 0)->Model()->SetFillColor(sf::Color(0xB0EFFFff));
     table->Model()->Cell(0, 1)->Model()->SetText("Time");
@@ -137,37 +137,40 @@ int main()
     }
 
 
-    //äîáàâëÿåì íà ïàíåëü
+    //Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð½Ð° Ð¿Ð°Ð½ÐµÐ»ÑŒ
     panel->Model()->Add(table);
 
 
-    //Ñîçäàäèì òàéìåð
+    //Ð¡Ð¾Ð·Ð´Ð°Ð´Ð¸Ð¼ Ñ‚Ð°Ð¹Ð¼ÐµÑ€
     pTimer timer = new Timer();
-    //Óñòàíîâèòü èíòåðâàë
+    //Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¸Ð½Ñ‚ÐµÑ€Ð²Ð°Ð»
     timer->Model()->SetInterval(sf::milliseconds(500));
-    //Óñòàíîâèòü îáðàáîò÷èê íà òàéìåð
+    //Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸Ðº Ð½Ð° Ñ‚Ð°Ð¹Ð¼ÐµÑ€
     timer->Model()->SetOnTimer(swap_chairs);
-    //Äîáàâèòü òàéìåð
+    //Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ñ‚Ð°Ð¹Ð¼ÐµÑ€
     gui->Model()->Add(timer);
-    //çàïóñêàåì òàéìåð
+    //Ð·Ð°Ð¿ÑƒÑÐºÐ°ÐµÐ¼ Ñ‚Ð°Ð¹Ð¼ÐµÑ€
     timer->Model()->SetEnabled(true);
 
 //    pCheckBox checkbox = new CheckBox();
 //    checkbox->Model()->SetLocalCoord(10, 180);
-//    checkbox->Model()->SetCaption("MyCheckBox");
+//    std::string s = "Test";
+//    s[0] = 0x04;
+//    s[1] = 0x1b;
+//    checkbox->Model()->SetCaption(s);
 //    panel->Model()->Add(checkbox);
 
     pCheckBox checkboxs[5];
     for (int i = 0; i < 5; i++){
         checkboxs[i] = new CheckBox();
-        checkboxs[i]->Model()->SetLocalCoord(10, 180+25*i);
-        checkboxs[i]->Model()->SetCaption("MyCheckBox "+std::to_string(i));
+        checkboxs[i]->Model()->SetLocalCoord(10, 220+25*i);
+        checkboxs[i]->Model()->SetCaption(" My CheckBox "+std::to_string(i));
         panel->Model()->Add(checkboxs[i]);
     }
 
-//    pTransformer t = new Transformer();
-//    t->Model()->SetTarget(checkbox);
-//    gui->Model()->Add(t);
+    pTransformer t = new Transformer();
+    t->Model()->SetTarget(button);
+    gui->Model()->Add(t);
 
 
 
@@ -178,8 +181,8 @@ int main()
 
 
 
-    //"Îæèâèòü" îêíî, çàñòàâèòü åãî ðåàãèðîâàòü íà âçàèìîäåéñòâèå
-    //ôóíêöèÿ çàâåðøèò ñâîþ ðàáîòó, êîãäà îêíî áóäåò çàêðûòî
+    //"ÐžÐ¶Ð¸Ð²Ð¸Ñ‚ÑŒ" Ð¾ÐºÐ½Ð¾, Ð·Ð°ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ ÐµÐ³Ð¾ Ñ€ÐµÐ°Ð³Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ð° Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ
+    //Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚ ÑÐ²Ð¾ÑŽ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ, ÐºÐ¾Ð³Ð´Ð° Ð¾ÐºÐ½Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¾
     gui->loop();
     return 0;
 }

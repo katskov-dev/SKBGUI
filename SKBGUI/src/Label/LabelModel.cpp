@@ -14,12 +14,12 @@ LabelModel::~LabelModel()
     //dtor
 }
 
-std::string LabelModel::Caption()
+sf::String LabelModel::Caption()
 {
     return __caption;
 }
 
-void LabelModel::SetCaption(std::string caption)
+void LabelModel::SetCaption(sf::String caption)
 {
     __caption = caption;
 }

@@ -9,8 +9,8 @@ class EditModel: public ComponentModel
     public:
         EditModel();
         virtual ~EditModel();
-        std::string Text();
-        void SetText(std::string text);
+        sf::String Text();
+        void SetText(sf::String text);
         int CaretPos();
         void SetCaretPos(int pos);
         sf::Color FillColor();
@@ -26,7 +26,7 @@ class EditModel: public ComponentModel
     protected:
 
     private:
-        std::string __text;
+        sf::String __text;
         int __caretPos;
         sf::Font __font;
         sf::Text __render_text;
