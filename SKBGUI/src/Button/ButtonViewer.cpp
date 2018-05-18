@@ -9,7 +9,7 @@ ButtonViewer::ButtonViewer(pButtonModel model): ComponentViewer(model)
     __rect.setOutlineColor(sf::Color(0xddddddff));
     __rect.setOutlineThickness(2.0);
     //загружаем шрифт и устанавливаем его для надписи на кнопке
-    font.loadFromFile("assets/fonts/OpenSans-Regular1.ttf");
+    font.loadFromFile("assets/fonts/CharisSILI.ttf");
     text.setFont(font);
     text.setColor(sf::Color(0x000000ff));
     __theme[0].loadFromFile("assets/images/buttons/body.png");

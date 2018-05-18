@@ -12,7 +12,7 @@ EditModel::EditModel(): ComponentModel()
     __class = "Edit";
 
     //загружаем шрифт и устанавливаем его для надписи на кнопке
-    __font.loadFromFile("assets/fonts/OpenSans-Regular1.ttf");
+    __font.loadFromFile("assets/fonts/CharisSILI.ttf");
     __render_text.setFont(__font);
     __render_text.setColor(sf::Color(0x000000ff));
     SetVisibleOutline(true);

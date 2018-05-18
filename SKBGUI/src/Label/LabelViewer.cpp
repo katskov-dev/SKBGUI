@@ -2,7 +2,7 @@
 
 LabelViewer::LabelViewer(pLabelModel model): ComponentViewer(pComponentModel(model))
 {
-    __font.loadFromFile("assets/fonts/OpenSans-Regular1.ttf");
+    __font.loadFromFile("assets/fonts/CharisSILI.ttf");
     __text.setFont(__font);
 }
 

@@ -59,7 +59,7 @@ bool EditController::Handle(sf::Event event)
                         int cp = pEditModel(Owner())->CaretPos();
                         if (cp < pEditModel(Owner())->Text().getSize()){
 
-                            std::string new_text = pEditModel(Owner())->Text();
+                            sf::String new_text = pEditModel(Owner())->Text();
                             new_text.erase(cp, 1);
 
                             pEditModel(Owner())->SetCaretPos(cp);
