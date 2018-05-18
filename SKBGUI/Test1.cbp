@@ -175,6 +175,10 @@
 		<Unit filename="include/Picture/PictureController.h" />
 		<Unit filename="include/Picture/PictureModel.h" />
 		<Unit filename="include/Picture/PictureViewer.h" />
+		<Unit filename="include/ProgressBar/ProgressBar.h" />
+		<Unit filename="include/ProgressBar/ProgressBarController.h" />
+		<Unit filename="include/ProgressBar/ProgressBarModel.h" />
+		<Unit filename="include/ProgressBar/ProgressBarViewer.h" />
 		<Unit filename="include/Scene/Scene.h" />
 		<Unit filename="include/Scene/SceneController.h" />
 		<Unit filename="include/Scene/SceneModel.h" />
@@ -290,6 +294,10 @@
 		<Unit filename="src/Picture/PictureController.cpp" />
 		<Unit filename="src/Picture/PictureModel.cpp" />
 		<Unit filename="src/Picture/PictureViewer.cpp" />
+		<Unit filename="src/ProgressBar/ProgressBar.cpp" />
+		<Unit filename="src/ProgressBar/ProgressBarController.cpp" />
+		<Unit filename="src/ProgressBar/ProgressBarModel.cpp" />
+		<Unit filename="src/ProgressBar/ProgressBarViewer.cpp" />
 		<Unit filename="src/Scene/Scene.cpp" />
 		<Unit filename="src/Scene/SceneController.cpp" />
 		<Unit filename="src/Scene/SceneModel.cpp" />

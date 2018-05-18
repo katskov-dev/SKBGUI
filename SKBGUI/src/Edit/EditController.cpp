@@ -1,5 +1,6 @@
 #include "Edit/EditController.h"
 #include <string>
+#include <windows.h>
 EditController::EditController(pEditModel model): ComponentController(model)
 {
 
@@ -108,6 +109,7 @@ bool EditController::Handle(sf::Event event)
                     sf::String new_text = pEditModel(Owner())->Text();
                     sf::String ins = L"";
                     ins += event.text.unicode;
+
 
 
                     //std::string ins = "1";
