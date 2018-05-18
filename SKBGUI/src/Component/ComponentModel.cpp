@@ -8,6 +8,7 @@ ComponentModel::ComponentModel()
     SetEnabled(true);
     __class = "Component";
     SetVisible(true);
+    requestViewerUpdate = true;
 }
 
 string ComponentModel::Name()
@@ -19,6 +20,7 @@ string ComponentModel::Name()
      void ComponentModel::SetName(string StName)
      {
          name=StName;
+         requestViewerUpdate = true;
      }
 
      Vector2f ComponentModel::LocalCoord()//получаем координаты верхнего левого угла
@@ -31,6 +33,7 @@ string ComponentModel::Name()
       {
          __localCoord.x=x;
          __localCoord.y=y;
+         requestViewerUpdate = true;
       }
 
       Vector2f ComponentModel::Size()//получаем размеры
@@ -43,18 +46,21 @@ string ComponentModel::Name()
       {
          __size.x=x;
          __size.y=y;
+         requestViewerUpdate = true;
       }
 
       void ComponentModel::SetSize(Vector2f ComSize)//задаем размеры через 2 переменные
       {
          __size.x=ComSize.x;
          __size.y=ComSize.y;
+         requestViewerUpdate = true;
       }
 
     void ComponentModel::SetLocalCoord(Vector2f ComCoord)
     {
        __localCoord.x=ComCoord.x;
        __localCoord.y=ComCoord.y;
+       requestViewerUpdate = true;
     }
 
 
@@ -62,6 +68,7 @@ string ComponentModel::Name()
      void ComponentModel::SetState(int state)
      {
          __state = state;
+         requestViewerUpdate = true;
      }
 
     int ComponentModel::State()
@@ -80,6 +87,7 @@ string ComponentModel::Name()
                 Children(i)->Model()->SetFocus(false);
             }
          }
+         requestViewerUpdate = true;
      }
 
      bool ComponentModel::Focus()
@@ -90,6 +98,7 @@ string ComponentModel::Name()
      void ComponentModel::SetParent(pComponentModel parent)
      {
          __parent=parent;
+         requestViewerUpdate = true;
      }
 
      pComponentModel ComponentModel::Parent()
@@ -102,6 +111,7 @@ string ComponentModel::Name()
       {
          __children.push_back(child);
          child->Model()->SetParent(this);
+        requestViewerUpdate = true;
       }
 
      std::string ComponentModel::Info()
@@ -161,6 +171,7 @@ string ComponentModel::Name()
 
                }
            }
+           requestViewerUpdate = true;
        }
 
        pComponent ComponentModel::Children(int index)
@@ -177,7 +188,7 @@ string ComponentModel::Name()
             if ((index >= 0) && (index < __children.size())){
                 __children[index] = component;
             }
-
+            requestViewerUpdate = true;
        }
 
        int ComponentModel::Count()
@@ -197,6 +208,7 @@ string ComponentModel::Name()
 
            Delete(Find(ChName));
 
+
        }
 
 
@@ -208,6 +220,7 @@ string ComponentModel::Name()
      void ComponentModel::SetVisibleBorders(bool visibleBorders)
      {
         __visibleBorders = visibleBorders;
+        requestViewerUpdate = true;
      }
 
      Vector2f ComponentModel::AbsoluteCoord()
@@ -232,11 +245,13 @@ string ComponentModel::Name()
            __localCoord = Abs-__parent->AbsoluteCoord();
            else
             __localCoord = Abs;
+            requestViewerUpdate = true;
      }
 
      void ComponentModel::SetEnabled(bool enabled)
      {
         __enabled = enabled;
+        requestViewerUpdate = true;
      }
 
      bool ComponentModel::Enabled()
@@ -253,6 +268,7 @@ string ComponentModel::Name()
      {
         __isVisible = visible;
         SetEnabled(visible);
+        requestViewerUpdate = true;
      }
 
      void ComponentModel::Show()
@@ -369,4 +385,5 @@ string ComponentModel::Name()
      void ComponentModel::SetClass(std::string _class)
      {
             __class = _class;
+            requestViewerUpdate = true;
      }

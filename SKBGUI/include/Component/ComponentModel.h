@@ -57,6 +57,7 @@ using namespace sf;
          std::string Class();
 
          pComponent __owner;
+         bool requestViewerUpdate;
 
      protected:
         void SetClass(std::string _class);
@@ -78,6 +79,13 @@ using namespace sf;
          bool __isVisible; // видимый компонент или нет
 
          bool __enabled;
+
+
+
+         friend ComponentController;
+         friend ComponentViewer;
+         friend Component;
+
 
 
 

@@ -234,3 +234,17 @@ typedef CheckBoxViewer* pCheckBoxViewer;
 
 class CheckBoxController;
 typedef CheckBoxController* pCheckBoxController;
+
+//--------------------> ProgressBar <--------------------
+
+class ProgressBar;
+typedef ProgressBar* pProgressBar;
+
+class ProgressBarModel;
+typedef ProgressBarModel* pProgressBarModel;
+
+class ProgressBarViewer;
+typedef ProgressBarViewer* pProgressBarViewer;
+
+class ProgressBarController;
+typedef ProgressBarController* pProgressBarController;

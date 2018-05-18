@@ -13,7 +13,8 @@ ButtonController::~ButtonController()
 
 bool ButtonController::Handle(sf::Event event)
 {
-
+    if (!Owner()->Enabled())
+        return false;
     if (ComponentController::Handle(event))
         return true;
     switch (event.type){

@@ -21,7 +21,16 @@ bool TransformerController::Handle(sf::Event event)
                 pTransformerModel(Owner())->c.setPosition(event.mouseButton.x,event.mouseButton.y);
                 int x = event.mouseButton.x;
                 int y = event.mouseButton.y;
-                for (int i = 0; i < 9; i++){
+                sf::Vector2f pos = Owner()->AbsoluteCoord();
+                sf::Vector2f size = Owner()->Size();
+                bool click = false;
+                if ((x > pos.x) && (x < pos.x + size.x) && (y > pos.y) && (y < pos.y + size.y)){
+                    pTransformerModel(Owner())->activePoint = 8;
+                    Owner()->SetState(TRANSFORMER_STATE_DOWN);
+                    __oldMouseCoord = sf::Vector2f(x, y);
+                    click = true;
+                }
+                for (int i = 0; i < 8; i++){
                     double r = pTransformerModel(Owner())->Radius();
                     sf::Vector2f p = pTransformerModel(Owner())->__points[i];
                     double distance = sqrt((pow(x - p.x, 2) + pow(y - p.y, 2)));
@@ -33,7 +42,8 @@ bool TransformerController::Handle(sf::Event event)
                     }
 
                 }
-
+                if (click)
+                    return true;
                 break;
             }
             case sf::Event::MouseMoved:{

@@ -14,12 +14,15 @@
 
 #include <CheckBox/CheckBox.h>
 
+#include <ProgressBar/ProgressBar.h>
+
 
 
 pEdit edit;
 pLabel label;
 pPicture picture;
 pPicture picture1;
+pProgressBar pb;
 
 //обработчик для кнопки
 void my_button_handler(pComponentModel model, int x, int y, int button)
@@ -35,6 +38,7 @@ void swap_chairs()
     sf::Vector2f coord_buffer = picture->Model()->LocalCoord();
     picture->Model()->SetLocalCoord(picture1->Model()->LocalCoord());
     picture1->Model()->SetLocalCoord(coord_buffer);
+    pb->Model()->SetCurrent(pb->Model()->Current()+5);
 }
 
 int main()
@@ -63,7 +67,7 @@ int main()
     panel->Model()->SetLocalCoord(10, 10);
     panel->Model()->SetSize(280, 580);
     //задание цвета для панели
-    panel->Model()->SetColor(sf::Color(0xddffddff));
+    panel->Model()->SetColor(sf::Color(0xffffccff));
 
     gui->Model()->Add(panel);
 
@@ -83,7 +87,7 @@ int main()
     ////////////Надпись (текстовая строка)
     label = new Label();
     //установить текст
-    label->Model()->SetCaption(L"Привет");
+    label->Model()->SetCaption(L"Тест");
 
     label->Model()->SetLocalCoord(300, 100);
     label->Model()->SetSize(250, 40);
@@ -169,8 +173,15 @@ int main()
     }
 
     pTransformer t = new Transformer();
-    t->Model()->SetTarget(button);
+    t->Model()->SetTarget(checkboxs[0]);
+    checkboxs[0]->Model()->SetEnabled(false);
     gui->Model()->Add(t);
+
+    pb = new ProgressBar();
+    pb->Model()->SetLocalCoord(10, 350);
+    pb->Model()->SetCurrent(0.0);
+    pb->Model()->SetVertical(true);
+    panel->Model()->Add(pb);
 
 
 

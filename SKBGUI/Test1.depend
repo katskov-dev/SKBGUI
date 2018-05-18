@@ -3239,7 +3239,7 @@
 	<Arrow/ArrowViewer.h>
 	<Arrow/ArrowController.h>
 
-1526504868 c:\repositories\skbgui\skbgui\skbgui\include\base.h
+1526630796 c:\repositories\skbgui\skbgui\skbgui\include\base.h
 
 1523016726 c:\repositories\skbgui\skbgui\skbgui\include\component\component.h
 	<base.h>
@@ -3247,7 +3247,7 @@
 	<Component/ComponentViewer.h>
 	<Component/ComponentController.h>
 
-1526501796 c:\repositories\skbgui\skbgui\skbgui\include\component\componentmodel.h
+1526630327 c:\repositories\skbgui\skbgui\skbgui\include\component\componentmodel.h
 	<base.h>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -4256,7 +4256,7 @@
 	<Button/ButtonViewer.h>
 	<Button/ButtonController.h>
 
-1526627735 c:\repositories\skbgui\skbgui\skbgui\include\button\buttonmodel.h
+1526630294 c:\repositories\skbgui\skbgui\skbgui\include\button\buttonmodel.h
 	<base.h>
 	<Component/ComponentModel.h>
 	<string>
@@ -4272,13 +4272,13 @@
 	<Component/ComponentController.h>
 	<Button/ButtonModel.h>
 
-1523272802 source:c:\repositories\skbgui\skbgui\skbgui\src\button\buttoncontroller.cpp
+1526628731 source:c:\repositories\skbgui\skbgui\skbgui\src\button\buttoncontroller.cpp
 	"Button/ButtonController.h"
 
-1526627743 source:c:\repositories\skbgui\skbgui\skbgui\src\button\buttonmodel.cpp
+1526628333 source:c:\repositories\skbgui\skbgui\skbgui\src\button\buttonmodel.cpp
 	"Button/ButtonModel.h"
 
-1526628131 source:c:\repositories\skbgui\skbgui\skbgui\src\button\buttonviewer.cpp
+1526630259 source:c:\repositories\skbgui\skbgui\skbgui\src\button\buttonviewer.cpp
 	"Button/ButtonViewer.h"
 	<cmath>
 
@@ -4329,7 +4329,7 @@
 1524044785 source:c:\repositories\skbgui\skbgui\skbgui\src\component\componentcontroller.cpp
 	"Component/ComponentController.h"
 
-1526502162 source:c:\repositories\skbgui\skbgui\skbgui\src\component\componentmodel.cpp
+1526630117 source:c:\repositories\skbgui\skbgui\skbgui\src\component\componentmodel.cpp
 	<Component/ComponentModel.h>
 
 1526501987 source:c:\repositories\skbgui\skbgui\skbgui\src\component\componentviewer.cpp
@@ -4347,7 +4347,7 @@
 	<Edit/EditController.h>
 	<Component/Component.h>
 
-1526627102 c:\repositories\skbgui\skbgui\skbgui\include\edit\editmodel.h
+1526628333 c:\repositories\skbgui\skbgui\skbgui\include\edit\editmodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -4364,19 +4364,19 @@
 	<Component/ComponentController.h>
 	<SFML/Graphics.hpp>
 
-1526628003 source:c:\repositories\skbgui\skbgui\skbgui\src\edit\editcontroller.cpp
+1526628333 source:c:\repositories\skbgui\skbgui\skbgui\src\edit\editcontroller.cpp
 	"Edit/EditController.h"
 	<string>
 
-1526628125 source:c:\repositories\skbgui\skbgui\skbgui\src\edit\editmodel.cpp
+1526628333 source:c:\repositories\skbgui\skbgui\skbgui\src\edit\editmodel.cpp
 	"Edit/EditModel.h"
 
-1526502029 source:c:\repositories\skbgui\skbgui\skbgui\src\edit\editviewer.cpp
+1526630583 source:c:\repositories\skbgui\skbgui\skbgui\src\edit\editviewer.cpp
 	"Edit/EditViewer.h"
 	<iostream>
 	<cmath>
 
-1524050552 source:c:\repositories\skbgui\skbgui\skbgui\src\gui\gui.cpp
+1526629948 source:c:\repositories\skbgui\skbgui\skbgui\src\gui\gui.cpp
 	<GUI/GUI.h>
 	<string>
 	<Label/Label.h>
@@ -4413,7 +4413,7 @@
 	<Label/LabelController.h>
 	<Component/Component.h>
 
-1526626769 c:\repositories\skbgui\skbgui\skbgui\include\label\labelmodel.h
+1526628333 c:\repositories\skbgui\skbgui\skbgui\include\label\labelmodel.h
 	<base.h>
 	<Component/ComponentModel.h>
 	<string>
@@ -4445,10 +4445,10 @@
 1524043370 source:c:\repositories\skbgui\skbgui\skbgui\src\label\labelcontroller.cpp
 	"Label/LabelController.h"
 
-1526626980 source:c:\repositories\skbgui\skbgui\skbgui\src\label\labelmodel.cpp
+1526628333 source:c:\repositories\skbgui\skbgui\skbgui\src\label\labelmodel.cpp
 	"Label/LabelModel.h"
 
-1526628098 source:c:\repositories\skbgui\skbgui\skbgui\src\label\labelviewer.cpp
+1526628333 source:c:\repositories\skbgui\skbgui\skbgui\src\label\labelviewer.cpp
 	"Label/LabelViewer.h"
 
 1523749413 source:c:\repositories\skbgui\skbgui\skbgui\src\neuron\neuron.cpp
@@ -4700,10 +4700,10 @@
 	<Transformer/TransformerModel.h>
 	<math.h>
 
-1523975466 source:c:\repositories\skbgui\skbgui\skbgui\src\transformer\transformercontroller.cpp
+1526629217 source:c:\repositories\skbgui\skbgui\skbgui\src\transformer\transformercontroller.cpp
 	"Transformer/TransformerController.h"
 
-1523275875 source:c:\repositories\skbgui\skbgui\skbgui\src\transformer\transformermodel.cpp
+1526628975 source:c:\repositories\skbgui\skbgui\skbgui\src\transformer\transformermodel.cpp
 	"Transformer/TransformerModel.h"
 
 1526502065 source:c:\repositories\skbgui\skbgui\skbgui\src\transformer\transformerviewer.cpp
@@ -4724,7 +4724,7 @@
 1526502069 source:c:\repositories\skbgui\skbgui\skbgui\src\world\worldviewer.cpp
 	"World/WorldViewer.h"
 
-1526627826 source:c:\repositories\skbgui\skbgui\skbgui\example.cpp
+1526633448 source:c:\repositories\skbgui\skbgui\skbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
@@ -4738,6 +4738,7 @@
 	<Table/Table.h>
 	<Timer/Timer.h>
 	<CheckBox/CheckBox.h>
+	<ProgressBar/ProgressBar.h>
 
 1526586979 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkbox.cpp
 	<CheckBox/CheckBox.h>
@@ -4775,6 +4776,42 @@
 1526587949 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxmodel.cpp
 	"CheckBox/CheckBoxModel.h"
 
-1526587682 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxviewer.cpp
+1526630517 source:c:\repositories\skbgui\skbgui\skbgui\src\checkbox\checkboxviewer.cpp
 	"CheckBox/CheckBoxViewer.h"
+
+1526631651 source:c:\repositories\skbgui\skbgui\skbgui\src\progressbar\progressbar.cpp
+	<ProgressBar/ProgressBar.h>
+
+1526630784 c:\repositories\skbgui\skbgui\skbgui\include\progressbar\progressbar.h
+	<base.h>
+	<Component/Component.h>
+	<ProgressBar/ProgressBarModel.h>
+	<ProgressBar/ProgressBarViewer.h>
+	<ProgressBar/ProgressBarController.h>
+
+1526631742 c:\repositories\skbgui\skbgui\skbgui\include\progressbar\progressbarmodel.h
+	<base.h>
+	<string>
+	<Component/ComponentModel.h>
+
+1526630784 c:\repositories\skbgui\skbgui\skbgui\include\progressbar\progressbarviewer.h
+	<base.h>
+	<Component/ComponentViewer.h>
+	<ProgressBar/ProgressBarModel.h>
+	<SFML/Graphics.hpp>
+
+1526630784 c:\repositories\skbgui\skbgui\skbgui\include\progressbar\progressbarcontroller.h
+	<base.h>
+	<Component/ComponentController.h>
+	<ProgressBar/ProgressBarModel.h>
+	<SFML/Graphics.hpp>
+
+1526630784 source:c:\repositories\skbgui\skbgui\skbgui\src\progressbar\progressbarcontroller.cpp
+	"ProgressBar/ProgressBarController.h"
+
+1526633434 source:c:\repositories\skbgui\skbgui\skbgui\src\progressbar\progressbarmodel.cpp
+	"ProgressBar/ProgressBarModel.h"
+
+1526633247 source:c:\repositories\skbgui\skbgui\skbgui\src\progressbar\progressbarviewer.cpp
+	"ProgressBar/ProgressBarViewer.h"
 

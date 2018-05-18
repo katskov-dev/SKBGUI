@@ -7,7 +7,8 @@ GUI::GUI(int width, int height, std::string title)
 {
     __window = new sf::RenderWindow(sf::VideoMode(width, height), title);
     __window_size = sf::Vector2f(width, height);
-    __window->setFramerateLimit(60);
+    //__window->setFramerateLimit(60);
+    //__window->setVerticalSyncEnabled(true);
     SetModel(new GUIModel(width, height));
     SetViewer(new GUIViewer(Model()));
     SetController(new GUIController(Model()));
@@ -55,7 +56,7 @@ void GUI::loop()
         lFPS->Model()->SetLocalCoord(__window_size.x - 100, 5);
         lFPS->Model()->SetSize(100, 15);
         lFPS->Model()->SetColor(sf::Color(0x0000ffff));
-        //lFPS->Viewer()->Render(*__window);
+        lFPS->Viewer()->Render(*__window);
         sf::Time elapsed = __guiclock.getElapsedTime();
         Controller()->Update(elapsed - __oldtime);
         __oldtime = elapsed;

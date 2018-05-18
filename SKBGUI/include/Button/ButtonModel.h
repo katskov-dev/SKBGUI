@@ -17,5 +17,8 @@ class ButtonModel: public ComponentModel
 
     private:
         sf::String __caption;
+        friend ButtonController;
+         friend ButtonViewer;
+         friend Button;
 
 };

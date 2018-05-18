@@ -39,7 +39,8 @@ void ButtonViewer::Render(sf::RenderTarget& target)
     ComponentViewer::Render(target);
     sf::Vector2f coord = Owner()->AbsoluteCoord();
     //std::cout << coord.x << " " << coord.y << std::endl;
-
+    if (Owner()->requestViewerUpdate){
+        Owner()->requestViewerUpdate = false;
     //настраиваем "адаптивный текст" который всегда находится примерно в центре кнопки
     text.setCharacterSize(std::floor(Owner()->Size().y * 0.50));
     float offset_y = Owner()->Size().y * 0.25;
@@ -104,7 +105,7 @@ void ButtonViewer::Render(sf::RenderTarget& target)
     __theme_sprite[8].setPosition(coord + sf::Vector2f(0, 3));
     __theme_sprite[8].setScale(1.0, scale_y);
     __theme_sprite[8].setTexture(__theme[8]);
-
+    }
 
 
 

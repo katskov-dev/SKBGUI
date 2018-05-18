@@ -17,9 +17,11 @@ void CheckBoxViewer::Render(sf::RenderTarget& target)
     sf::Vector2f coord = Owner()->AbsoluteCoord();
     sf::RenderStates rs;
     rs.transform.translate(coord);
-    Owner()->__rect.setFillColor(sf::Color(0xffffffff));
-    Owner()->__rect.setOutlineColor(sf::Color(0x000000ff));
-    Owner()->__rect.setOutlineThickness(1.0);
+    if (Owner()->requestViewerUpdate){
+        Owner()->__rect.setFillColor(sf::Color(0xffffffff));
+        Owner()->__rect.setOutlineColor(sf::Color(0x000000ff));
+        Owner()->__rect.setOutlineThickness(1.0);
+    }
     target.draw(Owner()->__rect, rs);
     if (Owner()->Checked()){
         target.draw(Owner()->__line2, 4, sf::Lines, rs);

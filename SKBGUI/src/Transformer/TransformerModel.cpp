@@ -8,6 +8,7 @@ TransformerModel::TransformerModel()
     __target = nullptr;
     activePoint = -1;
     SetState(TRANSFORMER_STATE_NORMAL);
+    SetVisibleBorders(true);
 }
 
 TransformerModel::~TransformerModel()
@@ -26,10 +27,14 @@ void TransformerModel::SetTarget(pComponent target)
     if (target != nullptr){
        UpdatePoints();
     }
+
 }
 
 void TransformerModel::UpdatePoints()
 {
+    SetAbsoluteCoord(Target()->Model()->AbsoluteCoord());
+    SetSize(Target()->Model()->Size());
+
     pComponentModel c = Target()->Model();
     sf::Vector2f coord[9];
     double r = Radius();
@@ -42,8 +47,10 @@ void TransformerModel::UpdatePoints()
     coord[6] = c->AbsoluteCoord() + sf::Vector2f( 0, c->Size().y) + sf::Vector2f(r,-r);
     coord[7] = c->AbsoluteCoord() + sf::Vector2f( 0, c->Size().y / 2.0) + sf::Vector2f(r,0);
     coord[8] = c->AbsoluteCoord() + sf::Vector2f( c->Size().x / 2.0, c->Size().y / 2.0);
+
     for (int i = 0; i < 9; i++)
         __points[i] = coord[i];
+
 }
 
 sf::Vector2f TransformerModel::Point(int index)
