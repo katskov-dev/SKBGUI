@@ -8,13 +8,13 @@ class LabelModel: public ComponentModel
     public:
         LabelModel();
         virtual ~LabelModel();
-        std::string Caption();
-        void SetCaption(std::string caption);
+        sf::String Caption();
+        void SetCaption(sf::String caption);
         sf::Color Color();
         void SetColor(sf::Color color);
     protected:
 
     private:
-        std::string __caption;
+        sf::String __caption;
         sf::Color __color;
 };

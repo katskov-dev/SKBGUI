@@ -12,7 +12,7 @@ EditModel::EditModel(): ComponentModel()
     __class = "Edit";
 
     //загружаем шрифт и устанавливаем его для надписи на кнопке
-    __font.loadFromFile("assets/fonts/OpenSans-Regular.ttf");
+    __font.loadFromFile("assets/fonts/CharisSILI.ttf");
     __render_text.setFont(__font);
     __render_text.setColor(sf::Color(0x000000ff));
     SetVisibleOutline(true);
@@ -25,12 +25,12 @@ EditModel::~EditModel()
     //dtor
 }
 
-std::string EditModel::Text()
+sf::String EditModel::Text()
 {
     return __text;
 }
 
-void EditModel::SetText(std::string text)
+void EditModel::SetText(sf::String text)
 {
     __text = text;
     __render_text.setCharacterSize(Size().y * 0.8);
