@@ -9,9 +9,10 @@
 - [ ] Пофиксить проблему в ClassGenerator (Controller). Проблема с методом Handle, у него тип void, а нужен bool.
 - [ ] ClassGenerator. В CPP Controller, в Handle Добавить базовую обработку всех событий и сделать `return true` в каждома
 - [ ] При изменении размеров Edit текст перестал изменять размер
-- [ ] Таблица перестала нормально работать ( не спадает фокус с Edit'ов)
-- [ ] В ComponentVIewer границы рисуются не по абсолютным координатам
-- [ ] В ClassGenerator ComponentController не добавляет return false в Handle
+- [x] Таблица перестала нормально работать ( не спадает фокус с Edit'ов)
+- [x] В ComponentVIewer границы рисуются не по абсолютным координатам
+- [x] В ClassGenerator ComponentController не добавляет return false в Handle
+
 
 ##Новый функционал
 ###Компоненты
