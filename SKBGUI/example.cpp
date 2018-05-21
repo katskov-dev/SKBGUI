@@ -181,7 +181,7 @@ int main()
     pb = new ProgressBar();
     pb->Model()->SetLocalCoord(10, 350);
     pb->Model()->SetCurrent(0.0);
-    pb->Model()->SetVertical(false);
+    pb->Model()->SetVertical(true);
     panel->Model()->Add(pb);
 
     pAnimation animation = new Animation();
