@@ -11,6 +11,7 @@
 #include <Panel/Panel.h>
 #include <Table/Table.h>
 #include <Timer/Timer.h>
+#include <Animation/Animation.h>
 
 #include <CheckBox/CheckBox.h>
 
@@ -183,6 +184,13 @@ int main()
     pb->Model()->SetVertical(true);
     panel->Model()->Add(pb);
 
+    pAnimation animation = new Animation();
+    panel->Model()->Add(animation);
+    animation->Model()->setTilesCount(sf::Vector2f(4,2));
+    animation->Model()->SetSize(150, 45 );
+    animation->Model()->SetLocalCoord(10, 400);
+    animation->Model()->loadFromFile("assets/images/cat.png");
+    animation->Model()->setInterval(sf::seconds(0.05));
 
 
 
