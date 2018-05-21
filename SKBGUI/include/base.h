@@ -248,3 +248,17 @@ typedef ProgressBarViewer* pProgressBarViewer;
 
 class ProgressBarController;
 typedef ProgressBarController* pProgressBarController;
+
+//--------------------> Animation <--------------------
+
+class Animation;
+typedef Animation* pAnimation;
+
+class AnimationModel;
+typedef AnimationModel* pAnimationModel;
+
+class AnimationViewer;
+typedef AnimationViewer* pAnimationViewer;
+
+class AnimationController;
+typedef AnimationController* pAnimationController;
