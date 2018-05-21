@@ -57,6 +57,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="example.cpp" />
+		<Unit filename="include/Animation/Animation.h" />
+		<Unit filename="include/Animation/AnimationController.h" />
+		<Unit filename="include/Animation/AnimationModel.h" />
+		<Unit filename="include/Animation/AnimationViewer.h" />
 		<Unit filename="include/Arrow/Arrow.h" />
 		<Unit filename="include/Arrow/ArrowController.h" />
 		<Unit filename="include/Arrow/ArrowModel.h" />
@@ -200,6 +204,10 @@
 		<Unit filename="include/World/WorldModel.h" />
 		<Unit filename="include/World/WorldViewer.h" />
 		<Unit filename="include/base.h" />
+		<Unit filename="src/Animation/Animation.cpp" />
+		<Unit filename="src/Animation/AnimationController.cpp" />
+		<Unit filename="src/Animation/AnimationModel.cpp" />
+		<Unit filename="src/Animation/AnimationViewer.cpp" />
 		<Unit filename="src/Arrow/Arrow.cpp" />
 		<Unit filename="src/Arrow/ArrowController.cpp" />
 		<Unit filename="src/Arrow/ArrowModel.cpp" />
