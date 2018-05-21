@@ -56,7 +56,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="example.cpp" />
 		<Unit filename="include/Animation/Animation.h" />
 		<Unit filename="include/Animation/AnimationController.h" />
 		<Unit filename="include/Animation/AnimationModel.h" />
@@ -204,6 +203,7 @@
 		<Unit filename="include/World/WorldModel.h" />
 		<Unit filename="include/World/WorldViewer.h" />
 		<Unit filename="include/base.h" />
+		<Unit filename="kursach.cpp" />
 		<Unit filename="src/Animation/Animation.cpp" />
 		<Unit filename="src/Animation/AnimationController.cpp" />
 		<Unit filename="src/Animation/AnimationModel.cpp" />
