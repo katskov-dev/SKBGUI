@@ -27,29 +27,110 @@ TableModel::~TableModel()
 
 void TableModel::SetRowCount(int rowCount)
 {
-    DestroyCells();
-    __rowCount = rowCount;
-    __rowHeight.resize(rowCount);
+    if (rowCount > RowCount()) // необходимо добавить столбца
+    {
+        __cell.resize(rowCount);
+        for (int i = RowCount(); i < rowCount; i++){
+            __cell[i].resize(ColCount());
+            for (int j = 0; j < ColCount(); j++){
+                pEdit edit = new Edit();
+                __cell[i][j] = edit;
+                Add(edit);
+            }
+        }
 
-    for (int i = 0; i < __rowCount; i++){
-         __rowHeight[i] = 25;
+        __rowHeight.resize(rowCount);
+        for (int i = RowCount(); i < rowCount; i++){
+            __rowHeight[i] = 25;
+        }
+
+//        for (int j = 0; j < RowCount(); j++){ // бежим по строкам
+//            __cell[j].resize(colCount); //меняем размер
+//            for (int k = ColCount(); k < colCount; k++){
+//                __cell[j][k] = new Edit();
+//
+//                Add(__cell[j][k]);
+//            }
+//        }
+//
+//        __colWidth.resize(colCount);
+//        for (int i = ColCount(); i < colCount; i++){
+//            __colWidth[i] =  100;
+//        }
+//        __colCount = colCount;
+//
+        __rowCount = rowCount;
+        UpdateCellsSize();
+        UpdateSize();
+
     }
+    if (rowCount < RowCount())
+    {
+        for (int j = rowCount; j < RowCount()-1; j++){ // бежим по строкам
+            for (int k = 0; k < ColCount(); k++){
+                Delete(__cell[j][k]);
+            }
+        }
 
-    CreateCells();
-    UpdateSize();
+        __rowCount = rowCount;
+        __rowHeight.resize(rowCount);
+        __rowCount = rowCount;
+        UpdateCellsSize();
+        UpdateSize();
+
+    };
+    //------------------------------------
+//    DestroyCells();
+//    __rowCount = rowCount;
+//    __rowHeight.resize(rowCount);
+//
+//    for (int i = 0; i < __rowCount; i++){
+//         __rowHeight[i] = 25;
+//    }
+//
+//    CreateCells();
+//    UpdateSize();
 
 }
 
 void TableModel::SetColCount(int colCount)
 {
-    DestroyCells();
-    __colCount = colCount;
-    __colWidth.resize(colCount);
-    for (int i = 0; i < __colCount; i++){
-        __colWidth[i] =  100;
+    if (colCount > ColCount()) // необходимо добавить столбца
+    {
+        for (int j = 0; j < RowCount(); j++){ // бежим по строкам
+            __cell[j].resize(colCount); //меняем размер
+            for (int k = ColCount(); k < colCount; k++){
+                __cell[j][k] = new Edit();
+
+                Add(__cell[j][k]);
+            }
+        }
+
+        __colWidth.resize(colCount);
+        for (int i = ColCount(); i < colCount; i++){
+            __colWidth[i] =  100;
+        }
+        __colCount = colCount;
+
+        UpdateCellsSize();
+        UpdateSize();
     }
-    CreateCells();
-    UpdateSize();
+    if (colCount < ColCount())
+    {
+        for (int j = 0; j < RowCount(); j++){ // бежим по строкам
+
+            for (int k = colCount; k < ColCount(); k++){
+                Delete(__cell[j][k]);
+            }
+            __cell[j].resize(colCount); //меняем размер
+        }
+
+        __colCount = colCount;
+        __colWidth.resize(colCount);
+        UpdateCellsSize();
+        UpdateSize();
+
+    };
 }
 
 int TableModel::RowCount()

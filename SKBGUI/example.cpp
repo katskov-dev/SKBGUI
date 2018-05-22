@@ -143,7 +143,7 @@ int main()
 
 
     //добавляем на панель
-    panel->Model()->Add(table);
+    gui->Model()->Add(table);
 
 
     //Создадим таймер
@@ -192,6 +192,8 @@ int main()
     animation->Model()->loadFromFile("assets/images/cat.png");
     animation->Model()->setInterval(sf::seconds(0.05));
 
+    table->Model()->SetRowCount(0);
+    table->Model()->SetRowCount(10);
 
 
 
