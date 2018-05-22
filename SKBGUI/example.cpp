@@ -181,14 +181,15 @@ int main()
     pb = new ProgressBar();
     pb->Model()->SetLocalCoord(10, 350);
     pb->Model()->SetCurrent(0.0);
-    pb->Model()->SetVertical(true);
+    pb->Model()->SetVertical(false);
     panel->Model()->Add(pb);
 
     pAnimation animation = new Animation();
     panel->Model()->Add(animation);
-    animation->Model()->setTilesCount(sf::Vector2f(4,2));
-    animation->Model()->SetSize(150, 45 );
+    animation->Model()->setTilesCount(sf::Vector2f(8,2));
+    animation->Model()->SetSize(108, 140 );
     animation->Model()->SetLocalCoord(10, 400);
+<<<<<<< 0.0.10.1
     animation->Model()->loadFromFile("assets/images/cat.png");
     animation->Model()->setInterval(sf::seconds(0.05));
 
@@ -201,6 +202,10 @@ int main()
 
 
 
+=======
+    animation->Model()->loadFromFile("assets/images/man_sprite.png");
+    animation->Model()->setInterval(sf::seconds(0.25));
+>>>>>>> Merge branch 'master' into 0.0.10.1
 
     //"Оживить" окно, заставить его реагировать на взаимодействие
     //функция завершит свою работу, когда окно будет закрыто
