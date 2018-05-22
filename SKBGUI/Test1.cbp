@@ -38,7 +38,6 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
-					<Add directory="include/Edit" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -56,7 +55,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="example.cpp" />
+		<Unit filename="ComponentGenerator.cpp" />
 		<Unit filename="include/Animation/Animation.h" />
 		<Unit filename="include/Animation/AnimationController.h" />
 		<Unit filename="include/Animation/AnimationModel.h" />
