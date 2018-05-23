@@ -1,0 +1,82 @@
+#include <GUI/GUI.h>
+#include <string
+#include <Label/Label.h>
+
+GUI::GUI(int width, int height, std::string title)
+{
+    __window = new sf::RenderWindow(sf::VideoMode(width, height), title);
+    __window->setFramerateLimit(60);
+    SetModel(new GUIModel(width, height));
+    SetViewer(new GUIViewer(Model()));
+    SetController(new GUIController(Model()));
+}
+
+GUI::~GUI()
+{
+
+}
+
+void GUI::loop()
+{
+    FPS = 0;
+    curFPS = 0;
+    sf::Text fps_text;
+
+    while (__window->isOpen())
+    {
+        sf::Event event;
+        while (__window->pollEvent(event))
+        {
+            Controller()->Handle(event);
+            if (event.type == sf::Event::Closed)
+                __window->close();
+
+        }
+        Controller()->RunIdle();
+
+        __window->clear(sf::Color(0x336699ff));
+        Viewer()->Render(*__window);
+        __window->display();
+    }
+}
+
+pGUIModel GUI::Model()
+{
+    return pGUIModel(__model);
+}
+
+void GUI::SetModel(pGUIModel model)
+{
+    __model = model;
+}
+
+pGUIViewer GUI::Viewer()
+{
+    return pGUIViewer(__viewer);
+}
+
+void GUI::SetViewer(pGUIViewer viewer)
+{
+    __viewer = viewer;
+}
+
+pGUIController GUI::Controller()
+{
+    return pGUIController(__controller);
+}
+
+void GUI::SetController(pGUIController controller)
+{
+    __controller = controller;
+}
+
+sf::RenderWindow* GUI::Window()
+{
+    return __window;
+}
+
+void GUI::Window(sf::RenderWindow* window)
+{
+    __window = window;
+}
+

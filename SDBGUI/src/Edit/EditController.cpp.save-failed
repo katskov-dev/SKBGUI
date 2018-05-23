@@ -1,0 +1,11 @@
+#include "Edit/EditController.h"
+
+EditController::EditController(pEditModel model): ComponentController(model)
+{
+
+}
+
+EditController::~EditController()
+{
+    //dtor
+}
