@@ -189,12 +189,9 @@ int main()
     animation->Model()->setTilesCount(sf::Vector2f(8,2));
     animation->Model()->SetSize(108, 140 );
     animation->Model()->SetLocalCoord(10, 400);
-<<<<<<< 0.0.10.1
     animation->Model()->loadFromFile("assets/images/cat.png");
     animation->Model()->setInterval(sf::seconds(0.05));
 
-    table->Model()->SetRowCount(0);
-    table->Model()->SetRowCount(10);
 
 
 
@@ -202,10 +199,6 @@ int main()
 
 
 
-=======
-    animation->Model()->loadFromFile("assets/images/man_sprite.png");
-    animation->Model()->setInterval(sf::seconds(0.25));
->>>>>>> Merge branch 'master' into 0.0.10.1
 
     //"Оживить" окно, заставить его реагировать на взаимодействие
     //функция завершит свою работу, когда окно будет закрыто
@@ -214,3 +207,6 @@ int main()
 }
 
 
+
+    animation->Model()->loadFromFile("assets/images/man_sprite.png");
+    animation->Model()->setInterval(sf::seconds(0.25));
