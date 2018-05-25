@@ -262,3 +262,18 @@ typedef AnimationViewer* pAnimationViewer;
 
 class AnimationController;
 typedef AnimationController* pAnimationController;
+
+
+//--------------------> Picker <--------------------
+
+class Picker;
+typedef Picker* pPicker;
+
+class PickerModel;
+typedef PickerModel* pPickerModel;
+
+class PickerViewer;
+typedef PickerViewer* pPickerViewer;
+
+class PickerController;
+typedef PickerController* pPickerController;

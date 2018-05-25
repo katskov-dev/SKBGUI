@@ -16,6 +16,7 @@
 #include <CheckBox/CheckBox.h>
 
 #include <ProgressBar/ProgressBar.h>
+#include <Picker/Picker.h>
 
 
 
@@ -25,6 +26,7 @@ pPicture picture;
 pPicture picture1;
 pProgressBar pb;
 pAnimation animation;
+pPicker picker;
 
 //обработчик для кнопки
 void my_button_handler(pComponentModel model, int x, int y, int button)
@@ -192,6 +194,11 @@ int main()
     animation->Model()->SetLocalCoord(50, 345);
     animation->Model()->loadFromFile("assets/images/cat.png");
     animation->Model()->setInterval(sf::seconds(0.05));
+
+    picker = new Picker();
+    picker->Model()->LoadMaskFromFile("assets/images/pickerMask.png");
+    picker->Model()->SetLocalCoord(10, 400);
+    panel->Model()->Add(picker);
 
 
 

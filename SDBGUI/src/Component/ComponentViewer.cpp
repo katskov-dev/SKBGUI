@@ -23,13 +23,13 @@ void ComponentViewer::Render(sf::RenderTarget& target)
     __view = getView(target);
 
     if (Owner()->VisibleBorders()){
-        __border.setPosition(sf::Vector2f(1, 1));
+        __border.setPosition(sf::Vector2f(1, 1) + Owner()->AbsoluteCoord());
         __border.setSize(__owner->Size() + sf::Vector2f(-2, -2));
         if (__owner->Focus())
             __border.setOutlineColor(sf::Color(0x00ff00ff));
         else
             __border.setOutlineColor(sf::Color(0xaaaaaaff));
-        target.draw(__border, Owner()->RenderStates());
+        target.draw(__border);
 
     }
 }

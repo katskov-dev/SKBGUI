@@ -42,6 +42,7 @@ AnimationModel::~AnimationModel()
     {
         __texture.loadFromFile(fileName);
         __texture.setSmooth(true);
+        __texture.generateMipmap();
         __tw = Texture().getSize().x / tilesCount().x;
         __th = Texture().getSize().y / tilesCount().y;
         __row = currentFrame() / tilesCount().x;

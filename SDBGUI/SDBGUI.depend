@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1527045570 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
+1527239338 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
@@ -15,6 +15,7 @@
 	<Animation/Animation.h>
 	<CheckBox/CheckBox.h>
 	<ProgressBar/ProgressBar.h>
+	<Picker/Picker.h>
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\gui\gui.h
 	<base.h>
@@ -25,7 +26,7 @@
 	<SFML/Graphics.hpp>
 	<string>
 
-1527045570 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
+1527238613 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\component\component.h
 	<base.h>
@@ -731,7 +732,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationcontroller.cpp
 	"Animation/AnimationController.h"
 
-1527228997 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationmodel.cpp
+1527243203 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationmodel.cpp
 	"Animation/AnimationModel.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationviewer.cpp
@@ -1413,7 +1414,7 @@
 1527046210 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentmodel.cpp
 	<Component/ComponentModel.h>
 
-1527046309 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentviewer.cpp
+1527239470 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentviewer.cpp
 	"Component/ComponentViewer.h"
 	<cmath>
 	<stdlib.h>
@@ -1706,4 +1707,41 @@
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldviewer.cpp
 	"World/WorldViewer.h"
+
+1527238565 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\picker.cpp
+	<Picker/Picker.h>
+
+1527238565 c:\repositories\skbgui\skbgui\sdbgui\include\picker\picker.h
+	<base.h>
+	<Component/Component.h>
+	<Picker/PickerModel.h>
+	<Picker/PickerViewer.h>
+	<Picker/PickerController.h>
+
+1527243695 c:\repositories\skbgui\skbgui\sdbgui\include\picker\pickermodel.h
+	<base.h>
+	<string>
+	<Component/ComponentModel.h>
+
+1527239558 c:\repositories\skbgui\skbgui\sdbgui\include\picker\pickerviewer.h
+	<base.h>
+	<Component/ComponentViewer.h>
+	<Picker/PickerModel.h>
+	<SFML/Graphics.hpp>
+
+1527238565 c:\repositories\skbgui\skbgui\sdbgui\include\picker\pickercontroller.h
+	<base.h>
+	<Component/ComponentController.h>
+	<Picker/PickerModel.h>
+	<SFML/Graphics.hpp>
+
+1527243160 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\pickercontroller.cpp
+	"Picker/PickerController.h"
+	<math.h>
+
+1527244678 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\pickermodel.cpp
+	"Picker/PickerModel.h"
+
+1527239710 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\pickerviewer.cpp
+	"Picker/PickerViewer.h"
 
