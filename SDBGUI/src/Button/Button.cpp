@@ -15,6 +15,7 @@ Button::Button()
 
 }
 
+
 Button::Button(string caption)
 {
     //create MVC

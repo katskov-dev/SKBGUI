@@ -62,7 +62,7 @@ AnimationModel::~AnimationModel()
         rect.height = __y2;
         sprite.setTextureRect(rect);
         sf::Vector2f coord = AbsoluteCoord();
-        sprite.setPosition(coord);
+        sprite.setPosition(sf::Vector2f(0,0));
 
 
         double x = Size().x;

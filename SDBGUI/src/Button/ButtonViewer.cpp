@@ -38,7 +38,7 @@ void ButtonViewer::Render(sf::RenderTarget& target)
         return;
     ComponentViewer::RenderBegin(target);
     ComponentViewer::Render(target);
-    sf::Vector2f coord = Owner()->AbsoluteCoord();
+    //sf::Vector2f coord = Owner()->AbsoluteCoord();
     //std::cout << coord.x << " " << coord.y << std::endl;
     if (Owner()->requestViewerUpdate){
         Owner()->requestViewerUpdate = false;
@@ -47,13 +47,13 @@ void ButtonViewer::Render(sf::RenderTarget& target)
     float offset_y = Owner()->Size().y * 0.25;
     text.setString((pButtonModel(Owner()))->Caption());
     float offset_x = (Owner()->Size().x - text.getGlobalBounds().width) / 2.0;
-    text.setPosition(coord+sf::Vector2f(offset_x, offset_y));
+    text.setPosition(sf::Vector2f(offset_x, offset_y));
     if (Owner()->Size().x < Owner()->Size().y){
         double text_scale = (Owner()->Size().x-20) / text.getLocalBounds().width;
         text.setScale(text_scale, text_scale);
     }
 
-    __rect.setPosition(coord + sf::Vector2f(2, 2));
+    __rect.setPosition(sf::Vector2f(2, 2));
     __rect.setSize(Owner()->Size() + sf::Vector2f(-4, -4));
     switch (Owner()->State()){
         case BUTTON_STATE_NORMAL:{
@@ -71,39 +71,40 @@ void ButtonViewer::Render(sf::RenderTarget& target)
     };
 
     //THEME
+
     double scale_x = (Owner()->Size().x-6.0) / 26.0;
     double scale_y = (Owner()->Size().y-6.0) / 26.0;
     //body
     __theme_sprite[0].setScale(scale_x, scale_y);
-    __theme_sprite[0].setPosition(coord + sf::Vector2f(3,3));
+    __theme_sprite[0].setPosition( sf::Vector2f(3,3));
     __theme_sprite[0].setTexture(__theme[0]);
     //angles
-    __theme_sprite[1].setPosition(coord);
+    //__theme_sprite[1].setPosition(coord);
     __theme_sprite[1].setTexture(__theme[1]);
 
-    __theme_sprite[2].setPosition(coord +  sf::Vector2f(Owner()->Size().x -3, 0));
+    __theme_sprite[2].setPosition( sf::Vector2f(Owner()->Size().x -3, 0));
     __theme_sprite[2].setTexture(__theme[2]);
 
-    __theme_sprite[3].setPosition(coord + Owner()->Size() + sf::Vector2f(-3, -3));
+    __theme_sprite[3].setPosition(Owner()->Size() + sf::Vector2f(-3, -3));
     __theme_sprite[3].setTexture(__theme[3]);
 
-    __theme_sprite[4].setPosition(coord + sf::Vector2f(0, Owner()->Size().y -3));
+    __theme_sprite[4].setPosition( sf::Vector2f(0, Owner()->Size().y -3));
     __theme_sprite[4].setTexture(__theme[4]);
 
     //sides
-    __theme_sprite[5].setPosition(coord + sf::Vector2f(3, 0));
+    __theme_sprite[5].setPosition(  sf::Vector2f(3, 0));
     __theme_sprite[5].setScale(scale_x, 1.0);
     __theme_sprite[5].setTexture(__theme[5]);
 
-    __theme_sprite[6].setPosition(coord + sf::Vector2f(Owner()->Size().x-3, 3));
+    __theme_sprite[6].setPosition(  sf::Vector2f(Owner()->Size().x-3, 3));
     __theme_sprite[6].setScale(1.0, scale_y);
     __theme_sprite[6].setTexture(__theme[6]);
 
-    __theme_sprite[7].setPosition(coord + sf::Vector2f(3, Owner()->Size().y-3));
+    __theme_sprite[7].setPosition(  sf::Vector2f(3, Owner()->Size().y-3));
     __theme_sprite[7].setScale(scale_x, 1.0);
     __theme_sprite[7].setTexture(__theme[7]);
 
-    __theme_sprite[8].setPosition(coord + sf::Vector2f(0, 3));
+    __theme_sprite[8].setPosition(  sf::Vector2f(0, 3));
     __theme_sprite[8].setScale(1.0, scale_y);
     __theme_sprite[8].setTexture(__theme[8]);
     }
@@ -116,19 +117,19 @@ void ButtonViewer::Render(sf::RenderTarget& target)
 //    target.draw(text);
 
     //theme draw
-    target.draw(__theme_sprite[0]);
+    target.draw(__theme_sprite[0], Owner()->RenderStates());
 
-    target.draw(__theme_sprite[1]);
-    target.draw(__theme_sprite[2]);
-    target.draw(__theme_sprite[3]);
-    target.draw(__theme_sprite[4]);
+    target.draw(__theme_sprite[1], Owner()->RenderStates());
+    target.draw(__theme_sprite[2], Owner()->RenderStates());
+    target.draw(__theme_sprite[3], Owner()->RenderStates());
+    target.draw(__theme_sprite[4], Owner()->RenderStates());
 
-    target.draw(__theme_sprite[5]);
-    target.draw(__theme_sprite[6]);
-    target.draw(__theme_sprite[7]);
-    target.draw(__theme_sprite[8]);
+    target.draw(__theme_sprite[5], Owner()->RenderStates());
+    target.draw(__theme_sprite[6], Owner()->RenderStates());
+    target.draw(__theme_sprite[7], Owner()->RenderStates());
+    target.draw(__theme_sprite[8], Owner()->RenderStates());
 
-    target.draw(text);
+    target.draw(text, Owner()->RenderStates());
 
 
 

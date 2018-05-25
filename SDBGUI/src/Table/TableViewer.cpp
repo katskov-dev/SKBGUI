@@ -17,7 +17,7 @@ void TableViewer::Render(sf::RenderTarget& target)
 	ComponentViewer::RenderBegin(target);
 	ComponentViewer::Render(target);
 
-
+    //Owner()->SetRenderStates(Owner()->RenderStates().transform.rotate(5));
 
 	ComponentViewer::RenderEnd(target);
 }

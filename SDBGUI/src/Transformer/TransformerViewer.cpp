@@ -28,7 +28,7 @@ void TransformerViewer::Render(sf::RenderTarget& target)
             __points[i].setRadius(r);
             __points[i].setOutlineColor(sf::Color(0xffffffff));
             __points[i].setOutlineThickness(1.0);
-            target.draw(__points[i]);
+            target.draw(__points[i], Owner()->RenderStates());
 
             sf::CircleShape& c = pTransformerModel(Owner())->c;
             c.setFillColor(sf::Color(0x000000ff));

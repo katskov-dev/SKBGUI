@@ -57,6 +57,8 @@ using namespace sf;
          std::string Class();
          pComponent Owner();
          void SetOwner(pComponent owner);
+         sf::RenderStates RenderStates();
+         void SetRenderStates(sf::RenderStates renderStates);
 
          bool requestViewerUpdate;
 
@@ -70,6 +72,7 @@ using namespace sf;
          string name;
          Vector2f __absoluteCoord;
          Vector2f __localCoord;//координаты левого верхнего угла
+         sf::RenderStates __renderStates;
          Vector2f __size;//высота и ширина
          pComponentModel __parent;//ссылка на предка
          vector<pComponent> __children;//массив ссылок на потомков
