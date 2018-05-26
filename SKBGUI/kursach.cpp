@@ -4,54 +4,54 @@
 #include <Timer/Timer.h>
 #include <Label/Label.h>
 #include <math.h>
+#include <fstream>
 
-pGUI gui;
-//pPicture redcap;
-const int speed = 32;
-const int DIR_TOP = 0;
-const int DIR_LEFT = 1;
-const int DIR_RIGHT = 2;
-const int DIR_DOWN = 3;
-const int DIR_STOP = 4;
-const int n=20;
-const int m=25;
-const int W      = m;         // ширина рабочего поля
-const int H      =  n;         // высота рабочего поля
+pGUI gui; // переменная окна из библиотеки sfml
+const int speed = 32; //константа скорости
+const int DIR_TOP = 0; //константа пермещения
+const int DIR_LEFT = 1; //константа пермещения
+const int DIR_RIGHT = 2; //константа пермещения
+const int DIR_DOWN = 3; //константа пермещения
+const int DIR_STOP = 4; //константа пермещения
+const int n=20; //высота игрового поля
+const int m=25; //ширина игрового поля
 const int WALL   = -1;         // непроходимая ячейка
 const int BLANK  = -2;         // свободная непомеченная ячейка
 
-struct Object
+struct Object // структура объекта игрового поля
 {
-    pPicture image;
-    bool solid;
-    int item;
-    pLabel text;
-    pPicture item_image;
-    int n1;
+    pPicture image; // картинка объекта
+    bool solid; // проходимость объекта
+    int item; // id предмета
+    pLabel text; // текстовое поле в котором отображается номер волны
+    pPicture item_image; // картинка предмета
+    int n1; // переменная для номера волны
 };
 
-struct Character
+struct Character // структура персонажа
 {
-    int i,j;
-    pPicture image;
+    int i,j; // координаты персонажа
+    pPicture image; // картинка персонажа
+    int scores; // очки персонажа (используются только у красной шапочки)
 };
 
-Object Map[n][m];
-int direction = DIR_STOP;
-int fixDirection = DIR_STOP;
-int cnt = 0;
-int cntMove = 0;
-int px[W * H], py[W * H];      // координаты ячеек, входящих в путь
+Object Map[n][m]; // матрица объектов игрового поля
+int direction = DIR_STOP; // вспомагательная переменная перемещения красной шапочки
+int fixDirection = DIR_STOP; // вспомагательная переменная перемещения красной шапочки
+int cnt = 0; //номер шага красной шапочки
+int cntMove = 0; // вспомагательная переменная перемещния волка
+int px[n * m], py[n * m];      // координаты ячеек, входящих в путь
 int len;                       // длина пути
-pTimer wolfMoveTimer = new Timer();
-pTimer animationTimer = new Timer();
-pTimer zoneStepTimer = new Timer();
-Character redcap;
-Character wolf;
+pTimer wolfMoveTimer = new Timer(); // процедура библиотеки sfml для обработки перемещения волка
+pTimer animationTimer = new Timer();// процедура библиотеки sfml для обработки шагов красной шапочки
+pTimer zoneStepTimer = new Timer();// процедура библиотеки sfml для обработки позонового перемещения красной шапочки
+pTimer WolfSpeedTimer = new Timer();// процедура библиотеки sfml для обработки ускорения волка
+Character redcap; // красная шапочка
+Character wolf; // волк
 
 bool gameover()
 {
-    if ((wolf.i == redcap.i)&&(wolf.j==redcap.j))
+    if ((redcap.scores==7)||(wolf.i == redcap.i)&&(wolf.j==redcap.j||(redcap.scores==7)))
     {
         pLabel deadscreen = new Label();
         deadscreen->Model()->SetLocalCoord(190,200);
@@ -65,8 +65,8 @@ bool gameover()
     }
     else
         return (false);
-}
 
+}
 
 void myKeyDown(pComponentModel model, int key)
 {
@@ -77,29 +77,72 @@ void myKeyDown(pComponentModel model, int key)
     if ((key == 3)&&(Map[redcap.i][redcap.j+1].solid!=true))  // right
     {
         direction = DIR_RIGHT;
+        if (Map[redcap.i][redcap.j+1].item==1)
+        {
+            Map[redcap.i][redcap.j+1].item=0;
+            redcap.scores++;
+            if (gameover())
+                return;
+            gui->Model()->Delete(Map[redcap.i][redcap.j+1].item_image);
+
+        }
     }
     if ((key == 22)&&(Map[redcap.i-1][redcap.j].solid!=true))  // top
     {
         direction = DIR_TOP;
+        if (Map[redcap.i-1][redcap.j].item==1)
+        {
+            Map[redcap.i-1][redcap.j].item=0;
+            redcap.scores++;
+            if (redcap.scores==10)
+            {
+                gameover();
+                return;
+            }
+            gui->Model()->Delete(Map[redcap.i-1][redcap.j].item_image);
+
+        }
     }
     if ((key == 0)&&(Map[redcap.i][redcap.j-1].solid!=true))  // left
     {
         direction = DIR_LEFT;
+        if (Map[redcap.i][redcap.j-1].item==1)
+        {
+            Map[redcap.i][redcap.j-1].item=0;
+            redcap.scores++;
+            if (redcap.scores==10)
+            {
+                gameover();
+                return;
+            }
+            gui->Model()->Delete(Map[redcap.i][redcap.j-1].item_image);
+        }
     }
     if ((key == 18)&&(Map[redcap.i+1][redcap.j].solid!=true))  // down
     {
         direction = DIR_DOWN;
+        if (Map[redcap.i+1][redcap.j].item==1)
+        {
+            Map[redcap.i+1][redcap.j].item=0;
+            redcap.scores++;
+            if (redcap.scores==10)
+            {
+                gameover();
+                return;
+            }
+            gui->Model()->Delete(Map[redcap.i+1][redcap.j].item_image);
+        }
     }
 
 
 };
 
-bool wave(int ax, int ay, int bx, int by)   // поиск пути из ячейки (ax, ay) в ячейку (bx, by)
+void wave(int ax, int ay, int bx, int by)   // поиск пути из ячейки (ax, ay) в ячейку (bx, by)
 {
     int dx[4] = {1, 0, -1, 0};   // смещения, соответствующие соседям ячейки
     int dy[4] = {0, 1, 0, -1};   // справа, снизу, слева и сверху
-    int d, x, y, k;
-    bool stop;
+    int d, x, y, k; // вспомагательные переменные для волнового алгоритма
+    bool stop; // флаг остановки волнового алгоритма
 
     for(int i=0; i<n; i++)
     {
@@ -107,43 +150,37 @@ bool wave(int ax, int ay, int bx, int by)   // поиск пути из ячейки (ax, ay) в я
         {
             Map[i][j].n1=BLANK;
             Map[i][j].text->Model()->SetCaption("");
-            if ((i == 0)||(j == 0)||(i == n-1)||(j == m-1))
+            if (Map[i][j].solid==true)
             {
                 Map[i][j].n1=WALL;
                 Map[i][j].text->Model()->SetCaption("");
             }
             Map[i][j].text->Model()->SetColor(sf::Color(0x000000ff));
-
         }
     }
-
     if (Map[ay][ax].n1 == WALL || Map[by][bx].n1 == WALL)
-        return false;  // ячейка (ax, ay) или (bx, by) - стена
+        return;  // ячейка (ay, ax) или (by, bx)- стена
 
-    // распространение волны
-    d = 0;
+    d = 0;                         // распространение волны
     Map[ay][ax].n1 = 0;            // стартовая ячейка помечена 0
     Map[ay][ax].text->Model()->SetCaption("");
     do
     {
         stop = true;               // предполагаем, что все свободные клетки уже помечены
-        for ( y = 0; y < H; y++ )
-            for ( x = 0; x < W; x++ )
-                if ( Map[y][x].n1 == d )                         // ячейка (x, y) помечена числом d
+        for ( y = 0; y < n; y++ )
+            for ( x = 0; x < m; x++ )
+                if ( Map[y][x].n1 == d )                         // ячейка помечена числом d
                 {
                     for ( k = 0; k < 4; k++ )                    // проходим по всем непомеченным соседям
                     {
                         int iy=y + dy[k], ix = x + dx[k];
-                        if ( iy >= 0 && iy < H && ix >= 0 && ix < W &&
-                                Map[iy][ix].n1 == BLANK )
+                        if ( iy >= 0 && iy < n && ix >= 0 && ix < m && Map[iy][ix].n1 == BLANK )
                         {
                             stop = false;              // найдены непомеченные клетки
                             Map[iy][ix].n1 = d + 1;   // распространяем волну
-                            double w1 = 1 / (len-1);
                             int clr = std::floor(255 * d / (float)len);
                             Map[iy][ix].text->Model()->SetColor(sf::Color(255-clr, clr, 255, 255));
                             Map[iy][ix].text->Model()->SetCaption(std::to_string(d + 1));
-                            //std::cout << d+1 << std::endl;
                         }
                     }
                 }
@@ -152,7 +189,7 @@ bool wave(int ax, int ay, int bx, int by)   // поиск пути из ячейки (ax, ay) в я
     while ( !stop && Map[by][bx].n1 == BLANK );
 
     if (Map[by][bx].n1 == BLANK)
-        return false;  // путь не найден
+        return;  // путь не найден
 
     // восстановление пути
     len = Map[by][bx].n1;// длина кратчайшего пути из (ax, ay) в (bx, by)
@@ -167,19 +204,17 @@ bool wave(int ax, int ay, int bx, int by)   // поиск пути из ячейки (ax, ay) в я
         for (k = 0; k < 4; k++)
         {
             int iy=y + dy[k], ix = x + dx[k];
-            if ( iy >= 0 && iy < H && ix >= 0 && ix < W &&
-                    Map[iy][ix].n1 == d)
+            if ( iy >= 0 && iy < n && ix >= 0 && ix < m && Map[iy][ix].n1 == d)
             {
                 x = x + dx[k];
                 y = y + dy[k];           // переходим в ячейку, которая на 1 ближе к старту
-                break;
             }
         }
     }
     px[0] = ax;
     py[0] = ay;
     cntMove=0;                // теперь px[0..len] и py[0..len] - координаты ячеек пути
-    return true;
+    return;
 }
 
 void ontimer()
@@ -190,27 +225,9 @@ void ontimer()
 
         return;
     }
-    //std::cout << direction << std::endl;
 
     sf::Vector2f coord = redcap.image->Model()->LocalCoord();
     fixDirection = direction;
-    //wave(wolf.i,wolf.j,redcap.i,redcap.j);
-//    if (fixDirection == DIR_RIGHT){ // right
-//        coord.x += speed;
-//        redcap->Model()->SetLocalCoord(coord);
-//    }
-//    if (fixDirection == DIR_TOP){ // top
-//        coord.y -= speed;
-//        redcap->Model()->SetLocalCoord(coord);
-//    }
-//    if (fixDirection == DIR_LEFT){ // left
-//        coord.x -= speed;
-//        redcap->Model()->SetLocalCoord(coord);
-//    }
-//    if (fixDirection == DIR_DOWN){ // down
-//        coord.y += speed;
-//        redcap->Model()->SetLocalCoord(coord);
-//    }
     direction = DIR_STOP;
 }
 
@@ -251,7 +268,7 @@ void timer2()
     }
     if (fixDirection != DIR_STOP)
     {
-        // std::cout << cnt << std::endl;
+
         cnt ++;
     }
 
@@ -294,28 +311,31 @@ void wolfMove()
     wolf.i=py[cntMove];
     if (gameover())
         return;
-    for(int i=0; i<20; i++)
-    {
-//        cout << px[i] << "\n";
-    }
     wolf.image->Model()->SetLocalCoord(wolf.j*32,wolf.i*32-32);
     cntMove++;
-    if (cntMove == len-1)
-    {
-        wave(wolf.j,wolf.i,redcap.j,redcap.i);
-        cntMove=0;
-    }
 }
 
+void WolfSpeed()
+{
+    wolfMoveTimer->Model()->SetInterval(wolfMoveTimer->Model()->Interval() - sf::seconds(wolfMoveTimer->Model()->Interval().asSeconds() / 4.0));
+}
 
 int main()
 {
-    gui = new GUI(800, 640, "Test");
+    gui = new GUI(800, 640, "Red cap");
     cnt = 0;
     direction = DIR_STOP;
     fixDirection = DIR_STOP;
+    ifstream fin;
+    int c;
 
-
+    fin.open("map.txt");
+    if(!fin)
+    {
+        cout << "\nCan not open filemap.txt\n";
+        system("PAUSE");
+        return 0;
+    }
 
     for(int i=0; i<n; i++)
     {
@@ -323,19 +343,33 @@ int main()
         {
             Map[i][j].image = new Picture();
             Map[i][j].text = new Label();
-            if ((i == 0)||(j == 0)||(i == n-1)||(j == m-1))
+            Map[i][j].item=0;
+            fin >> c;
+            if (c==1)
             {
                 Map[i][j].n1=WALL;
                 Map[i][j].solid=true;
                 Map[i][j].image->Model()->LoadFromFile("assets/images/grass.jpg");
-                Map[i][j].image->Model()->Texture()->generateMipmap();
             }
             else
             {
                 Map[i][j].n1=BLANK;
                 Map[i][j].image->Model()->LoadFromFile("assets/images/grass.png");
+                if (c==3)
+                {
+                    Map[i][j].item=1;
+                    Map[i][j].item_image = new Picture();
+                    Map[i][j].item_image->Model()->LoadFromFile("assets/images/collect.png");
+                    Map[i][j].item_image->Model()->SetSize(32,32);
+                    Map[i][j].item_image->Model()->SetLocalCoord(j*32,i*32);
+                    Map[i][j].item_image->Model()->Texture()->generateMipmap();
+
+
+                }
+
 
             }
+
             Map[i][j].image->Model()->Texture()->generateMipmap();
             Map[i][j].image->Model()->SetSize(32,32);
             Map[i][j].image->Model()->SetLocalCoord(j*32,i*32);
@@ -344,12 +378,20 @@ int main()
             Map[i][j].text->Model()->SetLocalCoord(j*32,i*32);
             Map[i][j].text->Model()->SetCaption("");
             Map[i][j].text->Model()->SetSize(20,20);
+            if (c==3)
+                gui->Model()->Add(Map[i][j].item_image);
             gui->Model()->Add(Map[i][j].text);
-
-            Map[i][j].item=0;
         }
     }
 
+    if (fin.eof())
+    {
+        cout <<"\nFile map.txt is empty\n";
+        system("PAUSE");
+        return 0;
+    }
+
+    fin.close();
     redcap.image = new Picture();
     redcap.image->Model()->LoadFromFile("assets/images/redcap.png");
     redcap.image->Model()->Texture()->generateMipmap();
@@ -362,11 +404,11 @@ int main()
     wolf.image = new Picture();
     wolf.image->Model()->LoadFromFile("assets/images/wolf.png");
     wolf.image->Model()->Texture()->generateMipmap();
-    wolf.i=10;
-    wolf.j=10;
+    wolf.i=18;
+    wolf.j=23;
     wolf.image->Model()->SetSize(32, 64);
     wolf.image->Model()->SetLocalCoord(32*wolf.j, 32*wolf.i-32);
-    len = 10;
+    len = 59;
     wave(wolf.j,wolf.i,redcap.j,redcap.i);
 
     gui->Controller()->SetKeyDown(myKeyDown);
@@ -380,11 +422,16 @@ int main()
     animationTimer->Model()->SetEnabled(true);
     gui->Model()->Add(animationTimer);
 
-    wolfMoveTimer->Model()->SetInterval(sf::seconds(0.5));
+    wolfMoveTimer->Model()->SetInterval(sf::seconds(1));
     wolfMoveTimer->Model()->SetOnTimer(wolfMove);
     wolfMoveTimer->Model()->SetEnabled(true);
     gui->Model()->Add(wolfMoveTimer);
     gui->Model()->Add(wolf.image);
+
+    WolfSpeedTimer->Model()->SetInterval(sf::seconds(100));
+    WolfSpeedTimer->Model()->SetOnTimer(WolfSpeed);
+    WolfSpeedTimer->Model()->SetEnabled(true);
+    gui->Model()->Add(WolfSpeedTimer);
 
     gui->loop();
     return 0;
