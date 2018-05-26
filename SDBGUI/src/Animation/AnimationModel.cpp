@@ -7,6 +7,7 @@ AnimationModel::AnimationModel(): ComponentModel()
     SetVisibleBorders(false);
     SetCurrentFrame(0);
     setInterval(sf::milliseconds(1000));
+
 }
 
 AnimationModel::~AnimationModel()

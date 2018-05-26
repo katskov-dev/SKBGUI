@@ -159,10 +159,6 @@
 		<Unit filename="include/Lua/lundump.h" />
 		<Unit filename="include/Lua/lvm.h" />
 		<Unit filename="include/Lua/lzio.h" />
-		<Unit filename="include/MyCircle/MyCircle.h" />
-		<Unit filename="include/MyCircle/MyCircleController.h" />
-		<Unit filename="include/MyCircle/MyCircleModel.h" />
-		<Unit filename="include/MyCircle/MyCircleViewer.h" />
 		<Unit filename="include/Neuron/Neuron.h" />
 		<Unit filename="include/Neuron/NeuronController.h" />
 		<Unit filename="include/Neuron/NeuronModel.h" />
@@ -380,10 +376,6 @@
 		<Unit filename="src/Label/LabelController.cpp" />
 		<Unit filename="src/Label/LabelModel.cpp" />
 		<Unit filename="src/Label/LabelViewer.cpp" />
-		<Unit filename="src/MyCircle/MyCircle.cpp" />
-		<Unit filename="src/MyCircle/MyCircleController.cpp" />
-		<Unit filename="src/MyCircle/MyCircleModel.cpp" />
-		<Unit filename="src/MyCircle/MyCircleViewer.cpp" />
 		<Unit filename="src/Neuron/Neuron.cpp" />
 		<Unit filename="src/Neuron/NeuronController.cpp" />
 		<Unit filename="src/Neuron/NeuronModel.cpp" />

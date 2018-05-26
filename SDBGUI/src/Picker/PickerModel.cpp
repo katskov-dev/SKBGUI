@@ -5,7 +5,7 @@ PickerModel::PickerModel(): ComponentModel()
     SetLocalCoord(0, 0);
     SetSize(150, 150);
     SetVisibleBorders(true);
-    SetTarget(nullptr);
+
 
 }
 
@@ -28,14 +28,4 @@ void PickerModel::LoadMaskFromFile(std::string filename)
 {
     __mask.loadFromFile(filename);
 
-}
-
-pComponent PickerModel::Target()
-{
-    return __target;
-}
-
-void PickerModel::SetTarget(pComponent target)
-{
-    __target = target;
 }

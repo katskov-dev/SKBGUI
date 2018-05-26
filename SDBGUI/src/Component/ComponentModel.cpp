@@ -9,6 +9,8 @@ ComponentModel::ComponentModel()
     __class = "Component";
     SetVisible(true);
     requestViewerUpdate = true;
+    SetViewLimit(true);
+    SetAngle(0.0);
 }
 
 string ComponentModel::Name()
@@ -405,6 +407,25 @@ void ComponentModel::SetRenderStates(sf::RenderStates renderStates)
     __renderStates = renderStates;
 }
 
+bool ComponentModel::ViewLimit()
+{
+    return __ViewLimit;
+}
+
+void ComponentModel::SetViewLimit(bool viewLimit)
+{
+    __ViewLimit = viewLimit;
+}
+
+double ComponentModel::Angle()
+{
+    return __angle;
+}
+
+void ComponentModel::SetAngle(double angle)
+{
+    __angle = angle;
+}
 
      void ComponentModel::SetClass(std::string _class)
      {

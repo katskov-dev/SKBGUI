@@ -7,6 +7,8 @@ LabelModel::LabelModel(): ComponentModel()
     SetLocalCoord(sf::Vector2f(0, 0));
     SetColor(sf::Color(0x000000ff));
     __class = "Label";
+    SetVisibleBorders(false);
+    SetViewLimit(false);
 }
 
 LabelModel::~LabelModel()

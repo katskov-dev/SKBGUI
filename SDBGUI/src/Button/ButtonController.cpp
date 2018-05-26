@@ -15,11 +15,14 @@ bool ButtonController::Handle(sf::Event event)
 {
     if (!Owner()->Enabled())
         return false;
+
     if (ComponentController::Handle(event))
         return true;
+    //std::cout << "ButtonController" << event.type<<std::endl;
     switch (event.type){
         //Обработка нажатия кнопки мыши
         case sf::Event::MouseButtonPressed:{
+            //std::cout << "ButtonController" << std::endl;
             int x = event.mouseButton.x;
             int y = event.mouseButton.y;
             sf::Vector2f pos = Owner()->AbsoluteCoord();

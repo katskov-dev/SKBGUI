@@ -18,7 +18,7 @@ bool AnimationController::Handle(sf::Event event)
         return true;
     switch (event.type){
         case sf::Event::MouseButtonPressed : {
-
+            return false;
             break;
         };
     };

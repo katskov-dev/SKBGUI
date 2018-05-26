@@ -84,7 +84,11 @@ bool ComponentController::Handle(sf::Event event)
                 if (Click() != nullptr){
                     Click()(Owner());
                 }
+                if (event.mouseButton.button == sf::Mouse::Right){
+                    Owner()->SetAngle(Owner()->Angle()+5.0);
+                }
             }
+
             break;
         }
         case sf::Event::MouseMoved:{

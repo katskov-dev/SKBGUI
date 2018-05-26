@@ -2,6 +2,7 @@
 #include <base.h>
 #include <Component/ComponentController.h>
 #include <SFML/Graphics.hpp>
+#include <Picture/PictureModel.h>
 
 class PictureController: public ComponentController
 {

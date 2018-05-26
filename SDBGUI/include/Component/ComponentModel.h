@@ -59,6 +59,10 @@ using namespace sf;
          void SetOwner(pComponent owner);
          sf::RenderStates RenderStates();
          void SetRenderStates(sf::RenderStates renderStates);
+         bool ViewLimit();
+         void SetViewLimit(bool viewLimit);
+         double Angle();
+         void SetAngle(double angle);
 
          bool requestViewerUpdate;
 
@@ -77,10 +81,12 @@ using namespace sf;
          pComponentModel __parent;//ссылка на предка
          vector<pComponent> __children;//массив ссылок на потомков
          //Renderer* __renderer;//как рисуетс€(уточнить еще раз)
+         double __angle;
          int __state;//состо€ние
          bool __focus;//работем с этим компонентом или нет
          bool __visibleBorders;
          bool __isVisible; // видимый компонент или нет
+         bool __ViewLimit;
          pComponent __owner;
          bool __enabled;
 

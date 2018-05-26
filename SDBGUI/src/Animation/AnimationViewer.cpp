@@ -21,7 +21,7 @@ void AnimationViewer::Render(sf::RenderTarget& target)
 
     sf::Sprite& sprite = Owner()->sprite;
     sf::Vector2f coord = Owner()->AbsoluteCoord();
-        sprite.setPosition(coord);
+    sprite.setPosition(coord);
     target.draw(sprite);
 
 
