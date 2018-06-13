@@ -18,7 +18,6 @@
 #include <ProgressBar/ProgressBar.h>
 
 
-
 pEdit edit;
 pLabel label;
 pPicture picture;
