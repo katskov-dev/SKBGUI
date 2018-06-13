@@ -5,6 +5,8 @@ ButtonModel::ButtonModel(): ComponentModel()
     SetCaption("Button");
     SetState(BUTTON_STATE_NORMAL);
     __class = "Button";
+    SetVisibleBorders(true);
+
 }
 
 ButtonModel::~ButtonModel()

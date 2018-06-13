@@ -11,11 +11,15 @@ class PictureModel: public ComponentModel
         virtual ~PictureModel();
         sf::Texture* Texture();
         void SetTexture(sf::Texture* texture);
-        void LoadFromFile(std::string filename);
+        sf::Texture* Mask();
+        void SetMask(sf::Texture* mask);
+        void LoadMaskFromFile(std::string filename);
+        void LoadFromFile(std::string filename, bool useSelectMask = false);
 
     protected:
 
     private:
         sf::Texture* __texture;
+        sf::Texture* __mask;
 
 };

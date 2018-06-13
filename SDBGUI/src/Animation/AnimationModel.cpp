@@ -7,6 +7,7 @@ AnimationModel::AnimationModel(): ComponentModel()
     SetVisibleBorders(false);
     SetCurrentFrame(0);
     setInterval(sf::milliseconds(1000));
+
 }
 
 AnimationModel::~AnimationModel()
@@ -42,6 +43,7 @@ AnimationModel::~AnimationModel()
     {
         __texture.loadFromFile(fileName);
         __texture.setSmooth(true);
+        __texture.generateMipmap();
         __tw = Texture().getSize().x / tilesCount().x;
         __th = Texture().getSize().y / tilesCount().y;
         __row = currentFrame() / tilesCount().x;
@@ -62,7 +64,7 @@ AnimationModel::~AnimationModel()
         rect.height = __y2;
         sprite.setTextureRect(rect);
         sf::Vector2f coord = AbsoluteCoord();
-        sprite.setPosition(coord);
+        sprite.setPosition(sf::Vector2f(0,0));
 
 
         double x = Size().x;

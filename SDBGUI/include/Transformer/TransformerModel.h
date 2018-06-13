@@ -3,6 +3,7 @@
 #include <Component/ComponentModel.h>
 #include <Component/Component.h>
 #include <SFML/Graphics.hpp>
+#include <Picture/Picture.h>
 
 
 const int TRANSFORMER_STATE_NORMAL = 0;
@@ -24,6 +25,7 @@ class TransformerModel: public ComponentModel
 
 
         sf::CircleShape c;
+        pPicture arrow_x;
     protected:
 
     public:

@@ -37,10 +37,12 @@ void my_button_handler(pComponentModel model, int x, int y, int button)
 
 void swap_chairs()
 {
-    sf::Vector2f coord_buffer = picture->Model()->LocalCoord();
-    picture->Model()->SetLocalCoord(picture1->Model()->LocalCoord());
-    picture1->Model()->SetLocalCoord(coord_buffer);
+//    sf::Vector2f coord_buffer = picture->Model()->LocalCoord();
+//    picture->Model()->SetLocalCoord(picture1->Model()->LocalCoord());
+//    picture1->Model()->SetLocalCoord(coord_buffer);
     pb->Model()->SetCurrent(pb->Model()->Current()+5);
+    label->Model()->SetAngle(label->Model()->Angle()+5.0);
+    picture->Model()->SetAngle(picture->Model()->Angle()+5.0);
 }
 
 int main()
@@ -93,6 +95,7 @@ int main()
 
     label->Model()->SetLocalCoord(300, 100);
     label->Model()->SetSize(250, 40);
+    //label->Model()->SetVisibleBorders(true);
     gui->Model()->Add(label);
 
 
@@ -150,7 +153,7 @@ int main()
     //Создадим таймер
     pTimer timer = new Timer();
     //Установить интервал
-    timer->Model()->SetInterval(sf::milliseconds(500));
+    timer->Model()->SetInterval(sf::milliseconds(50));
     //Установить обработчик на таймер
     timer->Model()->SetOnTimer(swap_chairs);
     //Добавить таймер
@@ -175,8 +178,8 @@ int main()
     }
 
     pTransformer t = new Transformer();
-    t->Model()->SetTarget(checkboxs[0]);
-    checkboxs[0]->Model()->SetEnabled(false);
+    t->Model()->SetTarget(picture);
+
     gui->Model()->Add(t);
 
     pb = new ProgressBar();
@@ -192,6 +195,8 @@ int main()
     animation->Model()->SetLocalCoord(50, 345);
     animation->Model()->loadFromFile("assets/images/cat.png");
     animation->Model()->setInterval(sf::seconds(0.05));
+
+
 
 
 

@@ -20,16 +20,26 @@ void ComponentViewer::Render(sf::RenderTarget& target)
 {
     if (!Owner()->Visible())
         return;
-    __view = getView(target);
+    if (Owner()->ViewLimit())
+        __view = getView(target);
 
     if (Owner()->VisibleBorders()){
-        __border.setPosition(__owner->AbsoluteCoord()+ sf::Vector2f(1, 1));
+        sf::Vector2f szh= Owner()->Size();
+        szh.x /= 2.0;
+        szh.y /= 2.0;
+        __border.setPosition(sf::Vector2f(1-szh.x, 1-szh.y) );
         __border.setSize(__owner->Size() + sf::Vector2f(-2, -2));
         if (__owner->Focus())
             __border.setOutlineColor(sf::Color(0x00ff00ff));
         else
             __border.setOutlineColor(sf::Color(0xaaaaaaff));
-        target.draw(__border);
+
+        sf::RenderStates rs = Owner()->RenderStates();
+        //rs.transform.translate(-Owner()->AbsoluteCoord() - sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
+        rs.transform.translate(sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
+        rs.transform.rotate(Owner()->Angle());
+
+        target.draw(__border, rs);
 
     }
 }
@@ -52,10 +62,13 @@ void ComponentViewer::RenderBegin(sf::RenderTarget& target)
 //    __view.reset(sf::FloatRect(0, 0, 400, 600));
 //    __view.setViewport(sf::FloatRect(0.0, 0.0, 0.5, 1.0));
 //    target.setView(__view);
-    __oldView = target.getView();
     //target.setView(target.getDefaultView());
-    __view = getView(target);
-    target.setView(__view);
+    if (Owner()->ViewLimit())
+    {
+        __oldView = target.getView();
+        __view = getView(target);
+        target.setView(__view);
+    }
 }
 
 void ComponentViewer::RenderEnd(sf::RenderTarget& target)
@@ -73,7 +86,8 @@ void ComponentViewer::RenderEnd(sf::RenderTarget& target)
         Owner()->Children(i)->Viewer()->Render(target);
     }
     //target.setView(target.getDefaultView());
-    target.setView(__oldView);
+    if (Owner()->ViewLimit())
+        target.setView(__oldView);
 }
 
 sf::View ComponentViewer::getView(sf::RenderTarget& target)

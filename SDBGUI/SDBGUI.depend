@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1527045570 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
+1527958875 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
@@ -25,7 +25,7 @@
 	<SFML/Graphics.hpp>
 	<string>
 
-1527045570 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
+1527319402 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\component\component.h
 	<base.h>
@@ -33,7 +33,7 @@
 	<Component/ComponentViewer.h>
 	<Component/ComponentController.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\component\componentmodel.h
+1527250845 c:\repositories\skbgui\skbgui\sdbgui\include\component\componentmodel.h
 	<base.h>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -437,7 +437,7 @@
 	<Component/ComponentModel.h>
 	<iostream>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\component\componentcontroller.h
+1527502684 c:\repositories\skbgui\skbgui\sdbgui\include\component\componentcontroller.h
 	<SFML/Graphics.hpp>
 	<base.h>
 	<Component/ComponentModel.h>
@@ -481,14 +481,14 @@
 	<Component/ComponentController.h>
 	<Button/ButtonModel.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picture.h
+1527319108 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picture.h
 	<base.h>
 	<Component/Component.h>
 	<Picture/PictureModel.h>
 	<Picture/PictureViewer.h>
 	<Picture/PictureController.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picturemodel.h
+1527319310 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picturemodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -500,10 +500,11 @@
 	<Picture/PictureModel.h>
 	<SFML/Graphics.hpp>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picturecontroller.h
+1527319147 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picturecontroller.h
 	<base.h>
 	<Component/ComponentController.h>
 	<SFML/Graphics.hpp>
+	<Picture/PictureModel.h>
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\transformer\transformer.h
 	<base.h>
@@ -512,11 +513,12 @@
 	<Transformer/TransformerController.h>
 	<Component/Component.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\transformer\transformermodel.h
+1527358137 c:\repositories\skbgui\skbgui\sdbgui\include\transformer\transformermodel.h
 	<base.h>
 	<Component/ComponentModel.h>
 	<Component/Component.h>
 	<SFML/Graphics.hpp>
+	<Picture/Picture.h>
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\transformer\transformerviewer.h
 	<base.h>
@@ -728,13 +730,13 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animation.cpp
 	<Animation/Animation.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationcontroller.cpp
+1527251961 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationcontroller.cpp
 	"Animation/AnimationController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationmodel.cpp
+1527251486 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationmodel.cpp
 	"Animation/AnimationModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationviewer.cpp
+1527250194 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationviewer.cpp
 	"Animation/AnimationViewer.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\arrow\arrow.cpp
@@ -1337,16 +1339,16 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcolliderviewer.cpp
 	"BoxCollider/BoxColliderViewer.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\button.cpp
+1527045884 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\button.cpp
 	"Button/Button.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\buttoncontroller.cpp
+1527353100 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\buttoncontroller.cpp
 	"Button/ButtonController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\buttonmodel.cpp
+1527251807 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\buttonmodel.cpp
 	"Button/ButtonModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\buttonviewer.cpp
+1527047301 source:c:\repositories\skbgui\skbgui\sdbgui\src\button\buttonviewer.cpp
 	"Button/ButtonViewer.h"
 	<cmath>
 
@@ -1395,7 +1397,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidercontroller.cpp
 	"CircleCollider/CircleColliderController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
+1527504938 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
 	<CircleCollider/CircleColliderModel.h>
 	<Box2D/box2D.h>
 	<World/World.h>
@@ -1407,13 +1409,15 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\component.cpp
 	"Component/Component.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentcontroller.cpp
+1527502666 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentcontroller.cpp
 	"Component/ComponentController.h"
+	<SDBGUI_math.h>
+	<math.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentmodel.cpp
+1527321865 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentmodel.cpp
 	<Component/ComponentModel.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentviewer.cpp
+1527252525 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentviewer.cpp
 	"Component/ComponentViewer.h"
 	<cmath>
 	<stdlib.h>
@@ -1429,7 +1433,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editmodel.cpp
 	"Edit/EditModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editviewer.cpp
+1527047608 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editviewer.cpp
 	"Edit/EditViewer.h"
 	<iostream>
 	<cmath>
@@ -1478,7 +1482,7 @@
 	<stdio.h>
 	"lua.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
+1527321768 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
 	<GUI/GUI.h>
 	<string>
 	<Label/Label.h>
@@ -1498,10 +1502,10 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelcontroller.cpp
 	"Label/LabelController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelmodel.cpp
+1527322118 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelmodel.cpp
 	"Label/LabelModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelviewer.cpp
+1527321872 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelviewer.cpp
 	"Label/LabelViewer.h"
 
 1523113771 source:c:\repositories\skbgui\skbgui\sdbgui\src\luainterpreter.cpp
@@ -1596,13 +1600,14 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picture.cpp
 	<Picture/Picture.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picturecontroller.cpp
+1527319186 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picturecontroller.cpp
 	"Picture/PictureController.h"
+	<math.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picturemodel.cpp
+1527503643 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picturemodel.cpp
 	"Picture/PictureModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\pictureviewer.cpp
+1528876464 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\pictureviewer.cpp
 	"Picture/PictureViewer.h"
 	<iostream>
 	<cmath>
@@ -1665,7 +1670,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\table\tablemodel.cpp
 	"Table/TableModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\table\tableviewer.cpp
+1527047331 source:c:\repositories\skbgui\skbgui\sdbgui\src\table\tableviewer.cpp
 	"Table/TableViewer.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\timer\timer.cpp
@@ -1683,13 +1688,13 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformer.cpp
 	"Transformer/Transformer.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformercontroller.cpp
+1528876427 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformercontroller.cpp
 	"Transformer/TransformerController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformermodel.cpp
+1527358594 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformermodel.cpp
 	"Transformer/TransformerModel.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformerviewer.cpp
+1527358446 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformerviewer.cpp
 	"Transformer/TransformerViewer.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\world.cpp
@@ -1698,7 +1703,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
 	"World/WorldController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldmodel.cpp
+1527504732 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldmodel.cpp
 	"World/WorldModel.h"
 	<Box2D/box2D.h>
 	<iostream>
@@ -1706,4 +1711,68 @@
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldviewer.cpp
 	"World/WorldViewer.h"
+
+1527238565 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\picker.cpp
+	<Picker/Picker.h>
+
+1527238565 c:\repositories\skbgui\skbgui\sdbgui\include\picker\picker.h
+	<base.h>
+	<Component/Component.h>
+	<Picker/PickerModel.h>
+	<Picker/PickerViewer.h>
+	<Picker/PickerController.h>
+
+1527247894 c:\repositories\skbgui\skbgui\sdbgui\include\picker\pickermodel.h
+	<base.h>
+	<string>
+	<Component/ComponentModel.h>
+
+1527239558 c:\repositories\skbgui\skbgui\sdbgui\include\picker\pickerviewer.h
+	<base.h>
+	<Component/ComponentViewer.h>
+	<Picker/PickerModel.h>
+	<SFML/Graphics.hpp>
+
+1527238565 c:\repositories\skbgui\skbgui\sdbgui\include\picker\pickercontroller.h
+	<base.h>
+	<Component/ComponentController.h>
+	<Picker/PickerModel.h>
+	<SFML/Graphics.hpp>
+
+1527243160 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\pickercontroller.cpp
+	"Picker/PickerController.h"
+	<math.h>
+
+1527251710 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\pickermodel.cpp
+	"Picker/PickerModel.h"
+
+1527251616 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\pickerviewer.cpp
+	"Picker/PickerViewer.h"
+
+1527502229 source:c:\repositories\skbgui\skbgui\sdbgui\src\sdbgui_math.cpp
+	<SDBGUI_math.h>
+	<math.h>
+
+1527501689 c:\repositories\skbgui\skbgui\sdbgui\include\sdbgui_math.h
+	<SFML/Graphics.hpp>
+
+1527504845 source:c:\repositories\skbgui\skbgui\sdbgui\physics.cpp
+	<GUI/GUI.h>
+	<Button/Button.h>
+	<Picture/Picture.h>
+	<Transformer/Transformer.h>
+	<SFML/System.hpp>
+	<Edit/Edit.h>
+	<Label/Label.h>
+	<string>
+	<iostream>
+	<Panel/Panel.h>
+	<Table/Table.h>
+	<Timer/Timer.h>
+	<Animation/Animation.h>
+	<CheckBox/CheckBox.h>
+	<ProgressBar/ProgressBar.h>
+	<CircleCollider/CircleCollider.h>
+	<Scene/Scene.h>
+	<World/World.h>
 

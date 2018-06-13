@@ -32,12 +32,13 @@ bool TransformerController::Handle(sf::Event event)
                 }
                 for (int i = 0; i < 8; i++){
                     double r = pTransformerModel(Owner())->Radius();
-                    sf::Vector2f p = pTransformerModel(Owner())->__points[i];
+                    sf::Vector2f p = pTransformerModel(Owner())->__points[i] + Owner()->AbsoluteCoord();
                     double distance = sqrt((pow(x - p.x, 2) + pow(y - p.y, 2)));
                     if (distance <= r){
                         Owner()->SetState(TRANSFORMER_STATE_DOWN);
                         pTransformerModel(Owner())->activePoint = i;
                         __oldMouseCoord = sf::Vector2f(x, y);
+                        std::cout << "kek" << std::endl;
                         return true;
                     }
 
@@ -120,17 +121,17 @@ bool TransformerController::Handle(sf::Event event)
 
                     }
 
-                    pTransformerModel(Owner())->Target()->Model()->SetLocalCoord(newCoord);
+                    pTransformerModel(Owner())->Target()->Model()->SetAbsoluteCoord(newCoord);
                     pTransformerModel(Owner())->Target()->Model()->SetSize(newSize);
                     __oldMouseCoord = __oldMouseCoord + offset;
 
                     double r = pTransformerModel(Owner())->Radius();
                     if (pTransformerModel(Owner())->Target()->Model()->Size().x < r * 5){
-                        pTransformerModel(Owner())->Target()->Model()->SetLocalCoord(oldCoord);
+                        pTransformerModel(Owner())->Target()->Model()->SetAbsoluteCoord(oldCoord);
                         pTransformerModel(Owner())->Target()->Model()->SetSize(oldSize);
                     }
                     if (pTransformerModel(Owner())->Target()->Model()->Size().y < r * 5){
-                        pTransformerModel(Owner())->Target()->Model()->SetLocalCoord(oldCoord);
+                        pTransformerModel(Owner())->Target()->Model()->SetAbsoluteCoord(oldCoord);
                         pTransformerModel(Owner())->Target()->Model()->SetSize(oldSize);
                     }
                     return true;

@@ -20,10 +20,12 @@ LabelViewer::~LabelViewer()
 
     __text.setCharacterSize(Owner()->Size().y * 0.75);
     __text.setString((pLabelModel(Owner()))->Caption());
-    __text.setPosition(Owner()->AbsoluteCoord()+sf::Vector2f(0, Owner()->Size().y * 0.125));
+    __text.setPosition(sf::Vector2f(0, Owner()->Size().y * 0.125) - sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
     __text.setColor(pLabelModel(Owner())->Color());
-
-    target.draw(__text);
+    sf::RenderStates rs = Owner()->RenderStates();
+    rs.transform.translate(sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
+    rs.transform.rotate(Owner()->Angle());
+    target.draw(__text, rs);
 
     ComponentViewer::RenderEnd(target);
  }

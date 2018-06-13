@@ -22,6 +22,7 @@ class ComponentController
         virtual void Update(sf::Time time);
         virtual void RunIdle();
 
+
         //setters
         void SetMouseDown(MouseButtonCallback func);
         void SetMouseUp(MouseButtonCallback func);

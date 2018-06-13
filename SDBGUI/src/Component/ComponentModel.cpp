@@ -9,6 +9,8 @@ ComponentModel::ComponentModel()
     __class = "Component";
     SetVisible(true);
     requestViewerUpdate = true;
+    SetViewLimit(true);
+    SetAngle(0.0);
 }
 
 string ComponentModel::Name()
@@ -34,6 +36,7 @@ string ComponentModel::Name()
          __localCoord.x=x;
          __localCoord.y=y;
          requestViewerUpdate = true;
+         __renderStates.transform = sf::Transform().translate(AbsoluteCoord());
       }
 
       Vector2f ComponentModel::Size()//получаем размеры
@@ -61,6 +64,7 @@ string ComponentModel::Name()
        __localCoord.x=ComCoord.x;
        __localCoord.y=ComCoord.y;
        requestViewerUpdate = true;
+       __renderStates.transform = sf::Transform().translate(AbsoluteCoord());
     }
 
 
@@ -246,6 +250,7 @@ string ComponentModel::Name()
            else
             __localCoord = Abs;
             requestViewerUpdate = true;
+            __renderStates.transform = sf::Transform().translate(AbsoluteCoord());
      }
 
      void ComponentModel::SetEnabled(bool enabled)
@@ -390,6 +395,36 @@ pComponent ComponentModel::Owner()
 void ComponentModel::SetOwner(pComponent owner)
 {
     __owner = owner;
+}
+
+sf::RenderStates ComponentModel::RenderStates()
+{
+    return __renderStates;
+}
+
+void ComponentModel::SetRenderStates(sf::RenderStates renderStates)
+{
+    __renderStates = renderStates;
+}
+
+bool ComponentModel::ViewLimit()
+{
+    return __ViewLimit;
+}
+
+void ComponentModel::SetViewLimit(bool viewLimit)
+{
+    __ViewLimit = viewLimit;
+}
+
+double ComponentModel::Angle()
+{
+    return __angle;
+}
+
+void ComponentModel::SetAngle(double angle)
+{
+    __angle = angle;
 }
 
      void ComponentModel::SetClass(std::string _class)

@@ -1,5 +1,6 @@
 #include "Component/ComponentController.h"
-
+#include <SDBGUI_math.h>
+#include <math.h>
 ComponentController::ComponentController(pComponentModel owner)
 {
     SetOwner(owner);
@@ -33,7 +34,7 @@ pComponentModel ComponentController::Owner()
 
 bool ComponentController::Handle(sf::Event event)
 {
-
+   // UpdateEvent(event);
     if (! Owner()->Enabled())
         return false;
 
@@ -50,6 +51,13 @@ bool ComponentController::Handle(sf::Event event)
         case sf::Event::MouseButtonPressed:{
             int x = event.mouseButton.x;
             int y = event.mouseButton.y;
+//            sf::Vector2f mc = sf::Vector2f(x,y);
+//            sf::Vector2f szh = Owner()->Size();
+//            szh.x /= 2.0;
+//            szh.y /= 2.0;
+//            RotatePointOf(mc, Owner()->AbsoluteCoord()+szh, Owner()->Angle());
+//            x = std::floor(mc.x);
+//            y = std::floor(mc.y);
             sf::Vector2f pos = Owner()->AbsoluteCoord();
             sf::Vector2f size = Owner()->Size();
             if ((x > pos.x) && (x < pos.x + size.x) && (y > pos.y) && (y < pos.y + size.y)){
@@ -84,7 +92,11 @@ bool ComponentController::Handle(sf::Event event)
                 if (Click() != nullptr){
                     Click()(Owner());
                 }
+                if (event.mouseButton.button == sf::Mouse::Right){
+                    Owner()->SetAngle(Owner()->Angle()+5.0);
+                }
             }
+
             break;
         }
         case sf::Event::MouseMoved:{
@@ -146,6 +158,7 @@ void ComponentController::RunIdle()
         Owner()->Children(i)->Controller()->RunIdle();
     }
 }
+
 
 void ComponentController::SetMouseDown(MouseButtonCallback func)
 {

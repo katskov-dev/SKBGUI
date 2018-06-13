@@ -47,7 +47,6 @@
 			<Add library="lua" />
 			<Add directory="lib" />
 		</Linker>
-		<Unit filename="example.cpp" />
 		<Unit filename="include/Animation/Animation.h" />
 		<Unit filename="include/Animation/AnimationController.h" />
 		<Unit filename="include/Animation/AnimationModel.h" />
@@ -159,10 +158,6 @@
 		<Unit filename="include/Lua/lundump.h" />
 		<Unit filename="include/Lua/lvm.h" />
 		<Unit filename="include/Lua/lzio.h" />
-		<Unit filename="include/MyCircle/MyCircle.h" />
-		<Unit filename="include/MyCircle/MyCircleController.h" />
-		<Unit filename="include/MyCircle/MyCircleModel.h" />
-		<Unit filename="include/MyCircle/MyCircleViewer.h" />
 		<Unit filename="include/Neuron/Neuron.h" />
 		<Unit filename="include/Neuron/NeuronController.h" />
 		<Unit filename="include/Neuron/NeuronModel.h" />
@@ -179,6 +174,7 @@
 		<Unit filename="include/ProgressBar/ProgressBarController.h" />
 		<Unit filename="include/ProgressBar/ProgressBarModel.h" />
 		<Unit filename="include/ProgressBar/ProgressBarViewer.h" />
+		<Unit filename="include/SDBGUI_math.h" />
 		<Unit filename="include/SFML/Audio.hpp" />
 		<Unit filename="include/SFML/Audio/AlResource.hpp" />
 		<Unit filename="include/SFML/Audio/Export.hpp" />
@@ -294,6 +290,7 @@
 		<Unit filename="include/World/WorldModel.h" />
 		<Unit filename="include/World/WorldViewer.h" />
 		<Unit filename="include/base.h" />
+		<Unit filename="physics.cpp" />
 		<Unit filename="src/Animation/Animation.cpp" />
 		<Unit filename="src/Animation/AnimationController.cpp" />
 		<Unit filename="src/Animation/AnimationModel.cpp" />
@@ -380,10 +377,6 @@
 		<Unit filename="src/Label/LabelController.cpp" />
 		<Unit filename="src/Label/LabelModel.cpp" />
 		<Unit filename="src/Label/LabelViewer.cpp" />
-		<Unit filename="src/MyCircle/MyCircle.cpp" />
-		<Unit filename="src/MyCircle/MyCircleController.cpp" />
-		<Unit filename="src/MyCircle/MyCircleModel.cpp" />
-		<Unit filename="src/MyCircle/MyCircleViewer.cpp" />
 		<Unit filename="src/Neuron/Neuron.cpp" />
 		<Unit filename="src/Neuron/NeuronController.cpp" />
 		<Unit filename="src/Neuron/NeuronModel.cpp" />
@@ -400,6 +393,7 @@
 		<Unit filename="src/ProgressBar/ProgressBarController.cpp" />
 		<Unit filename="src/ProgressBar/ProgressBarModel.cpp" />
 		<Unit filename="src/ProgressBar/ProgressBarViewer.cpp" />
+		<Unit filename="src/SDBGUI_math.cpp" />
 		<Unit filename="src/Scene/Scene.cpp" />
 		<Unit filename="src/Scene/SceneController.cpp" />
 		<Unit filename="src/Scene/SceneModel.cpp" />
