@@ -121,17 +121,17 @@ bool TransformerController::Handle(sf::Event event)
 
                     }
 
-                    pTransformerModel(Owner())->Target()->Model()->SetLocalCoord(newCoord);
+                    pTransformerModel(Owner())->Target()->Model()->SetAbsoluteCoord(newCoord);
                     pTransformerModel(Owner())->Target()->Model()->SetSize(newSize);
                     __oldMouseCoord = __oldMouseCoord + offset;
 
                     double r = pTransformerModel(Owner())->Radius();
                     if (pTransformerModel(Owner())->Target()->Model()->Size().x < r * 5){
-                        pTransformerModel(Owner())->Target()->Model()->SetLocalCoord(oldCoord);
+                        pTransformerModel(Owner())->Target()->Model()->SetAbsoluteCoord(oldCoord);
                         pTransformerModel(Owner())->Target()->Model()->SetSize(oldSize);
                     }
                     if (pTransformerModel(Owner())->Target()->Model()->Size().y < r * 5){
-                        pTransformerModel(Owner())->Target()->Model()->SetLocalCoord(oldCoord);
+                        pTransformerModel(Owner())->Target()->Model()->SetAbsoluteCoord(oldCoord);
                         pTransformerModel(Owner())->Target()->Model()->SetSize(oldSize);
                     }
                     return true;

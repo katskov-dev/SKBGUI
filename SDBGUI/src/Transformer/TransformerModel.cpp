@@ -9,6 +9,13 @@ TransformerModel::TransformerModel()
     activePoint = -1;
     SetState(TRANSFORMER_STATE_NORMAL);
     SetVisibleBorders(true);
+    SetViewLimit(false);
+
+    arrow_x = new Picture();
+    arrow_x->Model()->LoadFromFile("assets/images/arrows/arrow-x.png");
+    arrow_x->Model()->SetLocalCoord(0,0);
+    arrow_x->Model()->Hide();
+    Add(arrow_x);
 }
 
 TransformerModel::~TransformerModel()
@@ -33,6 +40,11 @@ void TransformerModel::UpdatePoints()
 {
     SetAbsoluteCoord(Target()->Model()->AbsoluteCoord());
     SetSize(Target()->Model()->Size());
+    sf::Vector2f half_size = Size();
+    half_size.x /= 2.0;
+    half_size.y /= 2.0;
+    arrow_x->Model()->SetLocalCoord(half_size);
+
 
     pComponentModel c = Target()->Model();
     sf::Vector2f coord[9];

@@ -15,6 +15,7 @@ CircleColliderModel::CircleColliderModel(pWorld world, double radius, std::strin
     SetSize(2*R(), 2*R());
     SetLocalCoord(0, 0);
     SetAngle(0);
+    SetVisibleBorders(true);
     std::cout << Body()->GetPosition().x << " " << Body()->GetPosition().y << std::endl;
 }
 

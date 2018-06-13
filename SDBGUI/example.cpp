@@ -42,6 +42,7 @@ void swap_chairs()
 //    picture1->Model()->SetLocalCoord(coord_buffer);
     pb->Model()->SetCurrent(pb->Model()->Current()+5);
     label->Model()->SetAngle(label->Model()->Angle()+5.0);
+    picture->Model()->SetAngle(picture->Model()->Angle()+5.0);
 }
 
 int main()
@@ -177,7 +178,7 @@ int main()
     }
 
     pTransformer t = new Transformer();
-    t->Model()->SetTarget(panel);
+    t->Model()->SetTarget(picture);
 
     gui->Model()->Add(t);
 

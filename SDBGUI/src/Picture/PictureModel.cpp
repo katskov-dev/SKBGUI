@@ -8,6 +8,7 @@ PictureModel::PictureModel(): ComponentModel()
 	__texture = nullptr;
 	__class = "Picture";
 	SetVisibleBorders(false);
+	SetViewLimit(false);
 	SetMask(nullptr);
 }
 

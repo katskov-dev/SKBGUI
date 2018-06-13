@@ -12,9 +12,11 @@ TransformerViewer::~TransformerViewer()
 
 void TransformerViewer::Render(sf::RenderTarget& target)
 {
+
     if (!Owner()->Visible())
         return;
     if (pTransformerModel(Owner())->Target() != nullptr){
+        ComponentViewer::RenderBegin(target);
         ComponentViewer::Render(target);
         pTransformerModel(Owner())->UpdatePoints();
         double r = pTransformerModel(Owner())->Radius();
@@ -36,5 +38,6 @@ void TransformerViewer::Render(sf::RenderTarget& target)
             //target.draw(c);
 
         }
+        ComponentViewer::RenderEnd(target);
     }
 }
