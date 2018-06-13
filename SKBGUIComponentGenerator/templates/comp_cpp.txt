@@ -1,0 +1,45 @@
+#include <$(COMP_NAME)/$(COMP_NAME).h>
+
+
+$(COMP_NAME)::$(COMP_NAME)()
+{
+    SetModel(new $(COMP_NAME)Model());
+    SetViewer(new $(COMP_NAME)Viewer(Model()));
+    SetController(new $(COMP_NAME)Controller(Model()));
+}
+
+$(COMP_NAME)::~$(COMP_NAME)()
+{
+
+}
+
+p$(COMP_NAME)Model $(COMP_NAME)::Model()
+{
+    return p$(COMP_NAME)Model(__model);
+}
+
+void $(COMP_NAME)::SetModel(p$(COMP_NAME)Model model)
+{
+    __model = model;
+}
+
+p$(COMP_NAME)Viewer $(COMP_NAME)::Viewer()
+{
+    return p$(COMP_NAME)Viewer(__viewer);
+}
+
+void $(COMP_NAME)::SetViewer(p$(COMP_NAME)Viewer viewer)
+{
+    __viewer = viewer;
+}
+
+p$(COMP_NAME)Controller $(COMP_NAME)::Controller()
+{
+    return p$(COMP_NAME)Controller(__controller);
+}
+
+void $(COMP_NAME)::SetController(p$(COMP_NAME)Controller controller)
+{
+    __controller = controller;
+}
+

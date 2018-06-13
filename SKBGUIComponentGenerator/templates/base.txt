@@ -1,0 +1,14 @@
+
+//--------------------> $(COMP_NAME) <--------------------
+
+class $(COMP_NAME);
+typedef $(COMP_NAME)* p$(COMP_NAME);
+
+class $(COMP_NAME)Model;
+typedef $(COMP_NAME)Model* p$(COMP_NAME)Model;
+
+class $(COMP_NAME)Viewer;
+typedef $(COMP_NAME)Viewer* p$(COMP_NAME)Viewer;
+
+class $(COMP_NAME)Controller;
+typedef $(COMP_NAME)Controller* p$(COMP_NAME)Controller;

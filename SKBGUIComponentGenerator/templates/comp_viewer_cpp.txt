@@ -1,0 +1,31 @@
+#include "$(COMP_NAME)/$(COMP_NAME)Viewer.h"
+
+$(COMP_NAME)Viewer::$(COMP_NAME)Viewer(p$(COMP_NAME)Model model): ComponentViewer(pComponentModel(model))
+{
+
+}
+
+$(COMP_NAME)Viewer::~$(COMP_NAME)Viewer()
+{
+    //dtor
+}
+
+void $(COMP_NAME)Viewer::Render(sf::RenderTarget& target)
+{
+	ComponentViewer::RenderBegin(target);
+	ComponentViewer::Render(target);
+
+
+
+	ComponentViewer::RenderEnd(target);
+}
+
+p$(COMP_NAME)Model $(COMP_NAME)Viewer::Owner()
+{
+    return p$(COMP_NAME)Model(ComponentViewer::Owner());
+}
+
+void $(COMP_NAME)Viewer::SetOwner(p$(COMP_NAME)Model owner)
+{
+    ComponentViewer::SetOwner(owner);
+}

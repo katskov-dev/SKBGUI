@@ -1,0 +1,21 @@
+#pragma once
+#include <base.h>
+#include <string>
+#include <Component/ComponentModel.h>
+
+
+class $(COMP_NAME)Model: public ComponentModel
+{
+    public:
+        $(COMP_NAME)Model();
+        virtual ~$(COMP_NAME)Model();
+
+    protected:
+
+    private:
+	
+	friend $(COMP_NAME);
+	friend $(COMP_NAME)Viewer;
+	friend $(COMP_NAME)Controller;
+
+};

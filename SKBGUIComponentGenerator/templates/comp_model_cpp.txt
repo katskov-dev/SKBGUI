@@ -1,0 +1,14 @@
+#include "$(COMP_NAME)/$(COMP_NAME)Model.h"
+
+$(COMP_NAME)Model::$(COMP_NAME)Model(): ComponentModel()
+{
+    SetLocalCoord(0, 0);
+    SetSize(150, 25);
+    SetVisibleBorders(true);	
+	
+}
+
+$(COMP_NAME)Model::~$(COMP_NAME)Model()
+{
+    //dtor
+}

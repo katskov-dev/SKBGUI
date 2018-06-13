@@ -1,0 +1,20 @@
+#pragma once
+#include <base.h>
+#include <Component/ComponentController.h>
+#include <$(COMP_NAME)/$(COMP_NAME)Model.h>
+#include <SFML/Graphics.hpp>
+
+class $(COMP_NAME)Controller: public ComponentController
+{
+    public:
+        $(COMP_NAME)Controller(p$(COMP_NAME)Model model);
+        virtual ~$(COMP_NAME)Controller();
+        virtual bool Handle(sf::Event event);
+		virtual void Update(sf::Time time);
+		virtual p$(COMP_NAME)Model Owner();
+        virtual void SetOwner(p$(COMP_NAME)Model owner);
+
+    protected:
+
+    private:
+};

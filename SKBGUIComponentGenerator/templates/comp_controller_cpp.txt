@@ -1,0 +1,73 @@
+#include "$(COMP_NAME)/$(COMP_NAME)Controller.h"
+
+$(COMP_NAME)Controller::$(COMP_NAME)Controller(p$(COMP_NAME)Model model): ComponentController(pComponentModel(model))
+{
+    //ctor
+}
+
+$(COMP_NAME)Controller::~$(COMP_NAME)Controller()
+{
+    //dtor
+}
+
+bool $(COMP_NAME)Controller::Handle(sf::Event event)
+{
+    if (ComponentController::Handle(event))
+        return true;
+    if (Owner()->Focus()){
+        switch (event.type){
+            case sf::Event::MouseButtonPressed : {
+
+                return true;
+                break;
+            };
+            case sf::Event::MouseButtonReleased : {
+
+                return true;
+                break;
+            };
+            case sf::Event::KeyPressed : {
+
+                return true;
+                break;
+            };
+            case sf::Event::KeyReleased : {
+
+                return true;
+                break;
+            };
+            case sf::Event::TextEntered : {
+
+                return true;
+                break;
+            };
+            case sf::Event::MouseMoved : {
+
+                return true;
+                break;
+            };
+            case sf::Event::MouseWheelScrolled : {
+
+                return true;
+                break;
+            };
+        };
+    }
+	return false;
+}
+
+void $(COMP_NAME)Controller::Update(sf::Time time)
+{
+    ComponentController::Update(time);
+ 
+}
+
+p$(COMP_NAME)Model $(COMP_NAME)Controller::Owner()
+{
+    return p$(COMP_NAME)Model(ComponentController::Owner());
+}
+
+void $(COMP_NAME)Controller::SetOwner(p$(COMP_NAME)Model owner)
+{
+    ComponentController::SetOwner(owner);
+}

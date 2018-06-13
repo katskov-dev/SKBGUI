@@ -1,0 +1,22 @@
+#pragma once
+
+#include <base.h>
+#include <Component/Component.h>
+#include <$(COMP_NAME)/$(COMP_NAME)Model.h>
+#include <$(COMP_NAME)/$(COMP_NAME)Viewer.h>
+#include <$(COMP_NAME)/$(COMP_NAME)Controller.h>
+
+class $(COMP_NAME): public Component
+{
+    public:
+        $(COMP_NAME)();
+        ~$(COMP_NAME)();
+        virtual p$(COMP_NAME)Model Model();
+        virtual void SetModel(p$(COMP_NAME)Model model);
+        virtual p$(COMP_NAME)Viewer Viewer();
+        virtual void SetViewer(p$(COMP_NAME)Viewer viewer);
+        virtual p$(COMP_NAME)Controller Controller();
+        virtual void SetController(p$(COMP_NAME)Controller controller);
+    private:
+
+};

@@ -1,0 +1,243 @@
+object Form1: TForm1
+  Left = 196
+  Height = 508
+  Top = 110
+  Width = 604
+  Caption = 'Генератор шаблонов компонентов для SKBGUI'
+  ClientHeight = 488
+  ClientWidth = 604
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.8.0.6'
+  object GroupBox1: TGroupBox
+    Left = 3
+    Height = 104
+    Top = 0
+    Width = 296
+    Caption = 'Информация о компоненте'
+    ClientHeight = 84
+    ClientWidth = 292
+    TabOrder = 0
+    object LabeledEdit1: TLabeledEdit
+      Left = 8
+      Height = 23
+      Top = 16
+      Width = 282
+      EditLabel.AnchorSideLeft.Control = LabeledEdit1
+      EditLabel.AnchorSideRight.Control = LabeledEdit1
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEdit1
+      EditLabel.Left = 8
+      EditLabel.Height = 15
+      EditLabel.Top = -2
+      EditLabel.Width = 282
+      EditLabel.Caption = 'Название компонента (имя класса)'
+      EditLabel.ParentColor = False
+      TabOrder = 0
+      OnChange = LabeledEdit1Change
+    end
+    object Button1: TButton
+      Left = 8
+      Height = 26
+      Top = 48
+      Width = 282
+      Caption = 'Сгенерировать'
+      Enabled = False
+      OnClick = Button1Click
+      TabOrder = 1
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 304
+    Height = 484
+    Top = 0
+    Width = 296
+    Caption = 'Модель (Model)'
+    ClientHeight = 464
+    ClientWidth = 292
+    Enabled = False
+    TabOrder = 1
+    OnClick = GroupBox2Click
+    object CheckGroup1: TCheckGroup
+      Left = 8
+      Height = 368
+      Top = 0
+      Width = 280
+      AutoFill = True
+      Caption = 'Переопределяемые методы'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 348
+      ClientWidth = 276
+      Items.Strings = (
+        ' string Name();'
+        ' void SetName(string StName);'
+        ' Vector2f Coord();'
+        ' void SetCoord(double x,double y);'
+        ' void SetCoord(Vector2f ComCoord);'
+        ' Vector2f Size();'
+        ' void SetSize(double x,double y);'
+        ' void SetSize(Vector2f ComSize);'
+        ' void SetState(int state);'
+        ' int State();'
+        ' void SetFocus(bool focus);'
+        ' bool Focus();'
+        ' void SetParent(pComponentModel parrent);'
+        ' pComponentModel Parent();'
+        ' void Add(pComponentModel child);'
+        ' void Info();'
+        ' pComponentModel Find(string StName);'
+        ' void Delete(pComponentModel children);'
+        ' void Delete(string ChName);'
+        ' bool VisibleBorders();'
+        ' void SetVisibleBorders(bool visibleBorders);'
+      )
+      TabOrder = 0
+      Data = {
+        15000000020202020202020202020202020202020202020202
+      }
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 3
+    Height = 136
+    Top = 348
+    Width = 296
+    Caption = 'Рендерер (Viewer)'
+    ClientHeight = 116
+    ClientWidth = 292
+    TabOrder = 2
+    object CheckGroup2: TCheckGroup
+      Left = 8
+      Height = 113
+      Top = 0
+      Width = 282
+      AutoFill = True
+      Caption = 'Переопределяемые методы'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 93
+      ClientWidth = 278
+      Enabled = False
+      Items.Strings = (
+        'void RenderBegin(sf::RenderTarget& target);'
+        'void RenderEnd(sf::RenderTarget& target);'
+        'void Render(sf::RenderTarget& target);'
+        'pComponentModel Owner();'
+        'void SetOwner(pComponentModel owner);'
+      )
+      TabOrder = 0
+      Data = {
+        050000000202020202
+      }
+    end
+  end
+  object GroupBox4: TGroupBox
+    Left = 3
+    Height = 104
+    Top = 240
+    Width = 296
+    Caption = 'Контроллер (Controller)'
+    ClientHeight = 84
+    ClientWidth = 292
+    Enabled = False
+    TabOrder = 3
+    object CheckGroup3: TCheckGroup
+      Left = 8
+      Height = 81
+      Top = 0
+      Width = 282
+      AutoFill = True
+      Caption = 'Переопределяемые методы'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 61
+      ClientWidth = 278
+      Items.Strings = (
+        'void SetOwner(pComponentModel owner);'
+        'pComponentModel Owner();'
+        'void Handle(sf::Event event);'
+      )
+      TabOrder = 0
+      Data = {
+        03000000020202
+      }
+    end
+  end
+  object GroupBox5: TGroupBox
+    Left = 3
+    Height = 136
+    Top = 104
+    Width = 296
+    Caption = 'Основной класс'
+    ClientHeight = 116
+    ClientWidth = 292
+    Enabled = False
+    TabOrder = 4
+    object CheckGroup4: TCheckGroup
+      Left = 8
+      Height = 113
+      Top = 0
+      Width = 282
+      AutoFill = True
+      Caption = 'Переопределяемые методы'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 93
+      ClientWidth = 278
+      Items.Strings = (
+        'void SetModel(pComponentModel model);'
+        'pComponentViewer Viewer();'
+        'void SetViewer(pComponentViewer viewer);'
+        'pComponentController Controller();'
+        'void SetController(pComponentController controller);'
+      )
+      TabOrder = 0
+      Data = {
+        050000000202020202
+      }
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 256
+    top = 24
+    object MenuItem1: TMenuItem
+      Caption = 'Основное'
+      object MenuItem2: TMenuItem
+        Caption = 'Выход'
+        OnClick = MenuItem2Click
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'О программе'
+      OnClick = MenuItem3Click
+      object MenuItem4: TMenuItem
+        Caption = 'MenuItem4'
+      end
+    end
+  end
+end

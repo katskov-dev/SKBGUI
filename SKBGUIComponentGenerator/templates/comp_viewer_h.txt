@@ -1,0 +1,20 @@
+#pragma once
+#include <base.h>
+#include <Component/ComponentViewer.h>
+#include <$(COMP_NAME)/$(COMP_NAME)Model.h>
+#include <SFML/Graphics.hpp>
+
+class $(COMP_NAME)Viewer: public ComponentViewer
+{
+    public:
+        $(COMP_NAME)Viewer(p$(COMP_NAME)Model model);
+        virtual ~$(COMP_NAME)Viewer();
+        virtual void Render(sf::RenderTarget& target);
+		virtual p$(COMP_NAME)Model Owner();
+        virtual void SetOwner(p$(COMP_NAME)Model owner);
+    protected:
+
+    private:
+
+
+};
