@@ -59,6 +59,14 @@ bool sensorController::Handle(sf::Event event)
 void sensorController::Update(sf::Time time)
 {
     ComponentController::Update(time);
+    if (Owner()->isContact){
+        if (Owner()->OnContact() != nullptr){
+            CollisionHandler* ch = (CollisionHandler*)Owner()->__body->GetUserData();
+            ch->handler(ch->collider);
+            Owner()->isContact = false;
+        }
+
+    }
 
 
 }

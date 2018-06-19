@@ -12,6 +12,8 @@ WorldModel::WorldModel(): ComponentModel()
     cout << "it works";
     __world = new b2World(gravity);
 
+    GetWorld()->SetContactListener(&contactListener);
+
 }
 
 WorldModel::~WorldModel()

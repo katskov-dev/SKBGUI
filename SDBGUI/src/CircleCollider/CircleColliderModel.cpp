@@ -97,7 +97,7 @@ void CircleColliderModel::CreateBody()
     b2MassData mass;
     mass.center = b2Vec2(0,0);
     mass.I = 0.0;
-    mass.mass = 10000.0;
+    mass.mass = 1.0;
     __body->SetMassData(&mass);
 //    b2PolygonShape dynamicBox;
 //    dynamicBox.SetAsBox(Size().x / 2.0,Size().y / 2.0);

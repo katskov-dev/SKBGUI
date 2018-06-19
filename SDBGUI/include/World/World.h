@@ -20,3 +20,4 @@ class World: public Component
     private:
 
 };
+

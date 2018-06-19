@@ -3,6 +3,35 @@
 #include <string>
 #include <Component/ComponentModel.h>
 #include <Box2D/box2D.h>
+#include <sensor/sensorModel.h>
+
+class MyContactListener : public b2ContactListener
+  {
+
+    void BeginContact(b2Contact* contact) {
+
+    if ((contact->GetFixtureA()->IsSensor()||contact->GetFixtureB()->IsSensor()))
+        {
+            if (contact->GetFixtureA()->IsSensor()){
+                pCircleColliderModel col = pCircleColliderModel(contact->GetFixtureB()->GetUserData());
+
+                //cout << "Begin" << endl;
+                CollisionHandler* ch = (CollisionHandler*)contact->GetFixtureA()->GetBody()->GetUserData();
+                ch->Sensor->isContact = true;
+                ch->collider = col;
+            }
+        }
+    }
+
+    void EndContact(b2Contact* contact) {
+        if ((contact->GetFixtureA()->IsSensor()||contact->GetFixtureB()->IsSensor()))
+        {
+            //cout << "End" << endl;
+        }
+    }
+  };
+
+
 
 class WorldModel: public ComponentModel
 {
@@ -32,4 +61,5 @@ class WorldModel: public ComponentModel
         b2Body* groundBody;
         pEdit myQuantEdit;
         int Quant;
+        MyContactListener contactListener;
 };

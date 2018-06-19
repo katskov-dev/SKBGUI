@@ -9,7 +9,7 @@
 class sensor: public Component
 {
     public:
-        sensor(float x, float y, string type, float r);
+        sensor(b2World* world, float x, float y, string type, float r);
         ~sensor();
         virtual psensorModel Model();
         virtual void SetModel(psensorModel model);
@@ -17,6 +17,7 @@ class sensor: public Component
         virtual void SetViewer(psensorViewer viewer);
         virtual psensorController Controller();
         virtual void SetController(psensorController controller);
+
     private:
 
 };

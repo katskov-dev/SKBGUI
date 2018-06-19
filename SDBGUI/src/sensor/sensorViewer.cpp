@@ -18,7 +18,14 @@ void sensorViewer::Render(sf::RenderTarget& target)
     sf::Vector2f nc =  Owner()->Size();
     nc.x /= 2.0;
     nc.y /= 2.0;
-    shape.setPosition(-nc + Owner()->AbsoluteCoord());
+    shape.setPosition(Owner()->AbsoluteCoord());
+    shape.setFillColor(sf::Color(0xffffff88));
+
+    sf::RenderStates rs;
+    sf::Vector2f offset = sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0);
+    rs.transform.translate(Owner()->AbsoluteCoord()+ sf::Vector2f(1, 1));
+
+
     target.draw(shape);
 
 	//ComponentViewer::RenderEnd(target);

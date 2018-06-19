@@ -1,11 +1,12 @@
 #include <sensor/sensor.h>
 
 
-sensor::sensor(float x, float y, string type, float r)
+sensor::sensor(b2World* world, float x, float y, string type, float r)
 {
-    SetModel(new sensorModel(x,y,type, r));
+    SetModel(new sensorModel(world, x,y,type, r));
     SetViewer(new sensorViewer(Model()));
     SetController(new sensorController(Model()));
+
 }
 
 sensor::~sensor()

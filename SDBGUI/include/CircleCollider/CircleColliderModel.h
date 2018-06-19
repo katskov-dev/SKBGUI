@@ -12,7 +12,8 @@ class CircleColliderModel: public ComponentModel
         CircleColliderModel(pWorld world, double radius, std::string type);
         virtual ~CircleColliderModel();
         virtual void SetLocalCoord(double x,double y);
-         virtual void SetLocalCoord(Vector2f ComCoord);
+        virtual void SetLocalCoord(Vector2f ComCoord);
+        //virtual void SetAbsoluteCoord(Vector2f ComCoord);
         double R();
         double Angle();
         void SetR(double r);

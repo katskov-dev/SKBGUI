@@ -13,6 +13,7 @@
 #include <Timer/Timer.h>
 #include <Animation/Animation.h>
 #include <CircleCollider/CircleCollider.h>
+#include <BoxCollider/BoxCollider.h>
 #include <CheckBox/CheckBox.h>
 
 #include <ProgressBar/ProgressBar.h>
@@ -27,6 +28,7 @@ psensor Sensor;
 pWorld world;
 pCircleCollider MyCircle;
 pCircleCollider MyCircle2;
+pBoxCollider ground;
 pButton saveButton;
 pButton loadButton;
 pButton circleButton;
@@ -34,31 +36,18 @@ pEdit QuantEdit;
 
 pTransformer t;
 
+void my_contact_handler(pCircleColliderModel collider){
+    collider->Body()->ApplyLinearImpulseToCenter(b2Vec2(100000, 100000), true);
+    ground->Model()->SetAngle(ground->Model()->Angle() - 3.0);
+}
 
-class MyContactListener : public b2ContactListener
-  {
-
-    void BeginContact(b2Contact* contact) {
-
-    if ((contact->GetFixtureA()->IsSensor()||contact->GetFixtureB()->IsSensor()))
-        {
-            if (contact->GetFixtureA()->IsSensor()){
-                pCircleColliderModel col = pCircleColliderModel(contact->GetFixtureB()->GetUserData());
-                cout << "B_ADDR: " << (void*)col << endl;
-
+void my_contact_handler1(pCircleColliderModel collider){
+    collider->Body()->SetLinearVelocity(b2Vec2(0,0));
+    MyCircle2->Model()->SetLocalCoord(100,75);
+    ground->Model()->SetAngle(ground->Model()->Angle() + 3.0);
+}
 
 
-            }
-        }
-    }
-
-    void EndContact(b2Contact* contact) {
-        if ((contact->GetFixtureA()->IsSensor()||contact->GetFixtureB()->IsSensor()))
-        {
-
-        }
-    }
-  };
 
 //обработчик для кнопки
 void my_button_handler(pComponentModel model, int x, int y, int button)
@@ -84,7 +73,20 @@ int main()
     QuantEdit= new Edit();
     QuantEdit->Model()->SetLocalCoord(300,0);
     QuantEdit->Model()->SetText("0.5");
-    psensor Sensor= new sensor(85,300,"123",25);
+    pWorld world = new World();
+    gui->Model()->Add(world);
+    world->Model()->setUpEdit(QuantEdit);
+    ground = new BoxCollider(world, 700, 10, "static");
+    ground->Model()->SetLocalCoord(50, 450);
+    gui->Model()->Add(ground);
+    psensor Sensor= new sensor(world->Model()->GetWorld(), 99,140,"123",25);
+    Sensor->Model()->SetOnContact(my_contact_handler);
+
+    psensor Sensor1= new sensor(world->Model()->GetWorld(), 700,440,"123",25);
+    Sensor1->Model()->SetOnContact(my_contact_handler1);
+    gui->Model()->Add(Sensor1);
+
+    //Sensor->Model()->SetLocalCoord(79,300);
     pButton saveButton = new Button();
     pButton circleButton = new Button();
     circleButton->Model()->SetCaption("CircleCollider");
@@ -109,12 +111,9 @@ int main()
     gui->Model()->Add(Sensor);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
-    pWorld world = new World();
-    gui->Model()->Add(world);
-    world->Model()->setUpEdit(QuantEdit);
-    world->Model()->createGroundBody();
-    Sensor->Model()->setWorld(world->Model()->GetWorld());
-    Sensor->Model()->createBody();
+
+//    Sensor->Model()->setWorld(world->Model()->GetWorld());
+//    Sensor->Model()->createBody();
     //MyCircle = new CircleCollider(world,25,"dynamic");
     //MyCircle->Model()->SetLocalCoord(200,150);
     MyCircle2 = new CircleCollider(world,25,"dynamic");
@@ -127,8 +126,10 @@ int main()
     gui->Model()->Add(QuantEdit);
 
     t = new Transformer();
-    t->Model()->SetTarget(MyCircle2);
+   // t->Model()->SetTarget(MyCircle2);
     gui->Model()->Add(t);
+
+    //MyCircle2->Model()->Body()->SetTransform(b2Vec2(400,300), 0.0);
 
 //    pCheckBox checkbox = new CheckBox();
 //    checkbox->Model()->SetLocalCoord(10, 180);

@@ -47,7 +47,7 @@ void CircleColliderViewer::Render(sf::RenderTarget& target)
     target.draw(__line, 2, sf::Lines, rs);
 
 
-	ComponentViewer::RenderEnd(target);
+	//ComponentViewer::RenderEnd(target);
 }
 
 pCircleColliderModel CircleColliderViewer::Owner()

@@ -12,13 +12,48 @@ BoxColliderController::~BoxColliderController()
 
 bool BoxColliderController::Handle(sf::Event event)
 {
-	ComponentController::Handle(event);
-    switch (event.type){
-        case sf::Event::MouseButtonPressed : {
+	if (ComponentController::Handle(event))
+        return true;
+    if (Owner()->Focus()){
+        switch (event.type){
+            case sf::Event::MouseButtonPressed : {
 
-            break;
+                return true;
+                break;
+            };
+            case sf::Event::MouseButtonReleased : {
+
+                return true;
+                break;
+            };
+            case sf::Event::KeyPressed : {
+
+                return true;
+                break;
+            };
+            case sf::Event::KeyReleased : {
+
+                return true;
+                break;
+            };
+            case sf::Event::TextEntered : {
+
+                return true;
+                break;
+            };
+            case sf::Event::MouseMoved : {
+
+                return true;
+                break;
+            };
+            case sf::Event::MouseWheelScrolled : {
+
+                return true;
+                break;
+            };
         };
-    };
+    }
+    return false;
     return false;
 }
 

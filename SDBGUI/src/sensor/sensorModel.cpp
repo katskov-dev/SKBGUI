@@ -1,30 +1,32 @@
 #include "sensor/sensorModel.h"
 #include <Box2D.h>
-sensorModel::sensorModel(float x, float y, string type, float r): ComponentModel()
+sensorModel::sensorModel(b2World* world,float x, float y, string type, float r): ComponentModel()
 {
-
+    __x=x;
+    __y=y;
+    __r=r;
     bodyDef.position.Set(x,y);
-    SetLocalCoord(x, y);
-    SetSize(2*r, 2*r);
+    __world = world;
     SetVisibleBorders(true);
     circleShape.m_radius = r;
     circleShape.m_p.Set(0, 0);
     fixtureDef.shape = &circleShape;
     fixtureDef.isSensor=true;
-    fixtureDef.userData = this;
+    fixtureDef.userData = nullptr;
+    createBody();
+    SetSize(2*r, 2*r);
+    isContact = false;
+
+    SetLocalCoord(x, y);
+
 
 
 //    fixtureDef.filter.categoryBits = 0x04; //закоментировать?
 //    fixtureDef.filter.maskBits = 0xffff;
 
-    __x=x;
-    __y=y;
-    __r=r;
+
 }
-void sensorModel::setWorld(b2World* myWorld)
-{
-    __world = myWorld;
-}
+
 float sensorModel::getr()
 {
     return __r;
@@ -51,4 +53,30 @@ b2FixtureDef sensorModel::getFixture()
 sensorModel::~sensorModel()
 {
     //dtor
+}
+
+void sensorModel::SetLocalCoord(double x,double y)
+{
+    ComponentModel::SetLocalCoord(x, y);
+    __body->SetTransform(b2Vec2(x + __r, y  + __r ), __body->GetAngle());
+}
+void sensorModel::SetLocalCoord(Vector2f ComCoord)
+{
+    ComponentModel::SetLocalCoord(ComCoord);
+    __body->SetTransform(b2Vec2(ComCoord.x  + __r , ComCoord.y  + __r ), __body->GetAngle());
+}
+
+void sensorModel::SetOnContact(CollisionHandlerFunc func)
+{
+    if (OnContact() != nullptr){
+        delete OnContact();
+    }
+    CollisionHandler* ch = new CollisionHandler(this, func);
+    __body->SetUserData((void*)ch);
+   // cout << "CH_ADDR: " << (void*)ch << endl;
+}
+
+CollisionHandler* sensorModel::OnContact()
+{
+    return (CollisionHandler*)__body->GetUserData();
 }
