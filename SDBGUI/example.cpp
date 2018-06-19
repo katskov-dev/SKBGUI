@@ -72,7 +72,7 @@ int main()
     pGUI gui = new GUI(800, 600, "SKBGUI");
     QuantEdit= new Edit();
     QuantEdit->Model()->SetLocalCoord(300,0);
-    QuantEdit->Model()->SetText("0.5");
+    QuantEdit->Model()->SetText("0.25");
     pWorld world = new World();
     gui->Model()->Add(world);
     world->Model()->setUpEdit(QuantEdit);

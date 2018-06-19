@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529440868 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
+1529441011 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
