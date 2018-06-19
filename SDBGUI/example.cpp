@@ -7,16 +7,15 @@
 #include <Label/Label.h>
 #include <string>
 #include <iostream>
-
+#include <sensor/sensor.h>
 #include <Panel/Panel.h>
 #include <Table/Table.h>
 #include <Timer/Timer.h>
 #include <Animation/Animation.h>
-
+#include <CircleCollider/CircleCollider.h>
 #include <CheckBox/CheckBox.h>
 
 #include <ProgressBar/ProgressBar.h>
-
 
 pEdit edit;
 pLabel label;
@@ -24,6 +23,42 @@ pPicture picture;
 pPicture picture1;
 pProgressBar pb;
 pAnimation animation;
+psensor Sensor;
+pWorld world;
+pCircleCollider MyCircle;
+pCircleCollider MyCircle2;
+pButton saveButton;
+pButton loadButton;
+pButton circleButton;
+pEdit QuantEdit;
+
+pTransformer t;
+
+
+class MyContactListener : public b2ContactListener
+  {
+
+    void BeginContact(b2Contact* contact) {
+
+    if ((contact->GetFixtureA()->IsSensor()||contact->GetFixtureB()->IsSensor()))
+        {
+            if (contact->GetFixtureA()->IsSensor()){
+                pCircleColliderModel col = pCircleColliderModel(contact->GetFixtureB()->GetUserData());
+                cout << "B_ADDR: " << (void*)col << endl;
+
+
+
+            }
+        }
+    }
+
+    void EndContact(b2Contact* contact) {
+        if ((contact->GetFixtureA()->IsSensor()||contact->GetFixtureB()->IsSensor()))
+        {
+
+        }
+    }
+  };
 
 //обработчик для кнопки
 void my_button_handler(pComponentModel model, int x, int y, int button)
@@ -36,129 +71,64 @@ void my_button_handler(pComponentModel model, int x, int y, int button)
 
 void swap_chairs()
 {
-//    sf::Vector2f coord_buffer = picture->Model()->LocalCoord();
-//    picture->Model()->SetLocalCoord(picture1->Model()->LocalCoord());
-//    picture1->Model()->SetLocalCoord(coord_buffer);
+    sf::Vector2f coord_buffer = picture->Model()->LocalCoord();
+    picture->Model()->SetLocalCoord(picture1->Model()->LocalCoord());
+    picture1->Model()->SetLocalCoord(coord_buffer);
     pb->Model()->SetCurrent(pb->Model()->Current()+5);
-    label->Model()->SetAngle(label->Model()->Angle()+5.0);
-    picture->Model()->SetAngle(picture->Model()->Angle()+5.0);
 }
 
 int main()
 {
     //создаем главный компонент, он отвечает за работу окна
     pGUI gui = new GUI(800, 600, "SKBGUI");
-    //-----------Создание компонентов---------
-    ///////////////////Кнопка
-    //Создаем
-    pButton button = new Button();
-    //установить надпись на кнопке
-    button->Model()->SetCaption(L"Установить");
-    //Добавляем в gui
-    gui->Model()->Add(button);
-    //Добавить обработчик на нажатие кнопки
-    button->Controller()->SetMouseDown(my_button_handler);
-    //Методы общие для всех компонентов:
-    //задать положение компонента относительно предка
-    button->Model()->SetLocalCoord(300, 10);
-    //задать размеры
-    button->Model()->SetSize(200, 50);
+    QuantEdit= new Edit();
+    QuantEdit->Model()->SetLocalCoord(300,0);
+    QuantEdit->Model()->SetText("0.5");
+    psensor Sensor= new sensor(85,300,"123",25);
+    pButton saveButton = new Button();
+    pButton circleButton = new Button();
+    circleButton->Model()->SetCaption("CircleCollider");
+    circleButton->Model()->SetLocalCoord(450,0);
+    saveButton->Model()->SetCaption("Save");
+    saveButton->Model()->SetLocalCoord(0,0);
+    pButton loadButton = new Button();
+    loadButton->Model()->SetCaption("Load");
+    loadButton->Model()->SetLocalCoord(150,0);
 
-
-    //////////////////////Панель
-    pPanel panel = new Panel();
-    panel->Model()->SetLocalCoord(10, 10);
-    panel->Model()->SetSize(280, 580);
-    //задание цвета для панели
-    panel->Model()->SetColor(sf::Color(0xffffccff));
-
-    gui->Model()->Add(panel);
-
-    ////////////////Поле ввода
-    edit = new Edit();
-    //установить текст
-    edit->Model()->SetText("Hello");
-
-    edit->Model()->SetLocalCoord(300, 70);
-    edit->Model()->SetSize(200, 25);
-    edit->Model()->SetTextColor(sf::Color(0x000000ff));
-    gui->Model()->Add(edit);
-
-    //зададим цвет edit'у
-    edit->Model()->SetFillColor(sf::Color(0xB0EFFFff));
-
-    ////////////Надпись (текстовая строка)
-    label = new Label();
-    //установить текст
-    label->Model()->SetCaption(L"Тест");
-
-    label->Model()->SetLocalCoord(300, 100);
-    label->Model()->SetSize(250, 40);
-    //label->Model()->SetVisibleBorders(true);
-    gui->Model()->Add(label);
-
-
-    //////////////////////Изображение
-    picture = new Picture();
-    //загружаем картинку
-    picture->Model()->LoadFromFile("assets/images/chair.png");
-
-    picture->Model()->SetLocalCoord(300, 150);
-    picture->Model()->SetSize(250, 400);
-
-    gui->Model()->Add(picture);
-
-    picture1 = new Picture();
-    //загружаем картинку
-    picture1->Model()->LoadFromFile("assets/images/chair1.png");
-
-    picture1->Model()->SetLocalCoord(1600, 1150);
-    picture1->Model()->SetSize(250, 400);
-
-    gui->Model()->Add(picture1);
-
-    //Создаем таблицу
-    pTable table = new Table();
-    //сдвинем таблицу
-    table->Model()->SetLocalCoord(5,5);
-    //задать количество стобцов
-    table->Model()->SetColCount(3);
-    //задать количство строк
-    table->Model()->SetRowCount(7);
-    //задать ширину столбца
-    table->Model()->SetColWidth(0, 30);
-    //задать высоту сроки
-    table->Model()->SetRowHeight(0, 15);
-    //Обращение к ячейкам таблицы...
-    table->Model()->Cell(0, 0)->Model()->SetText("No");
-     table->Model()->Cell(0, 0)->Model()->SetFillColor(sf::Color(0xB0EFFFff));
-    table->Model()->Cell(0, 1)->Model()->SetText("Time");
-     table->Model()->Cell(0, 1)->Model()->SetFillColor(sf::Color(0xB0EFFFff));
-    table->Model()->Cell(0, 2)->Model()->SetText("Name");
-     table->Model()->Cell(0, 2)->Model()->SetFillColor(sf::Color(0xB0EFFFff));
-
-    for (int i = 1; i <=6; i++){
-        pEdit edit = table->Model()->Cell(i, 0);
-        std::string s = std::to_string(i);
-        edit->Model()->SetText(s);
-        edit->Model()->SetFillColor(sf::Color(0xB0EFFFff));
-    }
-
-
-    //добавляем на панель
-    panel->Model()->Add(table);
-
-
+    //psensor Sensor = new sensor(50,50,"circle",50);
     //Создадим таймер
     pTimer timer = new Timer();
     //Установить интервал
-    timer->Model()->SetInterval(sf::milliseconds(50));
+    timer->Model()->SetInterval(sf::milliseconds(500));
     //Установить обработчик на таймер
-    timer->Model()->SetOnTimer(swap_chairs);
+    //timer->Model()->SetOnTimer(swap_chairs);
     //Добавить таймер
     gui->Model()->Add(timer);
+    gui->Model()->Add(saveButton);
+    gui->Model()->Add(loadButton);
+    gui->Model()->Add(Sensor);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
+    pWorld world = new World();
+    gui->Model()->Add(world);
+    world->Model()->setUpEdit(QuantEdit);
+    world->Model()->createGroundBody();
+    Sensor->Model()->setWorld(world->Model()->GetWorld());
+    Sensor->Model()->createBody();
+    //MyCircle = new CircleCollider(world,25,"dynamic");
+    //MyCircle->Model()->SetLocalCoord(200,150);
+    MyCircle2 = new CircleCollider(world,25,"dynamic");
+    MyCircle2->Model()->SetLocalCoord(100,75);
+    //gui->Model()->Add(MyCircle);
+    gui->Model()->Add(MyCircle2);
+    gui->Model()->Add(circleButton);
+    MyContactListener contactListener;
+    world->Model()->GetWorld()->SetContactListener(&contactListener);
+    gui->Model()->Add(QuantEdit);
+
+    t = new Transformer();
+    t->Model()->SetTarget(MyCircle2);
+    gui->Model()->Add(t);
 
 //    pCheckBox checkbox = new CheckBox();
 //    checkbox->Model()->SetLocalCoord(10, 180);
@@ -167,34 +137,6 @@ int main()
 //    s[1] = 0x1b;
 //    checkbox->Model()->SetCaption(s);
 //    panel->Model()->Add(checkbox);
-
-    pCheckBox checkboxs[5];
-    for (int i = 0; i < 5; i++){
-        checkboxs[i] = new CheckBox();
-        checkboxs[i]->Model()->SetLocalCoord(10, 220+25*i);
-        checkboxs[i]->Model()->SetCaption(" My CheckBox "+std::to_string(i));
-        panel->Model()->Add(checkboxs[i]);
-    }
-
-    pTransformer t = new Transformer();
-    t->Model()->SetTarget(picture);
-
-    gui->Model()->Add(t);
-
-    pb = new ProgressBar();
-    pb->Model()->SetLocalCoord(10, 350);
-    pb->Model()->SetCurrent(0.0);
-    pb->Model()->SetVertical(false);
-    panel->Model()->Add(pb);
-
-    pAnimation animation = new Animation();
-    panel->Model()->Add(animation);
-    animation->Model()->setTilesCount(sf::Vector2f(4,2));
-    animation->Model()->SetSize(60, 30 );
-    animation->Model()->SetLocalCoord(50, 345);
-    animation->Model()->loadFromFile("assets/images/cat.png");
-    animation->Model()->setInterval(sf::seconds(0.05));
-
 
 
 

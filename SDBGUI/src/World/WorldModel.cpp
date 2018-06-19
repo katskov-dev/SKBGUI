@@ -5,10 +5,10 @@
 
 WorldModel::WorldModel(): ComponentModel()
 {
-    SetLocalCoord(0, 0);
+    SetLocalCoord(0,0 );
     SetSize(800, 600);
     SetVisibleBorders(true);
-     b2Vec2 gravity(0.0f, 0.1f);
+     b2Vec2 gravity(0.0f, 9.8f);
     cout << "it works";
     __world = new b2World(gravity);
 
@@ -60,5 +60,21 @@ b2World* WorldModel::GetWorld()
 {
     return __world;
 }
+void  WorldModel::createGroundBody()
+{
+
+    groundBodyDef.position.Set(400.0, 500.0f);
+    groundBody = GetWorld()->CreateBody(&groundBodyDef);
+    groundBox.SetAsBox(350.0f, 10.0f);
+    groundBody->CreateFixture(&groundBox, 0.0f);
 
 
+}
+void WorldModel::setUpEdit(pEdit edit)
+{
+    myQuantEdit=edit;
+}
+pEdit WorldModel::getEdit()
+{
+    return myQuantEdit;
+}

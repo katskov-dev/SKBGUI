@@ -291,6 +291,10 @@
 		<Unit filename="include/World/WorldModel.h" />
 		<Unit filename="include/World/WorldViewer.h" />
 		<Unit filename="include/base.h" />
+		<Unit filename="include/sensor/sensor.h" />
+		<Unit filename="include/sensor/sensorController.h" />
+		<Unit filename="include/sensor/sensorModel.h" />
+		<Unit filename="include/sensor/sensorViewer.h" />
 		<Unit filename="src/Animation/Animation.cpp" />
 		<Unit filename="src/Animation/AnimationController.cpp" />
 		<Unit filename="src/Animation/AnimationModel.cpp" />
@@ -414,6 +418,10 @@
 		<Unit filename="src/World/WorldController.cpp" />
 		<Unit filename="src/World/WorldModel.cpp" />
 		<Unit filename="src/World/WorldViewer.cpp" />
+		<Unit filename="src/sensor/sensor.cpp" />
+		<Unit filename="src/sensor/sensorController.cpp" />
+		<Unit filename="src/sensor/sensorModel.cpp" />
+		<Unit filename="src/sensor/sensorViewer.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

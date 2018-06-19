@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528876657 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
+1529406841 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
@@ -9,14 +9,16 @@
 	<Label/Label.h>
 	<string>
 	<iostream>
+	<sensor/sensor.h>
 	<Panel/Panel.h>
 	<Table/Table.h>
 	<Timer/Timer.h>
 	<Animation/Animation.h>
+	<CircleCollider/CircleCollider.h>
 	<CheckBox/CheckBox.h>
 	<ProgressBar/ProgressBar.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\gui\gui.h
+1529404743 c:\repositories\skbgui\skbgui\sdbgui\include\gui\gui.h
 	<base.h>
 	<Component/Component.h>
 	<GUI/GUIModel.h>
@@ -25,7 +27,7 @@
 	<SFML/Graphics.hpp>
 	<string>
 
-1528876657 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
+1529404854 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\component\component.h
 	<base.h>
@@ -442,7 +444,7 @@
 	<base.h>
 	<Component/ComponentModel.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\gui\guimodel.h
+1529404743 c:\repositories\skbgui\skbgui\sdbgui\include\gui\guimodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -453,7 +455,7 @@
 	<GUI/GUIModel.h>
 	<SFML/Graphics.hpp>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\gui\guicontroller.h
+1529404743 c:\repositories\skbgui\skbgui\sdbgui\include\gui\guicontroller.h
 	<base.h>
 	<Component/ComponentController.h>
 	<SFML/Graphics.hpp>
@@ -1263,14 +1265,14 @@
 	<Component/ComponentModel.h>
 	<World/World.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\world\world.h
+1529021874 c:\repositories\skbgui\skbgui\sdbgui\include\world\world.h
 	<base.h>
 	<Component/Component.h>
 	<World/WorldModel.h>
 	<World/WorldViewer.h>
 	<World/WorldController.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\world\worldmodel.h
+1529393557 c:\repositories\skbgui\skbgui\sdbgui\include\world\worldmodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -1306,13 +1308,13 @@
 	"Box2D/Dynamics/Joints/b2WeldJoint.h"
 	"Box2D/Dynamics/Joints/b2WheelJoint.h"
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\world\worldviewer.h
+1529021874 c:\repositories\skbgui\skbgui\sdbgui\include\world\worldviewer.h
 	<base.h>
 	<Component/ComponentViewer.h>
 	<World/WorldModel.h>
 	<SFML/Graphics.hpp>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\world\worldcontroller.h
+1529021874 c:\repositories\skbgui\skbgui\sdbgui\include\world\worldcontroller.h
 	<base.h>
 	<Component/ComponentController.h>
 	<World/WorldModel.h>
@@ -1333,7 +1335,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollidercontroller.cpp
 	"BoxCollider/BoxColliderController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollidermodel.cpp
+1529404743 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollidermodel.cpp
 	"BoxCollider/BoxColliderModel.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcolliderviewer.cpp
@@ -1397,19 +1399,19 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidercontroller.cpp
 	"CircleCollider/CircleColliderController.h"
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
+1529406240 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
 	<CircleCollider/CircleColliderModel.h>
 	<Box2D/box2D.h>
 	<World/World.h>
 	<CircleCollider/CircleCollider.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecolliderviewer.cpp
+1529404743 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecolliderviewer.cpp
 	"CircleCollider/CircleColliderViewer.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\component.cpp
 	"Component/Component.h"
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentcontroller.cpp
+1529404743 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentcontroller.cpp
 	"Component/ComponentController.h"
 	<SDBGUI_math.h>
 	<math.h>
@@ -1430,7 +1432,7 @@
 	<string>
 	<windows.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editmodel.cpp
+1529313614 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editmodel.cpp
 	"Edit/EditModel.h"
 
 1527047608 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editviewer.cpp
@@ -1482,12 +1484,12 @@
 	<stdio.h>
 	"lua.h"
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
+1529404743 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
 	<GUI/GUI.h>
 	<string>
 	<Label/Label.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\guicontroller.cpp
+1529404743 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\guicontroller.cpp
 	"GUI/GUIController.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\guimodel.cpp
@@ -1502,7 +1504,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelcontroller.cpp
 	"Label/LabelController.h"
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelmodel.cpp
+1529313266 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelmodel.cpp
 	"Label/LabelModel.h"
 
 1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\label\labelviewer.cpp
@@ -1694,22 +1696,23 @@
 1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformermodel.cpp
 	"Transformer/TransformerModel.h"
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformerviewer.cpp
+1529406592 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformer\transformerviewer.cpp
 	"Transformer/TransformerViewer.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\world.cpp
+1529021898 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\world.cpp
 	<World/World.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
+1529405438 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
 	"World/WorldController.h"
+	<Edit/Edit.h>
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldmodel.cpp
+1529393579 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldmodel.cpp
 	"World/WorldModel.h"
 	<Box2D/box2D.h>
 	<iostream>
 	<CircleCollider/CircleCollider.h>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldviewer.cpp
+1529021900 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldviewer.cpp
 	"World/WorldViewer.h"
 
 1527238565 source:c:\repositories\skbgui\skbgui\sdbgui\src\picker\picker.cpp
@@ -1775,4 +1778,42 @@
 	<CircleCollider/CircleCollider.h>
 	<Scene/Scene.h>
 	<World/World.h>
+
+1529021880 c:\repositories\skbgui\skbgui\sdbgui\include\sensor\sensor.h
+	<base.h>
+	<Component/Component.h>
+	<sensor/sensorModel.h>
+	<sensor/sensorViewer.h>
+	<sensor/sensorController.h>
+
+1529322803 c:\repositories\skbgui\skbgui\sdbgui\include\sensor\sensormodel.h
+	<base.h>
+	<string>
+	<Component/ComponentModel.h>
+	<World/World.h>
+
+1529021882 c:\repositories\skbgui\skbgui\sdbgui\include\sensor\sensorviewer.h
+	<base.h>
+	<Component/ComponentViewer.h>
+	<sensor/sensorModel.h>
+	<SFML/Graphics.hpp>
+
+1529021880 c:\repositories\skbgui\skbgui\sdbgui\include\sensor\sensorcontroller.h
+	<base.h>
+	<Component/ComponentController.h>
+	<sensor/sensorModel.h>
+	<SFML/Graphics.hpp>
+
+1529021896 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensor.cpp
+	<sensor/sensor.h>
+
+1529315539 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensorcontroller.cpp
+	"sensor/sensorController.h"
+
+1529406184 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensormodel.cpp
+	"sensor/sensorModel.h"
+	<Box2D.h>
+
+1529405383 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensorviewer.cpp
+	"sensor/sensorViewer.h"
 

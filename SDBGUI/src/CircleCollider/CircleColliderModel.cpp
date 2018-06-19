@@ -111,6 +111,8 @@ void CircleColliderModel::CreateBody()
     fixtureDef.shape = &circleShape;
     fixtureDef.density = 1.1f;
     fixtureDef.friction = 0.3f;
+    fixtureDef.userData = this;
+    cout << "CC_ADDR: " << (void*)this << endl;
     __body->CreateFixture(&fixtureDef);
 
 }
