@@ -17,8 +17,9 @@ class WorldModel: public ComponentModel
         void SetVelocity(float32 Velocity);
         void SetIterations(float32 Iterations);
         b2World* GetWorld();
-
-
+        void createGroundBody();
+        void setUpEdit(pEdit edit);
+        pEdit getEdit();
     protected:
 
     private:
@@ -26,5 +27,9 @@ class WorldModel: public ComponentModel
         float32 __timeStep;
         float32 __velocityIterations;
         float32 __positionIterations;
-
+        b2BodyDef groundBodyDef;
+        b2PolygonShape groundBox;
+        b2Body* groundBody;
+        pEdit myQuantEdit;
+        int Quant;
 };

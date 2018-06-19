@@ -248,3 +248,18 @@ typedef AnimationViewer* pAnimationViewer;
 
 class AnimationController;
 typedef AnimationController* pAnimationController;
+
+//--------------------> Sensor <--------------------
+class sensor;
+typedef sensor* psensor;
+
+class sensorModel;
+typedef sensorModel* psensorModel;
+
+class sensorViewer;
+typedef sensorViewer* psensorViewer;
+
+class sensorController;
+typedef sensorController* psensorController;
+
+

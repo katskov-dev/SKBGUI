@@ -1,5 +1,5 @@
 #include "World/WorldController.h"
-
+#include <Edit/Edit.h>
 WorldController::WorldController(pWorldModel model): ComponentController(pComponentModel(model))
 {
     //ctor
@@ -37,12 +37,21 @@ void WorldController::SetOwner(pWorldModel owner)
 void WorldController::Update(sf::Time time)
 {
     ComponentController::Update(time);
-
-    static float32 timeStep = time.asSeconds();
-    static float32 velocityIterations = 6;
-    static float32 positionIterations = 2;
+    float32    timeStep;
+    if (std::stof(Owner()->getEdit()->Model()->Text().toAnsiString())==0)
+    {
+            timeStep=0;
+    }
+    else
+     {
+          timeStep = time.asSeconds()/std::stof(Owner()->getEdit()->Model()->Text().toAnsiString());//перевести в int
+     }
+  //  std::cout << std::stof(Owner()->getEdit()->Model()->Text().toAnsiString()) <<std::endl;
+    float32 velocityIterations = 6;
+    float32 positionIterations = 2;
     Owner()->SetIterations(positionIterations);
     Owner()->SetTime(timeStep);
     Owner()->SetVelocity(velocityIterations);
     Owner()->Step();
+
 }
