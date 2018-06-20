@@ -61,8 +61,10 @@ using namespace sf;
          void SetRenderStates(sf::RenderStates renderStates);
          bool ViewLimit();
          void SetViewLimit(bool viewLimit);
-         double Angle();
+         virtual double Angle();
          void SetAngle(double angle);
+         void Move(sf::Vector2f offset); // перемещает компонент на вектор offset
+         void Rotate(double angle); //поворачивает компонент на угол angle
 
          bool requestViewerUpdate;
 

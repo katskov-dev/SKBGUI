@@ -12,13 +12,17 @@ CircleColliderViewer::~CircleColliderViewer()
 
 void CircleColliderViewer::Render(sf::RenderTarget& target)
 {
+    if (Owner()->AbsoluteCoord().x < 0)
+        return;
 	//ComponentViewer::RenderBegin(target);
 	ComponentViewer::Render(target);
+    for (int i = 0; i < Owner()->Count(); i++){
+        Owner()->Children(i)->Viewer()->Render(target);
+	}
 
 
 
-
-	sf::Vector2f offset = sf::Vector2f(Owner()->R(), Owner()->R() );
+	sf::Vector2f offset = sf::Vector2f(Owner()->R() - 1, Owner()->R()-1);
     __shape.setPosition(- offset);
     __shape.setRadius(pCircleColliderModel(Owner())->R() - 1.0);
     __shape.setFillColor(sf::Color(0x00000000));
@@ -47,7 +51,7 @@ void CircleColliderViewer::Render(sf::RenderTarget& target)
     target.draw(__line, 2, sf::Lines, rs);
 
 
-	//ComponentViewer::RenderEnd(target);
+
 }
 
 pCircleColliderModel CircleColliderViewer::Owner()

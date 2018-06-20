@@ -71,21 +71,24 @@ void BoxColliderModel::CreateBody()
     else
         return;
     bodyDef.position.Set(LocalCoord().x,LocalCoord().y);
+
     __body = __world->CreateBody(&bodyDef);
     b2PolygonShape dynamicBox;
+
     dynamicBox.SetAsBox(Size().x / 2.0, Size().y / 2.0);
     b2MassData mass;
     mass.center = b2Vec2(LocalCoord().x,LocalCoord().y);
     mass.I = 0.0;
-    mass.mass = 1.0;
+    mass.mass = 10000.0;
     __body->SetMassData(&mass);
+
 
 
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.1f;
-    fixtureDef.friction = 0.3f;
+    fixtureDef.density = 0.5f;
+    fixtureDef.friction = 1.0f;
     __body->CreateFixture(&fixtureDef);
 
 }

@@ -31,15 +31,19 @@ void PictureViewer::Render(sf::RenderTarget& target)
         szh.y /= 2.0;
 
         sf::Sprite* image = new sf::Sprite(*texture);
-        image->setPosition(Owner()->AbsoluteCoord());
+        //image->setPosition(Owner()->AbsoluteCoord());
+        image->setPosition(-szh);
         image->setScale(s_x, s_y);
+        //image->setRotation(Owner()->Angle());
 
-        sf::RenderStates rs = Owner()->RenderStates();
+
+        sf::RenderStates rs;
         //rs.transform.translate(-Owner()->AbsoluteCoord() - sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
+        rs.transform.translate(Owner()->AbsoluteCoord() + szh);
         //rs.transform.translate(sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
-        //rs.transform.rotate(Owner()->Angle());
+        rs.transform.rotate(Owner()->Angle() * 180.0 / 3.1415);
 
-        target.draw(*image);
+        target.draw(*image,rs);
 	}
 
 

@@ -93,7 +93,7 @@ bool ComponentController::Handle(sf::Event event)
                     Click()(Owner());
                 }
                 if (event.mouseButton.button == sf::Mouse::Right){
-                    Owner()->SetAngle(Owner()->Angle()+5.0);
+                    //Owner()->SetAngle(Owner()->Angle()+5.0);
                 }
             }
 

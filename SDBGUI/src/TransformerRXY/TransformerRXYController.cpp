@@ -37,6 +37,7 @@ bool TransformerRXYController::Handle(sf::Event event)
 
                 pTransformerRXYModel(Owner())->flagOffsetX = true;
                 pTransformerRXYModel(Owner())->OffsetPoint = pTransformerRXYModel(Owner())->MouseCoord - pTransformerRXYModel(Owner())->AbsoluteCoord();
+                return true;
             }
 
             if ((pTransformerRXYModel(Owner())->MouseCoord.x >= pTransformerRXYModel(Owner())->arrow_y->Model()->AbsoluteCoord().x)&&
@@ -47,9 +48,10 @@ bool TransformerRXYController::Handle(sf::Event event)
 
                 pTransformerRXYModel(Owner())->flagOffsetY = true;
                 pTransformerRXYModel(Owner())->OffsetPoint = pTransformerRXYModel(Owner())->MouseCoord - pTransformerRXYModel(Owner())->AbsoluteCoord();
+                return true;
             }
 
-            return true;
+
             break;
         }
         case sf::Event::MouseMoved:
@@ -64,6 +66,7 @@ bool TransformerRXYController::Handle(sf::Event event)
                 offsX.x = pTransformerRXYModel(Owner())->MouseCoord.x - pTransformerRXYModel(Owner())->OffsetPoint.x;
                 pTransformerRXYModel(Owner())->Target()->Model()->SetLocalCoord(offsX);
                 pTransformerRXYModel(Owner())->SetLocalCoord(offsX);
+                return true;
 
             }
 
@@ -73,11 +76,12 @@ bool TransformerRXYController::Handle(sf::Event event)
                 offsY.y = pTransformerRXYModel(Owner())->MouseCoord.y - pTransformerRXYModel(Owner())->OffsetPoint.y;
                 pTransformerRXYModel(Owner())->Target()->Model()->SetLocalCoord(offsY);
                 pTransformerRXYModel(Owner())->SetLocalCoord(offsY);
+                return true;
 
             }
 
 
-            return true;
+
             break;
         }
 
@@ -86,7 +90,7 @@ bool TransformerRXYController::Handle(sf::Event event)
             pTransformerRXYModel(Owner())->flagOffsetX = false;
             pTransformerRXYModel(Owner())->flagOffsetY = false;
 //            pTransformerRXYModel(Owner())->flagRotate = false;
-            return true;
+
             break;
         }
         }

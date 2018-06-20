@@ -13,7 +13,9 @@ BoxColliderViewer::~BoxColliderViewer()
 void BoxColliderViewer::Render(sf::RenderTarget& target)
 {
 //	ComponentViewer::RenderBegin(target);
-
+    for (int i = 0; i < Owner()->Count(); i++){
+        Owner()->Children(i)->Viewer()->Render(target);
+	}
     	ComponentViewer::Render(target);
 
     sf::Vector2f offset = sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0);
@@ -26,7 +28,7 @@ void BoxColliderViewer::Render(sf::RenderTarget& target)
     double deg = 180 / pi;
     sf::RenderStates rs;
 
-    rs.transform.translate(Owner()->AbsoluteCoord() + offset + sf::Vector2f(1, 1));
+    rs.transform.translate(Owner()->AbsoluteCoord() + offset );
     rs.transform.rotate(Owner()->Angle() * deg);
 //    cout << pCircleColliderModel(Owner())->X() <<" " << pCircleColliderModel(Owner())->Y() << " " << pCircleColliderModel(Owner())->R() << endl;
     target.draw(__shape, rs);
@@ -37,6 +39,7 @@ void BoxColliderViewer::Render(sf::RenderTarget& target)
     target.draw(__line, 2, sf::Lines, rs);
 
 	//ComponentViewer::RenderEnd(target);
+
 }
 
 pBoxColliderModel BoxColliderViewer::Owner()

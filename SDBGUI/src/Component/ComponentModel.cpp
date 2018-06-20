@@ -419,7 +419,10 @@ void ComponentModel::SetViewLimit(bool viewLimit)
 
 double ComponentModel::Angle()
 {
-    return __angle;
+    double p_a = 0.0;
+    if (__parent != nullptr)
+        p_a = __parent->Angle();
+    return __angle + p_a;
 }
 
 void ComponentModel::SetAngle(double angle)
@@ -427,8 +430,25 @@ void ComponentModel::SetAngle(double angle)
     __angle = angle;
 }
 
-     void ComponentModel::SetClass(std::string _class)
-     {
-            __class = _class;
-            requestViewerUpdate = true;
-     }
+ void ComponentModel::SetClass(std::string _class)
+ {
+        __class = _class;
+        requestViewerUpdate = true;
+ }
+
+ void ComponentModel::Move(sf::Vector2f offset) // перемещает компонент на вектор offset
+ {
+    sf::Vector2f c = LocalCoord();
+    c = c + offset;
+    SetLocalCoord(c);
+ }
+
+ void ComponentModel::Rotate(double angle) //поворачивает компонент на угол angle
+ {
+    double a = Angle();
+    a += angle;
+    SetAngle(a);
+    for (int i = 0; i < __children.size(); i++){
+        __children[i]->Model()->Rotate(angle);
+    }
+ }

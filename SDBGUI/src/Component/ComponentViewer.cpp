@@ -37,7 +37,7 @@ void ComponentViewer::Render(sf::RenderTarget& target)
         sf::RenderStates rs = Owner()->RenderStates();
         //rs.transform.translate(-Owner()->AbsoluteCoord() - sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
         rs.transform.translate(sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
-        rs.transform.rotate(Owner()->Angle());
+        //rs.transform.rotate(Owner()->Angle());
 
         target.draw(__border, rs);
 
