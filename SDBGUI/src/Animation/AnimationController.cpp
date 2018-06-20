@@ -27,6 +27,8 @@ bool AnimationController::Handle(sf::Event event)
 
 void AnimationController::Update(sf::Time delta)
 {
+    if ((Owner()->tilesCount().x == 0) ||(Owner()->tilesCount().y == 0))
+        return;
 
     Owner()->setCurrentTime(Owner()->currentTime() + delta);
     if (Owner()->currentTime() > Owner()->interval())

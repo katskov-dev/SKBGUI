@@ -2,6 +2,7 @@
 #include <Button/Button.h>
 #include <Picture/Picture.h>
 #include <Transformer/Transformer.h>
+#include <TransformerRXY/TransformerRXY.h>
 #include <SFML/System.hpp>
 #include <Edit/Edit.h>
 #include <Label/Label.h>
@@ -24,7 +25,7 @@ pPicture picture;
 pPicture picture1;
 pProgressBar pb;
 pAnimation animation;
-psensor Sensor;
+pAnimation portal;
 pWorld world;
 pCircleCollider MyCircle;
 pCircleCollider MyCircle2;
@@ -33,7 +34,7 @@ pButton saveButton;
 pButton loadButton;
 pButton circleButton;
 pEdit QuantEdit;
-
+psensor Sensor2;
 pTransformer t;
 
 void my_contact_handler(pCircleColliderModel collider){
@@ -45,6 +46,7 @@ void my_contact_handler1(pCircleColliderModel collider){
     collider->Body()->SetLinearVelocity(b2Vec2(0,0));
     MyCircle2->Model()->SetLocalCoord(100,75);
     ground->Model()->SetAngle(ground->Model()->Angle() + 3.0);
+
 }
 
 
@@ -79,8 +81,8 @@ int main()
     ground = new BoxCollider(world, 700, 10, "static");
     ground->Model()->SetLocalCoord(50, 450);
     gui->Model()->Add(ground);
-    psensor Sensor= new sensor(world->Model()->GetWorld(), 99,140,"123",25);
-    Sensor->Model()->SetOnContact(my_contact_handler);
+    Sensor2= new sensor(world->Model()->GetWorld(), 99,140,"123",25);
+    Sensor2->Model()->SetOnContact(my_contact_handler);
 
     psensor Sensor1= new sensor(world->Model()->GetWorld(), 700,440,"123",25);
     Sensor1->Model()->SetOnContact(my_contact_handler1);
@@ -108,7 +110,7 @@ int main()
     gui->Model()->Add(timer);
     gui->Model()->Add(saveButton);
     gui->Model()->Add(loadButton);
-    gui->Model()->Add(Sensor);
+    gui->Model()->Add(Sensor2);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
 
@@ -128,6 +130,30 @@ int main()
     t = new Transformer();
    // t->Model()->SetTarget(MyCircle2);
     gui->Model()->Add(t);
+
+    pTransformerRXY t1 = new TransformerRXY();
+    t1->Model()->SetTarget(Sensor1);
+    gui->Model()->Add(t1);
+
+    animation = new Animation();
+    animation->Model()->setTilesCount(sf::Vector2f(8,4));
+
+    animation->Model()->setInterval(sf::seconds(0.05));
+    animation->Model()->SetSize(sf::Vector2f(100,200));
+    animation->Model()->loadFromFile("assets/images/fire.png");
+    animation->Model()->SetLocalCoord(Sensor1->Model()->LocalCoord()+sf::Vector2f(-25,-120));
+
+    gui->Model()->Add(animation);
+
+    portal = new Animation();
+    portal->Model()->setTilesCount(sf::Vector2f(5,5));
+
+    portal->Model()->setInterval(sf::seconds(0.05));
+    portal->Model()->SetSize(sf::Vector2f(100,100));
+    portal->Model()->loadFromFile("assets/images/portal.png");
+    portal->Model()->SetLocalCoord(Sensor2->Model()->LocalCoord()+sf::Vector2f(-25,-25));
+
+    gui->Model()->Add(portal);
 
     //MyCircle2->Model()->Body()->SetTransform(b2Vec2(400,300), 0.0);
 

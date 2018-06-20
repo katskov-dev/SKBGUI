@@ -37,6 +37,13 @@ void CircleColliderModel::SetLocalCoord(Vector2f ComCoord)
     __body->SetTransform(b2Vec2(ComCoord.x  + R(), ComCoord.y  + R()), __body->GetAngle());
 }
 
+void CircleColliderModel::SetAbsoluteCoord(Vector2f ComCoord)
+{
+    ComponentModel::SetAbsoluteCoord(ComCoord);
+    sf::Vector2f cc = LocalCoord();
+    __body->SetTransform(b2Vec2(cc.x  + R(), cc.y  + R()), __body->GetAngle());
+}
+
 
 
 b2Body* CircleColliderModel::Body()
@@ -50,8 +57,9 @@ double CircleColliderModel::R()
 void CircleColliderModel::setPositionAfterStep()
 {
     b2Vec2 position = __body->GetPosition();
+    //SetAngle(__body->GetAngle());
     SetLocalCoord(position.x  - R(), position.y - R());
-    SetAngle(__body->GetAngle());
+
 }
 double CircleColliderModel::Angle()
 {
@@ -68,6 +76,7 @@ void CircleColliderModel::SetR(double r)
 void CircleColliderModel::SetAngle(double angle)
 {
     Body()->SetTransform(Body()->GetPosition(), angle);
+
 }
 
 sf::Vector2f CircleColliderModel::GetCenter()

@@ -22,8 +22,10 @@ class sensorModel: public ComponentModel
         void setUpContactListener();
         virtual void SetLocalCoord(double x,double y);
         virtual void SetLocalCoord(Vector2f ComCoord);
+        virtual void SetAbsoluteCoord(Vector2f ComCoord);
         void SetOnContact(CollisionHandlerFunc func);
         CollisionHandler* OnContact();
+        void setPositionAfterStep();
         //virtual void SetAbsoluteCoord(Vector2f ComCoord);
 
         bool isContact;

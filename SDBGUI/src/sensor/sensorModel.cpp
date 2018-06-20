@@ -58,12 +58,20 @@ sensorModel::~sensorModel()
 void sensorModel::SetLocalCoord(double x,double y)
 {
     ComponentModel::SetLocalCoord(x, y);
+
     __body->SetTransform(b2Vec2(x + __r, y  + __r ), __body->GetAngle());
 }
 void sensorModel::SetLocalCoord(Vector2f ComCoord)
 {
     ComponentModel::SetLocalCoord(ComCoord);
     __body->SetTransform(b2Vec2(ComCoord.x  + __r , ComCoord.y  + __r ), __body->GetAngle());
+}
+
+void sensorModel::SetAbsoluteCoord(Vector2f ComCoord)
+{
+    ComponentModel::SetAbsoluteCoord(ComCoord);
+    sf::Vector2f cc = LocalCoord();
+    __body->SetTransform(b2Vec2(cc.x  + __r, cc.y  + __r), __body->GetAngle());
 }
 
 void sensorModel::SetOnContact(CollisionHandlerFunc func)
@@ -79,4 +87,12 @@ void sensorModel::SetOnContact(CollisionHandlerFunc func)
 CollisionHandler* sensorModel::OnContact()
 {
     return (CollisionHandler*)__body->GetUserData();
+}
+
+void sensorModel::setPositionAfterStep()
+{
+    b2Vec2 position = __body->GetPosition();
+    //SetAngle(__body->GetAngle());
+    SetLocalCoord(position.x  - __r, position.y - __r);
+
 }

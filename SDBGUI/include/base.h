@@ -263,3 +263,16 @@ class sensorController;
 typedef sensorController* psensorController;
 
 
+//--------------------TRANSFORMERRXY-----------------------------
+class TransformerRXY;
+typedef TransformerRXY* pTransformerRXY;
+
+class TransformerRXYModel;
+typedef TransformerRXYModel* pTransformerRXYModel;
+
+class TransformerRXYViewer;
+typedef TransformerRXYViewer* pTransformerRXYViewer;
+
+class TransformerRXYController;
+typedef TransformerRXYController* pTransformerRXYController;
+

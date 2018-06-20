@@ -3,10 +3,11 @@
 AnimationModel::AnimationModel(): ComponentModel()
 {
     SetLocalCoord(0, 0);
-    SetSize(150, 25);
+    SetSize(150, 150);
     SetVisibleBorders(false);
     SetCurrentFrame(0);
     setInterval(sf::milliseconds(1000));
+    setTilesCount(sf::Vector2f(1,1));
 
 }
 

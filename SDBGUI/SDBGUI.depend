@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1529441011 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
+1529445861 source:c:\repositories\skbgui\skbgui\sdbgui\example.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>
 	<Transformer/Transformer.h>
+	<TransformerRXY/TransformerRXY.h>
 	<SFML/System.hpp>
 	<Edit/Edit.h>
 	<Label/Label.h>
@@ -28,7 +29,7 @@
 	<SFML/Graphics.hpp>
 	<string>
 
-1529412173 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
+1529443267 c:\repositories\skbgui\skbgui\sdbgui\include\base.h
 
 1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\component\component.h
 	<base.h>
@@ -733,10 +734,10 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animation.cpp
 	<Animation/Animation.h>
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationcontroller.cpp
+1529445724 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationcontroller.cpp
 	"Animation/AnimationController.h"
 
-1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationmodel.cpp
+1529445887 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationmodel.cpp
 	"Animation/AnimationModel.h"
 
 1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationviewer.cpp
@@ -1379,7 +1380,7 @@
 	<CircleCollider/CircleColliderViewer.h>
 	<CircleCollider/CircleColliderController.h>
 
-1529436053 c:\repositories\skbgui\skbgui\sdbgui\include\circlecollider\circlecollidermodel.h
+1529443509 c:\repositories\skbgui\skbgui\sdbgui\include\circlecollider\circlecollidermodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -1401,7 +1402,7 @@
 1529433196 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidercontroller.cpp
 	"CircleCollider/CircleColliderController.h"
 
-1529439543 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
+1529443582 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
 	<CircleCollider/CircleColliderModel.h>
 	<Box2D/box2D.h>
 	<World/World.h>
@@ -1788,7 +1789,7 @@
 	<sensor/sensorViewer.h>
 	<sensor/sensorController.h>
 
-1529440124 c:\repositories\skbgui\skbgui\sdbgui\include\sensor\sensormodel.h
+1529443806 c:\repositories\skbgui\skbgui\sdbgui\include\sensor\sensormodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -1809,13 +1810,50 @@
 1529440139 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensor.cpp
 	<sensor/sensor.h>
 
-1529439207 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensorcontroller.cpp
+1529443772 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensorcontroller.cpp
 	"sensor/sensorController.h"
 
-1529440160 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensormodel.cpp
+1529443839 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensormodel.cpp
 	"sensor/sensorModel.h"
 	<Box2D.h>
 
 1529436988 source:c:\repositories\skbgui\skbgui\sdbgui\src\sensor\sensorviewer.cpp
 	"sensor/sensorViewer.h"
+
+1528879684 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxy.cpp
+	"TransformerRXY/TransformerRXY.h"
+
+1528879536 c:\repositories\skbgui\skbgui\sdbgui\include\transformerrxy\transformerrxy.h
+	<base.h>
+	<TransformerRXY/TransformerRXYModel.h>
+	<TransformerRXY/TransformerRXYViewer.h>
+	<TransformerRXY/TransformerRXYController.h>
+	<Component/Component.h>
+
+1529422828 c:\repositories\skbgui\skbgui\sdbgui\include\transformerrxy\transformerrxymodel.h
+	<base.h>
+	<Component/ComponentModel.h>
+	<Component/Component.h>
+	<SFML/Graphics.hpp>
+	<Picture/Picture.h>
+
+1528879536 c:\repositories\skbgui\skbgui\sdbgui\include\transformerrxy\transformerrxyviewer.h
+	<base.h>
+	<Component/ComponentViewer.h>
+	<TransformerRXY/TransformerRXYModel.h>
+
+1528879536 c:\repositories\skbgui\skbgui\sdbgui\include\transformerrxy\transformerrxycontroller.h
+	<base.h>
+	<Component/ComponentController.h>
+	<TransformerRXY/TransformerRXYModel.h>
+	<math.h>
+
+1529444611 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxycontroller.cpp
+	"TransformerRXY/TransformerRXYController.h"
+
+1529422888 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxymodel.cpp
+	"TransformerRXY/TransformerRXYModel.h"
+
+1529422846 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxyviewer.cpp
+	"TransformerRXY/TransformerRXYViewer.h"
 

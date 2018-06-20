@@ -282,6 +282,10 @@
 		<Unit filename="include/Timer/TimerController.h" />
 		<Unit filename="include/Timer/TimerModel.h" />
 		<Unit filename="include/Timer/TimerViewer.h" />
+		<Unit filename="include/TransformerRXY/TransformerRXY.h" />
+		<Unit filename="include/TransformerRXY/TransformerRXYController.h" />
+		<Unit filename="include/TransformerRXY/TransformerRXYModel.h" />
+		<Unit filename="include/TransformerRXY/TransformerRXYViewer.h" />
 		<Unit filename="include/Transformer/Transformer.h" />
 		<Unit filename="include/Transformer/TransformerController.h" />
 		<Unit filename="include/Transformer/TransformerModel.h" />
@@ -410,6 +414,10 @@
 		<Unit filename="src/Timer/TimerController.cpp" />
 		<Unit filename="src/Timer/TimerModel.cpp" />
 		<Unit filename="src/Timer/TimerViewer.cpp" />
+		<Unit filename="src/TransformerRXY/TransformerRXY.cpp" />
+		<Unit filename="src/TransformerRXY/TransformerRXYController.cpp" />
+		<Unit filename="src/TransformerRXY/TransformerRXYModel.cpp" />
+		<Unit filename="src/TransformerRXY/TransformerRXYViewer.cpp" />
 		<Unit filename="src/Transformer/Transformer.cpp" />
 		<Unit filename="src/Transformer/TransformerController.cpp" />
 		<Unit filename="src/Transformer/TransformerModel.cpp" />
