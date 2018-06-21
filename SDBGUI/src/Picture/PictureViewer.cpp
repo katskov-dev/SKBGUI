@@ -44,6 +44,7 @@ void PictureViewer::Render(sf::RenderTarget& target)
         rs.transform.rotate(Owner()->Angle() * 180.0 / 3.1415);
 
         target.draw(*image,rs);
+        delete image;
 	}
 
 

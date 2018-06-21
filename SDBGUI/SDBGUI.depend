@@ -1487,7 +1487,7 @@
 	<stdio.h>
 	"lua.h"
 
-1529404743 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
+1529561857 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
 	<GUI/GUI.h>
 	<string>
 	<Label/Label.h>
@@ -1612,7 +1612,7 @@
 1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picturemodel.cpp
 	"Picture/PictureModel.h"
 
-1529488375 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\pictureviewer.cpp
+1529561916 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\pictureviewer.cpp
 	"Picture/PictureViewer.h"
 	<iostream>
 	<cmath>
@@ -1705,7 +1705,7 @@
 1529021898 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\world.cpp
 	<World/World.h>
 
-1529412173 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
+1529560643 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
 	"World/WorldController.h"
 	<Edit/Edit.h>
 
@@ -1842,19 +1842,19 @@
 	<Component/ComponentViewer.h>
 	<TransformerRXY/TransformerRXYModel.h>
 
-1528879536 c:\repositories\skbgui\skbgui\sdbgui\include\transformerrxy\transformerrxycontroller.h
+1529561275 c:\repositories\skbgui\skbgui\sdbgui\include\transformerrxy\transformerrxycontroller.h
 	<base.h>
 	<Component/ComponentController.h>
 	<TransformerRXY/TransformerRXYModel.h>
 	<math.h>
 
-1529488022 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxycontroller.cpp
+1529561253 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxycontroller.cpp
 	"TransformerRXY/TransformerRXYController.h"
 
 1529422888 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxymodel.cpp
 	"TransformerRXY/TransformerRXYModel.h"
 
-1529422846 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxyviewer.cpp
+1529561620 source:c:\repositories\skbgui\skbgui\sdbgui\src\transformerrxy\transformerrxyviewer.cpp
 	"TransformerRXY/TransformerRXYViewer.h"
 
 1529490195 source:c:\repositories\skbgui\skbgui\sdbgui\examplesonic.cpp
@@ -1878,7 +1878,7 @@
 	<CheckBox/CheckBox.h>
 	<ProgressBar/ProgressBar.h>
 
-1529494332 source:c:\repositories\skbgui\skbgui\sdbgui\exampledom.cpp
+1529562055 source:c:\repositories\skbgui\skbgui\sdbgui\exampledom.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>

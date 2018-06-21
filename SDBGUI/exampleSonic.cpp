@@ -127,8 +127,8 @@ int main()
     //timer->Model()->SetOnTimer(swap_chairs);
     //Добавить таймер
     gui->Model()->Add(timer);
-    gui->Model()->Add(saveButton);
-    gui->Model()->Add(loadButton);
+   // gui->Model()->Add(saveButton);
+   // gui->Model()->Add(loadButton);
 //    gui->Model()->Add(Sensor2);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
@@ -143,7 +143,7 @@ int main()
     MyCircle->Model()->SetLocalCoord(500,75);
     //gui->Model()->Add(MyCircle);
 //    gui->Model()->Add(MyCircle2);
-    gui->Model()->Add(circleButton);
+    //gui->Model()->Add(circleButton);
     MyContactListener contactListener;
     world->Model()->GetWorld()->SetContactListener(&contactListener);
     gui->Model()->Add(QuantEdit);

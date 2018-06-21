@@ -17,7 +17,9 @@ void TransformerRXYViewer::Render(sf::RenderTarget& target)
         return;
     if (pTransformerRXYModel(Owner())->Target() != nullptr){
         ComponentViewer::RenderBegin(target);
+        Owner()->SetAngle(0.0);
         ComponentViewer::Render(target);
+
 
         sf::Vector2f size = Owner()->Size();
         size.x/=2;

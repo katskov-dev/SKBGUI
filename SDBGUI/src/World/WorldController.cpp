@@ -48,7 +48,7 @@ void WorldController::Update(sf::Time time)
      }
   //  std::cout << std::stof(Owner()->getEdit()->Model()->Text().toAnsiString()) <<std::endl;
     float32 velocityIterations = 6;
-    float32 positionIterations = 2;
+    float32 positionIterations = 6;
     Owner()->SetIterations(positionIterations);
     Owner()->SetTime(timeStep);
     Owner()->SetVelocity(velocityIterations);

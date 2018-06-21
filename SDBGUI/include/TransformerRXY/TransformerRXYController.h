@@ -11,6 +11,7 @@ class TransformerRXYController: public ComponentController
         TransformerRXYController(pTransformerRXYModel model);
         virtual ~TransformerRXYController();
         virtual bool Handle(sf::Event event);
+        virtual void Update(sf::Time time);
 //        virtual pTransformerRXYModel Owner();
 //        virtual void SetOwner(pTransformerRXYModel owner);
 

@@ -19,6 +19,8 @@
 
 #include <ProgressBar/ProgressBar.h>
 
+ pGUI gui;
+
 pEdit edit;
 pLabel label;
 pPicture picture;
@@ -71,7 +73,21 @@ void my_contact_handler3(pCircleColliderModel collider){
 
 void my_keydown(pComponentModel model, int key)
 {
+    if (key == sf::Keyboard::Num1){
+        std::cout << "num1" << std::endl;
+        pBoxCollider box = new BoxCollider(world, 50, 50, "dynamic");
+        box->Model()->SetLocalCoord(100, 100);
+        gui->Model()->Add(box);
 
+        pTransformerRXY t = new TransformerRXY();
+        t->Model()->SetTarget(box);
+        gui->Model()->Add(t);
+
+        pPicture wood = new Picture();
+        wood->Model()->LoadFromFile("assets/images/wood.png");
+        wood->Model()->SetSize(50,50);
+        box->Model()->Add(wood);
+    }
 }
 
 //обработчик для кнопки
@@ -85,16 +101,14 @@ void my_button_handler(pComponentModel model, int x, int y, int button)
 
 void swap_chairs()
 {
-    sf::Vector2f coord_buffer = picture->Model()->LocalCoord();
-    picture->Model()->SetLocalCoord(picture1->Model()->LocalCoord());
-    picture1->Model()->SetLocalCoord(coord_buffer);
-    pb->Model()->SetCurrent(pb->Model()->Current()+5);
+
+
 }
 
 int main()
 {
     //создаем главный компонент, он отвечает за работу окна
-    pGUI gui = new GUI(800, 600, "SKBGUI");
+    gui = new GUI(800, 600, "SKBGUI");
     gui->Controller()->SetKeyDown(my_keydown);
      bg = new Picture();
     bg->Model()->LoadFromFile("assets/images/bg.png");
@@ -106,7 +120,7 @@ int main()
     QuantEdit= new Edit();
     QuantEdit->Model()->SetLocalCoord(300,0);
     QuantEdit->Model()->SetText("0.25");
-    pWorld world = new World();
+    world = new World();
     gui->Model()->Add(world);
     world->Model()->setUpEdit(QuantEdit);
      ground = new BoxCollider(world, 800, 150, "static");
@@ -156,8 +170,8 @@ int main()
     //timer->Model()->SetOnTimer(swap_chairs);
     //Добавить таймер
     gui->Model()->Add(timer);
-    gui->Model()->Add(saveButton);
-    gui->Model()->Add(loadButton);
+   // gui->Model()->Add(saveButton);
+   // gui->Model()->Add(loadButton);
 //    gui->Model()->Add(Sensor2);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
@@ -172,7 +186,7 @@ int main()
     MyCircle->Model()->SetLocalCoord(500,75);
     //gui->Model()->Add(MyCircle);
 //    gui->Model()->Add(MyCircle2);
-    gui->Model()->Add(circleButton);
+   // gui->Model()->Add(circleButton);
     MyContactListener contactListener;
     world->Model()->GetWorld()->SetContactListener(&contactListener);
     gui->Model()->Add(QuantEdit);

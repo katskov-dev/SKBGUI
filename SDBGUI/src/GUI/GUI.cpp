@@ -5,7 +5,10 @@
 
 GUI::GUI(int width, int height, std::string title)
 {
-    __window = new sf::RenderWindow(sf::VideoMode(width, height), title);
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+
+    __window = new sf::RenderWindow(sf::VideoMode(width, height), title, sf::Style::Default, settings);
     __window_size = sf::Vector2f(width, height);
     //__window->setFramerateLimit(60);
     //__window->setVerticalSyncEnabled(true);

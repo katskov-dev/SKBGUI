@@ -98,3 +98,13 @@ bool TransformerRXYController::Handle(sf::Event event)
 
     return false;
 }
+
+void TransformerRXYController::Update(sf::Time time)
+{
+    if (pTransformerRXYModel(Owner())->Target() == nullptr)
+        return;
+    Owner()->SetAngle(pTransformerRXYModel(Owner())->Target()->Model()->Angle());
+    Owner()->SetAbsoluteCoord(pTransformerRXYModel(Owner())->Target()->Model()->AbsoluteCoord());
+
+
+}

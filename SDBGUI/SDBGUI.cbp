@@ -47,7 +47,7 @@
 			<Add library="lua" />
 			<Add directory="lib" />
 		</Linker>
-		<Unit filename="exampleDom.cpp" />
+		<Unit filename="exampleNormal.cpp" />
 		<Unit filename="include/Animation/Animation.h" />
 		<Unit filename="include/Animation/AnimationController.h" />
 		<Unit filename="include/Animation/AnimationModel.h" />
