@@ -38,14 +38,15 @@ void WorldController::Update(sf::Time time)
 {
     ComponentController::Update(time);
     float32    timeStep;
-    if (std::stof(Owner()->getEdit()->Model()->Text().toAnsiString())==0)
-    {
-            timeStep=0;
-    }
-    else
-     {
-          timeStep = time.asSeconds()/std::stof(Owner()->getEdit()->Model()->Text().toAnsiString());//перевести в int
-     }
+//    if (std::stof(Owner()->getEdit()->Model()->Text().toAnsiString())==0)
+//    {
+//            timeStep=0;
+//    }
+//    else
+//     {
+//          timeStep = time.asSeconds()/std::stof(Owner()->getEdit()->Model()->Text().toAnsiString());//перевести в int
+//     }
+    timeStep = time.asSeconds() * 4.0;
   //  std::cout << std::stof(Owner()->getEdit()->Model()->Text().toAnsiString()) <<std::endl;
     float32 velocityIterations = 6;
     float32 positionIterations = 6;

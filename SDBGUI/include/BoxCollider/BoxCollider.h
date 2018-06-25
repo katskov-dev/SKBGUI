@@ -17,6 +17,8 @@ class BoxCollider: public Component
         virtual void SetViewer(pBoxColliderViewer viewer);
         virtual pBoxColliderController Controller();
         virtual void SetController(pBoxColliderController controller);
+
+        static pBoxCollider FastCreate(pComponent parent, pWorld world, sf::Vector2f size, std::string type, sf::Vector2f localcoord);
     private:
 
 };

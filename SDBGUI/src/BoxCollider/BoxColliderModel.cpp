@@ -87,11 +87,17 @@ void BoxColliderModel::CreateBody()
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 0.5f;
-    fixtureDef.friction = 1.0f;
+    fixtureDef.density = 0.3f;
+    fixtureDef.friction = 0.1f;
     __body->CreateFixture(&fixtureDef);
 
 }
+
+void BoxColliderModel::ApplyMomentum(float dx, float dy)
+{
+    __body->ApplyLinearImpulse(b2Vec2(dx,dy), __body->GetWorldCenter(),true );
+}
+
 
 
 

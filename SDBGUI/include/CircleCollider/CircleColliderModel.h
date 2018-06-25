@@ -23,6 +23,8 @@ class CircleColliderModel: public ComponentModel
         void CreateBody();
         b2Body* Body();
         void setPositionAfterStep();
+        void ApplyMomentum(float dx, float dy);
+        void ApplyForce(float dx, float dy);
     protected:
 
     private:

@@ -17,6 +17,7 @@ class CircleCollider: public Component
         virtual void SetViewer(pCircleColliderViewer viewer);
         virtual pCircleColliderController Controller();
         virtual void SetController(pCircleColliderController controller);
+        static pCircleCollider FastCreate(pComponent parent, pWorld world, double radius, std::string type, sf::Vector2f localcoord);
     private:
 
 };

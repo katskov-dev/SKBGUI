@@ -6,7 +6,7 @@ CheckBoxModel::CheckBoxModel(): ComponentModel()
     __caption->Model()->SetCaption("CheckBox");
     SetLocalCoord(0, 0);
     SetSize(150, 25);
-    //SetVisibleBorders(true);
+    SetVisibleBorders(true);
     SetChecked(false);
 
 

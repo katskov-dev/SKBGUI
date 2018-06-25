@@ -38,13 +38,7 @@ bool ComponentController::Handle(sf::Event event)
     if (! Owner()->Enabled())
         return false;
 
-    //обработка потомками
 
-    for (int i = Owner()->Count()-1; i >= 0; i--){
-      //  Owner()->Children(i)->Controller()->Handle(event);
-        if (Owner()->Children(i)->Controller()->Handle(event))
-            return true;
-    }
     //обработка событий
 
     switch (event.type){
@@ -135,6 +129,14 @@ bool ComponentController::Handle(sf::Event event)
             break;
         };
 
+    }
+
+    //обработка потомками
+
+    for (int i = Owner()->Count()-1; i >= 0; i--){
+      //  Owner()->Children(i)->Controller()->Handle(event);
+        if (Owner()->Children(i)->Controller()->Handle(event))
+            return true;
     }
 
     return false;

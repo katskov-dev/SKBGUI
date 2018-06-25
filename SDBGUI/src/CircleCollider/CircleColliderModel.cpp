@@ -106,7 +106,7 @@ void CircleColliderModel::CreateBody()
     b2MassData mass;
     mass.center = b2Vec2(0,0);
     mass.I = 0.0;
-    mass.mass = 0.1;
+    mass.mass = 1.0;
     __body->SetMassData(&mass);
 //    b2PolygonShape dynamicBox;
 //    dynamicBox.SetAsBox(Size().x / 2.0,Size().y / 2.0);
@@ -119,12 +119,24 @@ void CircleColliderModel::CreateBody()
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &circleShape;
     fixtureDef.density = 1.1f;
-    fixtureDef.friction = 0.3f;
+    fixtureDef.friction = 5.0f;
     fixtureDef.userData = this;
     cout << "CC_ADDR: " << (void*)this << endl;
     __body->CreateFixture(&fixtureDef);
 
 }
+
+void CircleColliderModel::ApplyForce(float dx, float dy)
+{
+    __body->ApplyForce(b2Vec2(dx,dy), __body->GetWorldCenter(), true);
+
+}
+void CircleColliderModel::ApplyMomentum(float dx, float dy)
+{
+    __body->ApplyLinearImpulse(b2Vec2(dx,dy), __body->GetWorldCenter(),true );
+}
+
+
 
 
 

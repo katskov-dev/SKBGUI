@@ -39,7 +39,9 @@ pTransformer t;
 pPicture wheel;
 
 void my_contact_handler(pCircleColliderModel collider){
-    collider->Body()->ApplyLinearImpulseToCenter(b2Vec2(100000, 100000), true);
+    //collider->Body()->ApplyLinearImpulseToCenter(b2Vec2(100000, 100000), true);
+    collider->ApplyMomentum(100000,100000);
+    //collider->ApplyForce(100000,100000);
     ground->Model()->SetAngle(ground->Model()->Angle() - 3.0);
 }
 
@@ -47,8 +49,7 @@ void my_contact_handler1(pCircleColliderModel collider){
     collider->Body()->SetLinearVelocity(b2Vec2(0,0));
     MyCircle2->Model()->SetLocalCoord(100,75);
     ground->Model()->SetAngle(ground->Model()->Angle() + 3.0);
-    ground->Model()->Move(sf::Vector2f(5,0));
-
+    //ground->Model()->Move(sf::Vector2f(5,0));
 }
 
 
@@ -110,8 +111,8 @@ int main()
     timer->Model()->SetOnTimer(swap_chairs);
     //Добавить таймер
     gui->Model()->Add(timer);
-    gui->Model()->Add(saveButton);
-    gui->Model()->Add(loadButton);
+   // gui->Model()->Add(saveButton);
+   // gui->Model()->Add(loadButton);
     gui->Model()->Add(Sensor2);
     //запускаем таймер
     timer->Model()->SetEnabled(true);
@@ -124,7 +125,7 @@ int main()
     MyCircle2->Model()->SetLocalCoord(100,75);
     //gui->Model()->Add(MyCircle);
     gui->Model()->Add(MyCircle2);
-    gui->Model()->Add(circleButton);
+   // gui->Model()->Add(circleButton);
     MyContactListener contactListener;
     world->Model()->GetWorld()->SetContactListener(&contactListener);
     gui->Model()->Add(QuantEdit);

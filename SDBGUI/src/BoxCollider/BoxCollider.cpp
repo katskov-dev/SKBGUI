@@ -43,3 +43,13 @@ void BoxCollider::SetController(pBoxColliderController controller)
     __controller = controller;
 }
 
+pBoxCollider BoxCollider::FastCreate(pComponent parent, pWorld world, sf::Vector2f size, std::string type, sf::Vector2f localcoord)
+{
+    pBoxCollider col;
+    col = new BoxCollider(world, size.x, size.y, type);
+    col->Model()->SetLocalCoord(localcoord);
+    if (parent != nullptr){
+        parent->Model()->Add(col);
+    }
+    return col;
+}

@@ -6,7 +6,7 @@
 GUI::GUI(int width, int height, std::string title)
 {
     sf::ContextSettings settings;
-    settings.antialiasingLevel = 8;
+    //settings.antialiasingLevel = 8;
 
     __window = new sf::RenderWindow(sf::VideoMode(width, height), title, sf::Style::Default, settings);
     __window_size = sf::Vector2f(width, height);
@@ -16,6 +16,13 @@ GUI::GUI(int width, int height, std::string title)
     SetViewer(new GUIViewer(Model()));
     SetController(new GUIController(Model()));
     SetBackgroundColor(sf::Color(0x336699ff));
+    std::cout << __window_size.x << " " << __window_size.y << std::endl;
+    __window_size = sf::Vector2f(width, height);
+    sf::View v= __window->getView();
+    v.setSize(__window_size);
+    //v.setSize(1920, 1080);
+    v.setCenter(__window_size.x / 2.0, __window_size.y / 2.0);
+    __window->setView(v);
 }
 
 GUI::~GUI()
@@ -37,11 +44,22 @@ void GUI::loop()
         sf::Event event;
         while (__window->pollEvent(event))
         {
-            SetEventState(EVENT_STATE_OPEN);
+
+            //SetEventState(EVENT_STATE_OPEN);
             Controller()->Handle(event);
+            std::cout << "Get event"<<event.type << std::endl;
             if (event.type == sf::Event::Closed)
                 __window->close();
             if (event.type == sf::Event::Resized){
+                __window_size.x = event.size.width;
+                __window_size.y = event.size.height;
+                std::cout << __window_size.x << " " << __window_size.y << std::endl;
+                sf::View v= __window->getView();
+                v.setSize(__window_size);
+                //v.setSize(1920, 1080);
+                v.setCenter(__window_size.x / 2.0, __window_size.y / 2.0);
+                __window->setView(v);
+
 
 
             }
@@ -56,7 +74,7 @@ void GUI::loop()
 
 
         lFPS->Model()->SetCaption("FPS: "+std::to_string(FPS));
-        lFPS->Model()->SetLocalCoord(__window_size.x - 100, 5);
+        lFPS->Model()->SetAbsoluteCoord(sf::Vector2f(__window_size.x - 100, 5));
         lFPS->Model()->SetSize(100, 15);
         lFPS->Model()->SetColor(sf::Color(0x0000ffff));
 

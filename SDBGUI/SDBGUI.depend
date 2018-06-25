@@ -20,7 +20,7 @@
 	<CheckBox/CheckBox.h>
 	<ProgressBar/ProgressBar.h>
 
-1529404743 c:\repositories\skbgui\skbgui\sdbgui\include\gui\gui.h
+1529568056 c:\repositories\skbgui\skbgui\sdbgui\include\gui\gui.h
 	<base.h>
 	<Component/Component.h>
 	<GUI/GUIModel.h>
@@ -485,7 +485,7 @@
 	<Component/ComponentController.h>
 	<Button/ButtonModel.h>
 
-1527319108 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picture.h
+1529911715 c:\repositories\skbgui\skbgui\sdbgui\include\picture\picture.h
 	<base.h>
 	<Component/Component.h>
 	<Picture/PictureModel.h>
@@ -657,7 +657,7 @@
 	<Timer/TimerModel.h>
 	<SFML/Graphics.hpp>
 
-1527045570 c:\repositories\skbgui\skbgui\sdbgui\include\animation\animation.h
+1529911946 c:\repositories\skbgui\skbgui\sdbgui\include\animation\animation.h
 	<base.h>
 	<Component/Component.h>
 	<Animation/AnimationModel.h>
@@ -731,7 +731,7 @@
 	<ProgressBar/ProgressBarModel.h>
 	<SFML/Graphics.hpp>
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animation.cpp
+1529912144 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animation.cpp
 	<Animation/Animation.h>
 
 1529445724 source:c:\repositories\skbgui\skbgui\sdbgui\src\animation\animationcontroller.cpp
@@ -1251,17 +1251,17 @@
 1527045570 c:\repositories\skbgui\skbgui\sdbgui\include\box2d\rope\b2rope.h
 	"Box2D/Common/b2Math.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollider.cpp
+1529913379 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollider.cpp
 	<BoxCollider/BoxCollider.h>
 
-1527045570 c:\repositories\skbgui\skbgui\sdbgui\include\boxcollider\boxcollider.h
+1529913348 c:\repositories\skbgui\skbgui\sdbgui\include\boxcollider\boxcollider.h
 	<base.h>
 	<Component/Component.h>
 	<BoxCollider/BoxColliderModel.h>
 	<BoxCollider/BoxColliderViewer.h>
 	<BoxCollider/BoxColliderController.h>
 
-1527045570 c:\repositories\skbgui\skbgui\sdbgui\include\boxcollider\boxcollidermodel.h
+1529934716 c:\repositories\skbgui\skbgui\sdbgui\include\boxcollider\boxcollidermodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -1338,7 +1338,7 @@
 1529433249 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollidercontroller.cpp
 	"BoxCollider/BoxColliderController.h"
 
-1529494690 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollidermodel.cpp
+1529935474 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcollidermodel.cpp
 	"BoxCollider/BoxColliderModel.h"
 
 1529491914 source:c:\repositories\skbgui\skbgui\sdbgui\src\boxcollider\boxcolliderviewer.cpp
@@ -1364,23 +1364,23 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\checkbox\checkboxcontroller.cpp
 	"CheckBox/CheckBoxController.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\checkbox\checkboxmodel.cpp
+1529765415 source:c:\repositories\skbgui\skbgui\sdbgui\src\checkbox\checkboxmodel.cpp
 	"CheckBox/CheckBoxModel.h"
 
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\checkbox\checkboxviewer.cpp
 	"CheckBox/CheckBoxViewer.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollider.cpp
+1529913172 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollider.cpp
 	<CircleCollider/CircleCollider.h>
 
-1527045571 c:\repositories\skbgui\skbgui\sdbgui\include\circlecollider\circlecollider.h
+1529913179 c:\repositories\skbgui\skbgui\sdbgui\include\circlecollider\circlecollider.h
 	<base.h>
 	<Component/Component.h>
 	<CircleCollider/CircleColliderModel.h>
 	<CircleCollider/CircleColliderViewer.h>
 	<CircleCollider/CircleColliderController.h>
 
-1529443509 c:\repositories\skbgui\skbgui\sdbgui\include\circlecollider\circlecollidermodel.h
+1529760109 c:\repositories\skbgui\skbgui\sdbgui\include\circlecollider\circlecollidermodel.h
 	<base.h>
 	<string>
 	<Component/ComponentModel.h>
@@ -1402,7 +1402,7 @@
 1529433196 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidercontroller.cpp
 	"CircleCollider/CircleColliderController.h"
 
-1529491195 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
+1529918139 source:c:\repositories\skbgui\skbgui\sdbgui\src\circlecollider\circlecollidermodel.cpp
 	<CircleCollider/CircleColliderModel.h>
 	<Box2D/box2D.h>
 	<World/World.h>
@@ -1414,15 +1414,15 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\component.cpp
 	"Component/Component.h"
 
-1529491830 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentcontroller.cpp
+1529947337 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentcontroller.cpp
 	"Component/ComponentController.h"
 	<SDBGUI_math.h>
 	<math.h>
 
-1529487846 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentmodel.cpp
+1529764890 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentmodel.cpp
 	<Component/ComponentModel.h>
 
-1529488488 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentviewer.cpp
+1529765534 source:c:\repositories\skbgui\skbgui\sdbgui\src\component\componentviewer.cpp
 	"Component/ComponentViewer.h"
 	<cmath>
 	<stdlib.h>
@@ -1435,7 +1435,7 @@
 	<string>
 	<windows.h>
 
-1529313614 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editmodel.cpp
+1529765568 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editmodel.cpp
 	"Edit/EditModel.h"
 
 1527047608 source:c:\repositories\skbgui\skbgui\sdbgui\src\edit\editviewer.cpp
@@ -1487,7 +1487,7 @@
 	<stdio.h>
 	"lua.h"
 
-1529561857 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
+1529947187 source:c:\repositories\skbgui\skbgui\sdbgui\src\gui\gui.cpp
 	<GUI/GUI.h>
 	<string>
 	<Label/Label.h>
@@ -1602,7 +1602,7 @@
 1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\panel\panelviewer.cpp
 	"Panel/PanelViewer.h"
 
-1527045571 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picture.cpp
+1529911885 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picture.cpp
 	<Picture/Picture.h>
 
 1528876658 source:c:\repositories\skbgui\skbgui\sdbgui\src\picture\picturecontroller.cpp
@@ -1705,11 +1705,11 @@
 1529021898 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\world.cpp
 	<World/World.h>
 
-1529560643 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
+1529913503 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldcontroller.cpp
 	"World/WorldController.h"
 	<Edit/Edit.h>
 
-1529440447 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldmodel.cpp
+1529934848 source:c:\repositories\skbgui\skbgui\sdbgui\src\world\worldmodel.cpp
 	"World/WorldModel.h"
 	<Box2D/box2D.h>
 	<iostream>
@@ -1879,6 +1879,65 @@
 	<ProgressBar/ProgressBar.h>
 
 1529562055 source:c:\repositories\skbgui\skbgui\sdbgui\exampledom.cpp
+	<GUI/GUI.h>
+	<Button/Button.h>
+	<Picture/Picture.h>
+	<Transformer/Transformer.h>
+	<TransformerRXY/TransformerRXY.h>
+	<SFML/System.hpp>
+	<Edit/Edit.h>
+	<Label/Label.h>
+	<string>
+	<iostream>
+	<sensor/sensor.h>
+	<Panel/Panel.h>
+	<Table/Table.h>
+	<Timer/Timer.h>
+	<Animation/Animation.h>
+	<CircleCollider/CircleCollider.h>
+	<BoxCollider/BoxCollider.h>
+	<CheckBox/CheckBox.h>
+	<ProgressBar/ProgressBar.h>
+
+1529910105 source:c:\repositories\skbgui\skbgui\sdbgui\examplenormal.cpp
+	<GUI/GUI.h>
+	<Button/Button.h>
+	<Picture/Picture.h>
+	<Transformer/Transformer.h>
+	<TransformerRXY/TransformerRXY.h>
+	<SFML/System.hpp>
+	<Edit/Edit.h>
+	<Label/Label.h>
+	<string>
+	<iostream>
+	<sensor/sensor.h>
+	<Panel/Panel.h>
+	<Table/Table.h>
+	<Timer/Timer.h>
+	<Animation/Animation.h>
+	<CircleCollider/CircleCollider.h>
+	<BoxCollider/BoxCollider.h>
+	<CheckBox/CheckBox.h>
+	<ProgressBar/ProgressBar.h>
+
+1529412173 source:c:\repositories\skbgui\skbgui\sdbgui\exampleold.cpp
+	<GUI/GUI.h>
+	<Button/Button.h>
+	<Picture/Picture.h>
+	<Transformer/Transformer.h>
+	<SFML/System.hpp>
+	<Edit/Edit.h>
+	<Label/Label.h>
+	<string>
+	<iostream>
+	<Panel/Panel.h>
+	<Table/Table.h>
+	<Timer/Timer.h>
+	<Animation/Animation.h>
+	<CheckBox/CheckBox.h>
+	<ProgressBar/ProgressBar.h>
+
+1529935595 source:c:\repositories\skbgui\skbgui\sdbgui\exampleplatformer.cpp
 	<GUI/GUI.h>
 	<Button/Button.h>
 	<Picture/Picture.h>

@@ -16,6 +16,7 @@ EditModel::EditModel(): ComponentModel()
     __render_text.setFont(__font);
     __render_text.setColor(sf::Color(0x000000ff));
     SetVisibleOutline(true);
+   SetViewLimit(true);
 
 
 }

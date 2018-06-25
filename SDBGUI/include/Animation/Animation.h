@@ -17,6 +17,8 @@ class Animation: public Component
         virtual void SetViewer(pAnimationViewer viewer);
         virtual pAnimationController Controller();
         virtual void SetController(pAnimationController controller);
+
+        static pAnimation FastCreate(pComponent parent, std::string filename, sf::Vector2f tc, sf::Time interval, sf::Vector2f size, sf::Vector2f localcoord);
     private:
 
 };

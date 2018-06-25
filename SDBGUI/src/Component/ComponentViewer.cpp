@@ -20,8 +20,8 @@ void ComponentViewer::Render(sf::RenderTarget& target)
 {
     if (!Owner()->Visible())
         return;
-    if (Owner()->ViewLimit())
-        __view = getView(target);
+//    if (Owner()->ViewLimit())
+//        __view = getView(target);
 
     if (Owner()->VisibleBorders()){
         sf::Vector2f szh= Owner()->Size();
@@ -63,9 +63,10 @@ void ComponentViewer::RenderBegin(sf::RenderTarget& target)
 //    __view.setViewport(sf::FloatRect(0.0, 0.0, 0.5, 1.0));
 //    target.setView(__view);
     //target.setView(target.getDefaultView());
+
+        __oldView = target.getView();
     if (Owner()->ViewLimit())
     {
-        __oldView = target.getView();
         __view = getView(target);
         target.setView(__view);
     }
@@ -86,14 +87,14 @@ void ComponentViewer::RenderEnd(sf::RenderTarget& target)
         Owner()->Children(i)->Viewer()->Render(target);
     }
     //target.setView(target.getDefaultView());
-    if (Owner()->ViewLimit())
+    //if (Owner()->ViewLimit())
         target.setView(__oldView);
 }
 
 sf::View ComponentViewer::getView(sf::RenderTarget& target)
 {
-    sf::View v= target.getDefaultView();
-    sf::Vector2f sz = v.getSize();
+    sf::View v= target.getView();
+    sf::Vector2u sz = target.getSize();//v.getSize();
 
     //std::cout << sz.x << " " << sz.y << std::endl;
     sf::FloatRect viewport;

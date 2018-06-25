@@ -8,7 +8,7 @@ WorldModel::WorldModel(): ComponentModel()
     SetLocalCoord(0,0 );
     SetSize(800, 600);
     SetVisibleBorders(true);
-     b2Vec2 gravity(0.0f, 9.8f);
+     b2Vec2 gravity(0.0f, 9.8f * 12.5);
     cout << "it works";
     __world = new b2World(gravity);
 

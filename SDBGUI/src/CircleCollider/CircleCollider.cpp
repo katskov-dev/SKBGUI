@@ -43,3 +43,13 @@ void CircleCollider::SetController(pCircleColliderController controller)
     __controller = controller;
 }
 
+pCircleCollider CircleCollider::FastCreate(pComponent parent, pWorld world, double radius, std::string type,sf::Vector2f localcoord)
+{
+    pCircleCollider col;
+    col = new CircleCollider(world, radius, type);
+    col->Model()->SetLocalCoord(localcoord);
+    if (parent != nullptr){
+        parent->Model()->Add(col);
+    }
+    return col;
+}

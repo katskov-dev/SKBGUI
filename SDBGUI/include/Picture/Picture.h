@@ -18,6 +18,7 @@ class Picture: public Component
         virtual pPictureController Controller();
         virtual void SetController(pPictureController controller);
        // virtual std::string Class();
+       static pPicture FastCreate(pComponent parent, std::string filename, sf::Vector2f size, sf::Vector2f localcoord);
     private:
 
 };
