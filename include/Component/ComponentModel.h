@@ -42,7 +42,7 @@ using namespace sf;
          int Count();
          virtual bool VisibleBorders();
          virtual void SetVisibleBorders(bool visibleBorders);
-         Vector2f AbsoluteCoord();
+         virtual Vector2f AbsoluteCoord();
          void SetAbsoluteCoord(Vector2f Abs);
          void SetEnabled(bool enabled);
          bool Enabled();

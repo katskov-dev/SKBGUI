@@ -8,7 +8,7 @@
 class ColliderModel: public ComponentModel
 {
     public:
-        ColliderModel(float x, float y,pWorld world);
+        ColliderModel(float x, float y,pWorld world, string type);
         virtual ~ColliderModel();
         void SetWorld(pWorld world);
         pWorld getWorld();

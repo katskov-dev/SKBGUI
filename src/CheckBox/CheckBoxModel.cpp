@@ -77,7 +77,7 @@ void CheckBoxModel::SetSize(Vector2f ComSize)
 
 std::string CheckBoxModel::Caption()
 {
-    return __caption->Model()->Caption();
+    return __caption->Model()->Caption().toAnsiString();
 }
 
 void CheckBoxModel::SetCaption(std::string caption)

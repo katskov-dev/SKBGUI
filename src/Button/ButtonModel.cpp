@@ -27,11 +27,6 @@ void ButtonModel::SetCaption(sf::String caption)
 std::string ButtonModel::SerializeToString()
 {
     std::string result = "";
-    std::string parent_name = Parent()->Name();
-    result += "button_create('"+Name()+"', '"+parent_name+"')\n";
-    result += "component_model_setlocalcoord('"+Name()+"', "+std::to_string(LocalCoord().x)+", "+std::to_string(LocalCoord().y) + ")\n";
-    result += "component_model_setsize('"+Name()+"', "+std::to_string(Size().x)+", "+std::to_string(Size().y) + ")\n";
-    result += "button_model_setcaption('"+Name()+"', '"+Caption()+"')\n";
 
 
     return result;

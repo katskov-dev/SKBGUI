@@ -16,7 +16,7 @@ void BoxColliderViewer::Render(sf::RenderTarget& target)
     for (int i = 0; i < Owner()->Count(); i++){
         Owner()->Children(i)->Viewer()->Render(target);
 	}
-    	ComponentViewer::Render(target);
+
 
     sf::Vector2f offset = sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0);
     __shape.setPosition(sf::Vector2f(0, 0) - offset);
@@ -37,6 +37,7 @@ void BoxColliderViewer::Render(sf::RenderTarget& target)
     __line[0] = sf::Vertex(sf::Vector2f(0,0), sf::Color(0xff0000ff));
     __line[1] = sf::Vertex(sf::Vector2f( hw  , 0), sf::Color(0xff0000ff));
     target.draw(__line, 2, sf::Lines, rs);
+    ComponentViewer::Render(target);
 
 	//ComponentViewer::RenderEnd(target);
 

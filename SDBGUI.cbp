@@ -30,7 +30,8 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++11" />
+			<Add option="-std=c++0x" />
+			<Add option="-std=c11" />
 			<Add option="-DSFML_STATIC" />
 			<Add directory="include" />
 			<Add directory="include/Box2D" />
@@ -115,6 +116,10 @@
 		<Unit filename="include/Button/ButtonController.h" />
 		<Unit filename="include/Button/ButtonModel.h" />
 		<Unit filename="include/Button/ButtonViewer.h" />
+		<Unit filename="include/Camera/Camera.h" />
+		<Unit filename="include/Camera/CameraController.h" />
+		<Unit filename="include/Camera/CameraModel.h" />
+		<Unit filename="include/Camera/CameraViewer.h" />
 		<Unit filename="include/CheckBox/CheckBox.h" />
 		<Unit filename="include/CheckBox/CheckBoxController.h" />
 		<Unit filename="include/CheckBox/CheckBoxModel.h" />
@@ -314,11 +319,19 @@
 		<Unit filename="include/Transformer/TransformerController.h" />
 		<Unit filename="include/Transformer/TransformerModel.h" />
 		<Unit filename="include/Transformer/TransformerViewer.h" />
+		<Unit filename="include/WeldJoint/WeldJoint.h" />
+		<Unit filename="include/WeldJoint/WeldJointController.h" />
+		<Unit filename="include/WeldJoint/WeldJointModel.h" />
+		<Unit filename="include/WeldJoint/WeldJointViewer.h" />
 		<Unit filename="include/World/World.h" />
 		<Unit filename="include/World/WorldController.h" />
 		<Unit filename="include/World/WorldModel.h" />
 		<Unit filename="include/World/WorldViewer.h" />
 		<Unit filename="include/base.h" />
+		<Unit filename="include/prismaticJoint/prismaticJoint.h" />
+		<Unit filename="include/prismaticJoint/prismaticJointController.h" />
+		<Unit filename="include/prismaticJoint/prismaticJointModel.h" />
+		<Unit filename="include/prismaticJoint/prismaticJointViewer.h" />
 		<Unit filename="include/sensor/sensor.h" />
 		<Unit filename="include/sensor/sensorController.h" />
 		<Unit filename="include/sensor/sensorModel.h" />
@@ -389,6 +402,10 @@
 		<Unit filename="src/Button/ButtonController.cpp" />
 		<Unit filename="src/Button/ButtonModel.cpp" />
 		<Unit filename="src/Button/ButtonViewer.cpp" />
+		<Unit filename="src/Camera/Camera.cpp" />
+		<Unit filename="src/Camera/CameraController.cpp" />
+		<Unit filename="src/Camera/CameraModel.cpp" />
+		<Unit filename="src/Camera/CameraViewer.cpp" />
 		<Unit filename="src/CheckBox/CheckBox.cpp" />
 		<Unit filename="src/CheckBox/CheckBoxController.cpp" />
 		<Unit filename="src/CheckBox/CheckBoxModel.cpp" />
@@ -449,7 +466,6 @@
 		<Unit filename="src/RigidBody/RigidBodyController.cpp" />
 		<Unit filename="src/RigidBody/RigidBodyModel.cpp" />
 		<Unit filename="src/RigidBody/RigidBodyViewer.cpp" />
-		<Unit filename="src/SDBGUI_math.cpp" />
 		<Unit filename="src/Scene/Scene.cpp" />
 		<Unit filename="src/Scene/SceneController.cpp" />
 		<Unit filename="src/Scene/SceneModel.cpp" />
@@ -470,10 +486,18 @@
 		<Unit filename="src/Transformer/TransformerController.cpp" />
 		<Unit filename="src/Transformer/TransformerModel.cpp" />
 		<Unit filename="src/Transformer/TransformerViewer.cpp" />
+		<Unit filename="src/WeldJoint/WeldJoint.cpp" />
+		<Unit filename="src/WeldJoint/WeldJointController.cpp" />
+		<Unit filename="src/WeldJoint/WeldJointModel.cpp" />
+		<Unit filename="src/WeldJoint/WeldJointViewer.cpp" />
 		<Unit filename="src/World/World.cpp" />
 		<Unit filename="src/World/WorldController.cpp" />
 		<Unit filename="src/World/WorldModel.cpp" />
 		<Unit filename="src/World/WorldViewer.cpp" />
+		<Unit filename="src/prismaticJoint/prismaticJoint.cpp" />
+		<Unit filename="src/prismaticJoint/prismaticJointController.cpp" />
+		<Unit filename="src/prismaticJoint/prismaticJointModel.cpp" />
+		<Unit filename="src/prismaticJoint/prismaticJointViewer.cpp" />
 		<Unit filename="src/sensor/sensor.cpp" />
 		<Unit filename="src/sensor/sensorController.cpp" />
 		<Unit filename="src/sensor/sensorModel.cpp" />

@@ -367,3 +367,47 @@ typedef DistanceJointViewer* pDistanceJointViewer;
 
 class DistanceJointController;
 typedef DistanceJointController* pDistanceJointController;
+
+//--------------------> prismaticJoint <--------------------
+
+class prismaticJoint;
+typedef prismaticJoint* pprismaticJoint;
+
+class prismaticJointModel;
+typedef prismaticJointModel* pprismaticJointModel;
+
+class prismaticJointViewer;
+typedef prismaticJointViewer* pprismaticJointViewer;
+
+class prismaticJointController;
+typedef prismaticJointController* pprismaticJointController;
+
+//--------------------> WeldJoint <--------------------
+
+class WeldJoint;
+typedef WeldJoint* pWeldJoint;
+
+class WeldJointModel;
+typedef WeldJointModel* pWeldJointModel;
+
+class WeldJointViewer;
+typedef WeldJointViewer* pWeldJointViewer;
+
+class WeldJointController;
+typedef WeldJointController* pWeldJointController;
+
+
+//--------------------> Camera <--------------------
+
+class Camera;
+typedef Camera* pCamera;
+
+class CameraModel;
+typedef CameraModel* pCameraModel;
+
+class CameraViewer;
+typedef CameraViewer* pCameraViewer;
+
+class CameraController;
+typedef CameraController* pCameraController;
+

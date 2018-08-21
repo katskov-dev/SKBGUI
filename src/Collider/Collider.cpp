@@ -1,7 +1,7 @@
 #include <Collider/Collider.h>
 
 
-Collider::Collider(float x, float y, pWorld world)
+Collider::Collider(float x, float y, pWorld world,string type)
 {
 //    SetModel(new ColliderModel(x,y,world));
 //    SetViewer(new ColliderViewer(Model()));

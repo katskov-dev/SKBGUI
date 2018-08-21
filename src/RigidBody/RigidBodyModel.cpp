@@ -12,7 +12,13 @@ RigidBodyModel::RigidBodyModel(string type,b2BodyDef bodyDef, pWorld world)
     if (__type=="dynamic")
     {
         __bodyDef.type = b2_dynamicBody;
-        cout<< __world<< endl<<"w2"<<endl;
+        //cout<< __world<< endl<<"w2"<<endl;
+
+    }
+    if (__type=="static")
+    {
+        __bodyDef.type = b2_staticBody;
+        //cout<< __world<< endl<<"w2"<<endl;
 
     }
 

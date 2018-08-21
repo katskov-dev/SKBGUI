@@ -1,15 +1,16 @@
 #include "Collider/ColliderModel.h"
 
-ColliderModel::ColliderModel(float x, float y, pWorld world): ComponentModel()
+ColliderModel::ColliderModel(float x, float y, pWorld world, string type): ComponentModel()
 {
     SetLocalCoord(0, 0);
     SetSize(150, 25);
     SetVisibleBorders(true);
     b2BD.position.Set(x,y);
     __world =world;
-    __body = new RigidBody("dynamic",b2BD,__world); // !!! тип тела не должен быть хардкодом
+    __body = new RigidBody(type,b2BD,__world); // !!! тип тела не должен быть хардкодом
     __fixtureDef = nullptr;
     __fixtureDef = new b2FixtureDef();
+
 }
 
 ColliderModel::~ColliderModel()

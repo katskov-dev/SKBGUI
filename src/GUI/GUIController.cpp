@@ -26,6 +26,7 @@ bool GUIController::Handle(sf::Event event)
             break;
         }
     };
+    return false;
 }
 
 void GUIController::Update(sf::Time time)

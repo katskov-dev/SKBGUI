@@ -12,12 +12,12 @@ TimerViewer::~TimerViewer()
 
 void TimerViewer::Render(sf::RenderTarget& target)
 {
-	ComponentViewer::RenderBegin(target);
-	ComponentViewer::Render(target);
+	//ComponentViewer::RenderBegin(target);
+	//ComponentViewer::Render(target);
 
 
 
-	ComponentViewer::RenderEnd(target);
+	//ComponentViewer::RenderEnd(target);
 }
 
 pTimerModel TimerViewer::Owner()

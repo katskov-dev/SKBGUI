@@ -1,7 +1,7 @@
 #include <BoxCollider2/BoxCollider2.h>
 
 
-BoxCollider2::BoxCollider2(float x, float y,float weight, float height, pWorld World, string type):Collider(x,y,World)
+BoxCollider2::BoxCollider2(float x, float y,float weight, float height, pWorld World, string type):Collider(x,y,World, type)
 {
     SetModel(new BoxCollider2Model(x,y,weight,height,World,type));
     SetViewer(new BoxCollider2Viewer(Model()));

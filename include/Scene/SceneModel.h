@@ -12,7 +12,7 @@ class SceneModel: public ComponentModel
     public:
         SceneModel(sf::RenderWindow* window);
         virtual ~SceneModel();
-
+        virtual Vector2f AbsoluteCoord();
 
 
         double __scale;
@@ -20,9 +20,11 @@ class SceneModel: public ComponentModel
         sf::RenderWindow* __render_target;
         sf::Vector2f __old_mouse_pos;
         sf::Vector2f __position;
+         sf::Vector2f __cursor;
 
 
     protected:
+
 
     private:
 

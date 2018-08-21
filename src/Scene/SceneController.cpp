@@ -13,14 +13,18 @@ SceneController::~SceneController()
 bool SceneController::Handle(sf::Event event)
 {
     sf::Event child_event = event;
-    sf::Vector2f m = -Owner()->__position;
+    sf::Vector2f m = Owner()->__position;
 //    m.x *= (1.0 / Owner()->__scale);
 //    m.y *= (1.0 / Owner()->__scale);
     if (event.type == sf::Event::MouseButtonPressed || event.type == sf::Event::MouseButtonReleased){
 //        child_event.mouseButton.x *= Owner()->__scale;
 //        child_event.mouseButton.y *= Owner()->__scale;
-        child_event.mouseButton.x += std::floor(m.x);
-        child_event.mouseButton.y += std::floor(m.y);
+        //child_event.mouseButton.x /= Owner()->__scale;
+        //child_event.mouseButton.y /=  Owner()->__scale;
+
+        child_event.mouseButton.x -= std::floor(m.x);
+        child_event.mouseButton.y -= std::floor(m.y);
+
 
     }
     else
@@ -30,22 +34,26 @@ bool SceneController::Handle(sf::Event event)
     }
 
 
-	if (ComponentController::Handle(child_event))
-        return true;
-    std::cout << "LOL" << std::endl;
+	ComponentController::Handle(child_event);
+
+    //std::cout << "LOL" << std::endl;
     switch (event.type){
         case sf::Event::MouseButtonPressed: {
             Owner()->__state = SCENE_STATE_MOUSE_DOWN;
             Owner()->__old_mouse_pos = (sf::Vector2f)sf::Mouse::getPosition(*Owner()->__render_target);
+            Owner()->__cursor = (sf::Vector2f)sf::Mouse::getPosition(*Owner()->__render_target);
             break;
         };
         case sf::Event::MouseButtonReleased: {
             Owner()->__state = SCENE_STATE_NONE;
+            Owner()->__cursor = (sf::Vector2f)sf::Mouse::getPosition(*Owner()->__render_target);
             break;
         };
         case sf::Event::MouseMoved: {
+            Owner()->__cursor = (sf::Vector2f)sf::Mouse::getPosition(*Owner()->__render_target);
             if (Owner()->Focus()){
                 if (Owner()->__state == SCENE_STATE_MOUSE_DOWN){
+
                     double dx = event.mouseMove.x - Owner()->__old_mouse_pos.x;
                     double dy = event.mouseMove.y - Owner()->__old_mouse_pos.y;
 
@@ -64,7 +72,8 @@ bool SceneController::Handle(sf::Event event)
             if (Owner()->Focus()){
                 int d= event.mouseWheel.delta;
                     //std::cout << d << std::endl;
-                Owner()->__scale += 0.1 * (-d) * Owner()->__scale;
+                //Owner()->__scale += 0.1 * (-d) * Owner()->__scale;
+                //std::cout << "SCALE: " << Owner()->__scale << std::endl;
             }
             break;
         };

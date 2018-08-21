@@ -33,11 +33,13 @@ void ComponentViewer::Render(sf::RenderTarget& target)
             __border.setOutlineColor(sf::Color(0x00ff00ff));
         else
             __border.setOutlineColor(sf::Color(0xaaaaaaff));
+        //__border.setPosition(Owner()->AbsoluteCoord() - szh);
+        //__border.setSize(Owner()->Size());
 
-        sf::RenderStates rs = Owner()->RenderStates();
-        //rs.transform.translate(-Owner()->AbsoluteCoord() - sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
-        rs.transform.translate(sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
-        //rs.transform.rotate(Owner()->Angle());
+        sf::RenderStates rs;
+        rs.transform.translate(Owner()->AbsoluteCoord() + szh);
+        //rs.transform.translate(sf::Vector2f(Owner()->Size().x / 2.0, Owner()->Size().y / 2.0));
+        //rs.transform.rotate(-Owner()->Angle());
 
         target.draw(__border, rs);
 

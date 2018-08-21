@@ -9,7 +9,7 @@
 class Collider: public Component
 {
     public:
-        Collider(float x, float y ,pWorld world);
+        Collider(float x, float y ,pWorld world,string type);
         ~Collider();
         virtual pColliderModel Model();
         virtual void SetModel(pColliderModel model);

@@ -20,28 +20,39 @@
 #include <ProgressBar/ProgressBar.h>
 #include <BoxCollider2/BoxCollider2.h>
 #include <DistanceJoint/DistanceJoint.h>
-pEdit edit;
-pLabel label;
-pPicture picture;
-pPicture picture1;
-pProgressBar pb;
-pAnimation animation;
-pAnimation portal;
+#include <WeldJoint/WeldJoint.h>
+#include <Camera/Camera.h>
+#include <Scene/Scene.h>
+
 pWorld world;
-pBoxCollider MyCircle;
-pCircleCollider MyCircle2;
+
 pBoxCollider ground;
-pButton saveButton;
-pButton loadButton;
-pButton circleButton;
-pEdit QuantEdit;
-psensor Sensor2;
-pTransformer t;
-pPicture wheel;
+
 pRevoluteJoint revolutejoint;
-pDistanceJoint distancejoint;
+pDistanceJoint distancejointFL;
+pDistanceJoint distancejointFR;
+pDistanceJoint distancejointML;
+pDistanceJoint distancejointMR;
+pDistanceJoint distancejointFLwithML;
+pDistanceJoint distancejointFRwithMR;
+pDistanceJoint distancejointMLwithRL;
+pDistanceJoint distancejointMRwithRR;
+pDistanceJoint distancejointFRwithFL;
+pDistanceJoint distancejointRRwithRL;
+pDistanceJoint distancejointRL;
+pDistanceJoint distancejointRR;
+pWeldJoint weldJointFL;
+pWeldJoint weldJointFR;
 pBoxCollider2 Box;
-pBoxCollider2 Box2;
+pBoxCollider2 BoxFL;     //front left
+pBoxCollider2 BoxML;    //middle left
+pBoxCollider2 BoxRL;    //rear left
+pBoxCollider2 BoxFR;    //front right
+pBoxCollider2 BoxMR;    //middle right
+pBoxCollider2 BoxRR;    //rear right
+pTimer timer;
+pCamera camera;
+pScene scene;
 void my_contact_handler(pCircleColliderModel collider){
     //collider->Body()->ApplyLinearImpulseToCenter(b2Vec2(100000, 100000), true);
     collider->ApplyMomentum(100000,100000);
@@ -51,22 +62,14 @@ void my_contact_handler(pCircleColliderModel collider){
 
 void my_contact_handler1(pCircleColliderModel collider){
     collider->Body()->SetLinearVelocity(b2Vec2(0,0));
-    MyCircle2->Model()->SetLocalCoord(100,75);
+
     ground->Model()->SetAngle(ground->Model()->Angle() + 3.0);
     //ground->Model()->Move(sf::Vector2f(5,0));
 }
 
 
 
-//обработчик для кнопки
-void my_button_handler(pComponentModel model, int x, int y, int button)
-{
-    //вытаскиваем текст из поля ввода
-    sf::String text = edit->Model()->Text();
-    //устанавливаем его в label
-    label->Model()->SetCaption(text);
 
-}
 
 void swap_chairs()
 {
@@ -77,134 +80,212 @@ void swap_chairs()
     std::cout << "Coord: x = " << coord.x << " " << coord.y << std::endl;
 }
 
+const int DIR_DOWN = 0;
+const int DIR_LEFT = 1;
+const int DIR_RIGHT = 2;
+const int DIR_UP = 3;
+void platform_move(int dir)
+{
+    switch (dir){
+    case DIR_UP: //forward
+        BoxFL->Model()->turn(0.0f,-100.0f);
+        BoxML->Model()->turn(0.0f,-100.0f);
+        BoxRL->Model()->turn(0.0f,-100.0f);
+        BoxFR->Model()->turn(0.0f,-100.0f);
+        BoxMR->Model()->turn(0.0f,-100.0f);
+        BoxRR->Model()->turn(0.0f,-100.0f);
+        break;
+    case DIR_RIGHT: //right
+        BoxFR->Model()->turn(0.0f,100.0f);
+        BoxMR->Model()->turn(0.0f,100.0f);
+        BoxRR->Model()->turn(0.0f,100.0f);
+        BoxFL->Model()->turn(0.0f,-100.0f);
+        BoxML->Model()->turn(0.0f,-100.0f);
+        BoxRL->Model()->turn(0.0f,-100.0f);
+        break;
+    case DIR_LEFT: //left
+        BoxFR->Model()->turn(0.0f,-100.0f);
+        BoxMR->Model()->turn(0.0f,-100.0f);
+        BoxRR->Model()->turn(0.0f,-100.0f);
+        BoxFL->Model()->turn(0.0f,100.0f);
+        BoxML->Model()->turn(0.0f,100.0f);
+        BoxRL->Model()->turn(0.0f,100.0f);
+        break;
+    case DIR_DOWN: //back
+        BoxFR->Model()->turn(0.0f,100.0f);
+        BoxMR->Model()->turn(0.0f,100.0f);
+        BoxRR->Model()->turn(0.0f,100.0f);
+        BoxFL->Model()->turn(0.0f,100.0f);
+        BoxML->Model()->turn(0.0f,100.0f);
+        BoxRL->Model()->turn(0.0f,100.0f);
+        break;
+    }
+}
+void my_keyboard_handler(pComponentModel model, int key)
+{
+    //cout << key;
+    switch (key){
+    case 22: //forward
+        platform_move(DIR_UP);
+        break;
+    case 3: //right
+        platform_move(DIR_RIGHT);
+        break;
+    case 0: //left
+        platform_move(DIR_LEFT);
+        break;
+    case 18: //back
+        platform_move(DIR_DOWN);
+        break;
+    }
+}
+sf::RenderTexture rt;
+void timer_on_timer()
+{
+
+}
 int main()
 {
     //создаем главный компонент, он отвечает за работу окна
-    pGUI gui = new GUI(800, 600, "SKBGUI");
-    QuantEdit= new Edit();
-    QuantEdit->Model()->SetLocalCoord(300,0);
-    QuantEdit->Model()->SetText("0.25");
+    pGUI gui = new GUI(1366, 768, "SKBGUI");
+    scene = new Scene(gui->Window());
+    scene->Model()->SetSize(1366,768);
+    gui->Model()->Add(scene);
+
+
+
+
+    pPicture lintex = new Picture();
+    lintex->Model()->LoadFromFile("assets/images/linoleum.jpg");
+    scene->Model()->Add(lintex);
+    lintex->Model()->SetLocalCoord(-1366*3, -768*3);
+    lintex->Model()->SetSize(1366*6, 768*6);
+
     pWorld world = new World();
+    gui->Controller()->SetKeyDown(my_keyboard_handler);
     gui->Model()->Add(world);
-    world->Model()->setUpEdit(QuantEdit);
     ground = new BoxCollider(world, 600, 10, "static");
     ground->Model()->SetLocalCoord(150, 450);
-    gui->Model()->Add(ground);
-    Sensor2= new sensor(world->Model()->GetWorld(), 99,140,"123",25);
-    Sensor2->Model()->SetOnContact(my_contact_handler);
+    scene->Model()->Add(ground);
 
-    psensor Sensor1= new sensor(world->Model()->GetWorld(), 700,440,"123",25);
-    Sensor1->Model()->SetOnContact(my_contact_handler1);
-    gui->Model()->Add(Sensor1);
 
-    //Sensor->Model()->SetLocalCoord(79,300);
-    pButton saveButton = new Button();
-    pButton circleButton = new Button();
-    circleButton->Model()->SetCaption("CircleCollider");
-    circleButton->Model()->SetLocalCoord(450,0);
-    saveButton->Model()->SetCaption("Save");
-    saveButton->Model()->SetLocalCoord(0,0);
-    pButton loadButton = new Button();
-    loadButton->Model()->SetCaption("Load");
-    loadButton->Model()->SetLocalCoord(150,0);
-    Box = new BoxCollider2(150,150,100,100,world,"dynamic");
-    gui->Model()->Add(Box);
-    Box2 = new BoxCollider2(405,150,100,100,world,"dynamic");
-    gui->Model()->Add(Box2);
+
+
+
+
+
+
+
+
+    BoxFL = new BoxCollider2(193,112,12,25,world,"dynamic");
+    scene->Model()->Add(BoxFL);
+    BoxFR = new BoxCollider2(257,112,12,25,world,"dynamic");
+    scene->Model()->Add(BoxFR);
+    BoxML = new BoxCollider2(193,150,12,25,world,"dynamic");
+    scene->Model()->Add(BoxML);
+    BoxMR = new BoxCollider2(257,150,12,25,world,"dynamic");
+    scene->Model()->Add(BoxMR);
+    BoxRL = new BoxCollider2(193,187,12,25,world,"dynamic");
+    scene->Model()->Add(BoxRL);
+    BoxRR = new BoxCollider2(257,187,12,25,world,"dynamic");
+    scene->Model()->Add(BoxRR);
+    Box = new BoxCollider2(225,150,50,100,world,"dynamic");
+    scene->Model()->Add(Box);
+    Box->Controller()->SetKeyUp(my_keyboard_handler);
+
+    pPicture wood = new Picture();
+    wood->Model()->LoadFromFile("assets/images/wood.png");
+    wood->Model()->SetSize(sf::Vector2f(50,100));
+    Box->Model()->Add(wood);
+
+    pPicture tireFL = new Picture();
+    tireFL->Model()->LoadFromFile("assets/images/tire12x25.png");
+    tireFL->Model()->SetSize(sf::Vector2f(12,25));
+    BoxFL->Model()->Add(tireFL);
+
+    pPicture tireFR = new Picture();
+    tireFR->Model()->LoadFromFile("assets/images/tire12x25.png");
+    tireFR->Model()->SetSize(sf::Vector2f(12,25));
+    BoxFR->Model()->Add(tireFR);
+
+    pPicture tireMR = new Picture();
+    tireMR->Model()->LoadFromFile("assets/images/tire12x25.png");
+    tireMR->Model()->SetSize(sf::Vector2f(12,25));
+    BoxMR->Model()->Add(tireMR);
+
+    pPicture tireML = new Picture();
+    tireML->Model()->LoadFromFile("assets/images/tire12x25.png");
+    tireML->Model()->SetSize(sf::Vector2f(12,25));
+    BoxML->Model()->Add(tireML);
+
+    pPicture tireRR = new Picture();
+    tireRR->Model()->LoadFromFile("assets/images/tire12x25.png");
+    tireRR->Model()->SetSize(sf::Vector2f(12,25));
+    BoxRR->Model()->Add(tireRR);
+
+    pPicture tireRL = new Picture();
+    tireRL->Model()->LoadFromFile("assets/images/tire12x25.png");
+    tireRL->Model()->SetSize(sf::Vector2f(12,25));
+    BoxRL->Model()->Add(tireRL);
+
     //psensor Sensor = new sensor(50,50,"circle",50);
     //Создадим таймер
-    pTimer timer = new Timer();
-    //Установить интервал
-    timer->Model()->SetInterval(sf::milliseconds(500));
-    //Установить обработчик на таймер
-    timer->Model()->SetOnTimer(swap_chairs);
-    //Добавить таймер
-    gui->Model()->Add(timer);
-   // gui->Model()->Add(saveButton);
-   // gui->Model()->Add(loadButton);
-    gui->Model()->Add(Sensor2);
-    //запускаем таймер
-    timer->Model()->SetEnabled(true);
+
 
 //    Sensor->Model()->setWorld(world->Model()->GetWorld());
 //    Sensor->Model()->createBody();
-    MyCircle = new BoxCollider(world,100,50,"dynamic");
-    MyCircle->Model()->SetLocalCoord(90,80);
-    MyCircle2 = new CircleCollider(world,25,"dynamic");
-    MyCircle2->Model()->SetLocalCoord(165,130);
-    gui->Model()->Add(MyCircle);
-    gui->Model()->Add(MyCircle2);
+//    MyCircle = new BoxCollider(world,100,50,"dynamic");
+//    MyCircle->Model()->SetLocalCoord(90,80);
+//    MyCircle2 = new CircleCollider(world,25,"dynamic");
+//    MyCircle2->Model()->SetLocalCoord(165,130);
+//    gui->Model()->Add(MyCircle);
+//    gui->Model()->Add(MyCircle2);
    // gui->Model()->Add(circleButton);
     world->Model()->World().Step(0.0, 0, 0);
     MyContactListener contactListener;
 //    revolutejoint = new RevoluteJoint(Box->Model()->Body(),Box2->Model()->Body(),world);
-    distancejoint = new DistanceJoint(Box->Model()->Body(),Box2->Model()->Body(),world);
-    gui->Model()->Add(distancejoint);
-//    b2RevoluteJointDef jointDef;
-//    jointDef.Initialize(MyCircle->Model()->Body(), MyCircle2->Model()->Body(), MyCircle->Model()->Body()->GetWorldCenter() + b2Vec2(25,25));
-//    jointDef.collideConnected = false;
-//    world->Model()->World().CreateJoint(&jointDef);
+    distancejointFL = new DistanceJoint(BoxFL->Model()->Body(),Box->Model()->Body(),world);
+    scene->Model()->Add(distancejointFL);
+    distancejointFR = new DistanceJoint(BoxFR->Model()->Body(),Box->Model()->Body(),world);
+    scene->Model()->Add(distancejointFR);
+//    weldJointFR = new WeldJoint(Box->Model()->Body(),BoxFR->Model()->Body(),world);
+//    weldJointFL= new WeldJoint(BoxFL->Model()->Body(),Box->Model()->Body(),world);
+    distancejointML = new DistanceJoint(BoxML->Model()->Body(),Box->Model()->Body(),world);
+    scene->Model()->Add(distancejointML);
+    distancejointMR = new DistanceJoint(BoxMR->Model()->Body(),Box->Model()->Body(),world);
+    scene->Model()->Add(distancejointMR);
+    distancejointRL = new DistanceJoint(BoxRL->Model()->Body(),Box->Model()->Body(),world);
+    scene->Model()->Add(distancejointRL);
+    distancejointRR = new DistanceJoint(BoxRR->Model()->Body(),Box->Model()->Body(),world);
+    scene->Model()->Add(distancejointRR);
+    distancejointFLwithML = new DistanceJoint(BoxFL->Model()->Body(),BoxML->Model()->Body(),world);
+    scene->Model()->Add(distancejointFLwithML);
+    distancejointFRwithMR = new DistanceJoint(BoxFR->Model()->Body(),BoxMR->Model()->Body(),world);
+    scene->Model()->Add(distancejointFRwithMR);
+    distancejointMLwithRL = new DistanceJoint(BoxML->Model()->Body(),BoxRL->Model()->Body(),world);
+    scene->Model()->Add(distancejointMLwithRL);
+    distancejointMRwithRR = new DistanceJoint(BoxMR->Model()->Body(),BoxRR->Model()->Body(),world);
+    scene->Model()->Add(distancejointMRwithRR);
+    distancejointFRwithFL = new DistanceJoint(BoxFR->Model()->Body(),BoxFL->Model()->Body(),world);
+    scene->Model()->Add(distancejointFRwithFL);
+    distancejointRRwithRL = new DistanceJoint(BoxRR->Model()->Body(),BoxRL->Model()->Body(),world);
+   scene->Model()->Add(distancejointRRwithRL);
 
-//    jointDef.lowerAngle =-0.5f * b2_pi; // 90 degrees
-//    jointDef.upperAngle = 0.25f * b2_pi; // 45 degrees
-//    jointDef.enableLimit = true;
-//    jointDef.maxMotorTorque = 10.0f;
-//    jointDef.motorSpeed = 0.0f;
-//    jointDef.enableMotor = true;
     world->Model()->GetWorld()->SetContactListener(&contactListener);
-    gui->Model()->Add(QuantEdit);
-
-    t = new Transformer();
-   // t->Model()->SetTarget(MyCircle2);
-    gui->Model()->Add(t);
-    pTransformerRXY t1 = new TransformerRXY();
-    t1->Model()->SetTarget(Sensor1);
-    gui->Model()->Add(t1);
-
-    animation = new Animation();
-    animation->Model()->setTilesCount(sf::Vector2f(8,4));
-
-    animation->Model()->setInterval(sf::seconds(0.05));
-    animation->Model()->SetSize(sf::Vector2f(100,200));
-    animation->Model()->loadFromFile("assets/images/fire.png");
-    animation->Model()->SetLocalCoord(Sensor1->Model()->LocalCoord()+sf::Vector2f(-25,-120));
-
-    gui->Model()->Add(animation);
-
-    portal = new Animation();
-    portal->Model()->setTilesCount(sf::Vector2f(5,5));
-
-    portal->Model()->setInterval(sf::seconds(0.05));
-    portal->Model()->SetSize(sf::Vector2f(100,100));
-    portal->Model()->loadFromFile("assets/images/portal.png");
-    portal->Model()->SetLocalCoord(Sensor2->Model()->LocalCoord()+sf::Vector2f(-25,-25));
-
-    gui->Model()->Add(portal);
-    wheel = new Picture();
-    wheel->Model()->LoadFromFile("assets/images/wheel.png");
-    wheel->Model()->SetSize(50,50);
-    //wheel->Model()->SetLocalCoord(100,100);
-    MyCircle2->Model()->Add(wheel);
-    //std::cout << (void*)wheel->Model()->Parent() << std::endl;
-
-    //MyCircle2->Model()->Body()->SetTransform(b2Vec2(400,300), 0.0);
-
-//    pCheckBox checkbox = new CheckBox();
-//    checkbox->Model()->SetLocalCoord(10, 180);
-//    std::string s = "Test";
-//    s[0] = 0x04;
-//    s[1] = 0x1b;
-//    checkbox->Model()->SetCaption(s);
-//    panel->Model()->Add(checkbox);
 
 
 
+    timer = new Timer();
+    timer->Model()->SetInterval(sf::milliseconds(1));
+    timer->Model()->SetOnTimer(timer_on_timer);
+    timer->Model()->SetEnabled(true);
+    gui->Model()->Add(timer);
 
-
-
-
-
-
+    camera = new Camera();
+    camera->Model()->SetLocalCoord(10,10);
+    camera->Model()->SetSize(150,100);
+    //scene->Model()->Add(camera);
+    Box->Model()->Add(camera);
 
     //"Оживить" окно, заставить его реагировать на взаимодействие
     //функция завершит свою работу, когда окно будет закрыто

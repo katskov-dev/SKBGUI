@@ -35,8 +35,9 @@ pComponentModel ComponentController::Owner()
 bool ComponentController::Handle(sf::Event event)
 {
    // UpdateEvent(event);
-    if (! Owner()->Enabled())
-        return false;
+    //if (! Owner()->Enabled())
+        //return false;
+
 
 
     //обработка событий
@@ -67,7 +68,7 @@ bool ComponentController::Handle(sf::Event event)
                 if (MouseDown() != nullptr){
                     MouseDown()(Owner(), event.mouseButton.x, event.mouseButton.y, event.mouseButton.button);
                 }
-                return false;
+
             }
             else
                 Owner()->SetFocus(false);

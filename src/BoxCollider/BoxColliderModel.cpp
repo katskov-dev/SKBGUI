@@ -8,6 +8,7 @@ BoxColliderModel::BoxColliderModel(pWorld world, double width, double height, st
     CreateBody();
     SetLocalCoord(0, 0);
     SetAngle(0);
+    SetVisibleBorders(false);
 
 }
 

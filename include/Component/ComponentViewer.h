@@ -16,7 +16,7 @@ class ComponentViewer
         virtual void SetOwner(pComponentModel owner);
     protected:
         sf::View getView(sf::RenderTarget& target);
-    private:
+    protected:
         sf::RectangleShape __border;
         pComponentModel __owner;
         sf::View __view, __oldView;

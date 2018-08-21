@@ -17,6 +17,7 @@ class BoxCollider2Model: public ColliderModel
         void setPositionAfterStep();
         void SetLocalCoord(double x,double y);
         void ApplyMomentum(float dx, float dy);
+        void turn(int x_shift, int y_shift);
     protected:
 
     private:
